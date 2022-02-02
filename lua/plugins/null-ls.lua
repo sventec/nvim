@@ -26,7 +26,8 @@ local sources = {
 	}),
 	-- nls.builtins.diagnostics.flake8.with({ extra_args = { "--max-line-length", "88" } }),
 	nls.builtins.formatting.black.with({ extra_args = { "--fast" } }),
-	nls.builtins.formatting.isort,
+	-- nls.builtins.formatting.isort,
+  nls.builtins.formatting.reorder_python_imports,
 	-- nls.builtins.diagnostics.pydocstyle.with({ extra_args = { "--convention", "google" } }),
 
 	-- markdown sources

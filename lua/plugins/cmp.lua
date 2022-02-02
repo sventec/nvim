@@ -36,21 +36,6 @@ require("luasnip.loaders.from_snipmate").load()
 -- extend the _.snippets file for global filetypes
 luasnip.filetype_extend("all", { "_" })
 
--- insert date with luasnip
-local date = function()
-	return { os.date("%Y-%m-%d") }
-end
-
-luasnip.snippets = {
-	all = {
-		luasnip.snippet({
-			trig = "date",
-			namr = "Date",
-			dscr = "Date in the form of YYYY-MM-DD",
-		}),
-	},
-}
-
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -160,10 +145,10 @@ cmp.setup({
 		{ name = "neorg" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{
-			name = "dictionary",
-			keyword_length = 3,
-		},
+		-- {
+		-- 	name = "dictionary",
+		-- 	keyword_length = 3,
+		-- },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

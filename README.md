@@ -38,6 +38,9 @@ The tree-sitter executable is *not* required unless parsers are being generated.
 After first installation, update and install parsers with `:TSUpdate`, or
 install all maintained parsers with `:TSInstall maintained`.
 
+As of 2022-02-02, `markdown` isn't in the list of maintained parsers, so you can
+install that parser as well with `:TSInstall markdown`.
+
 ### null-ls
 
 The included null-ls config requires the following tools in your `PATH` as of 2022-02-02.
