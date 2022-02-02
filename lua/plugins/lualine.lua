@@ -1,6 +1,9 @@
 -- lualine config
 
-local lualine = require("lualine")
+local status_ok, lualine = pcall(require, "lualine")
+if not status_ok then
+	return
+end
 
 local gps = require("nvim-gps")
 gps.setup()
