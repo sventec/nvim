@@ -1,0 +1,11 @@
+# Packer compiled files
+plugin/packer_compiled.lua
+
+# Codestats API key
+lua/codestatsapi.lua
+
+# Ignore any logs
+*.log
+
+# Ignore old nvim config
+.old/*
