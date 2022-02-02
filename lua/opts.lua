@@ -74,8 +74,18 @@ completeopt = { "menuone", "noselect" } -- mostly just for cmp, completion optio
 opt.termguicolors = true
 g.background = "dark"
 
--- To use nvchad/nvim-base16 uncomment this
-local base16 = require 'base16'
+-- etc. vimscript configuration
+
+vim.opt.shortmess:append("c")
+
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
+
+-- To use nvchad/nvim-base16 version of everforest, etc.
+local status_ok, base16 = pcall(require, "base16")
+if not status_ok then
+	return
+end
 base16(base16.themes("everforest"), true)
 
 -- cmd[[colorscheme ayu-mirage]]
@@ -84,19 +94,12 @@ base16(base16.themes("everforest"), true)
 g.everforest_enable_italic = 1
 g.everforest_disable_italic_comment = 0
 
--- etc. vimscript configuration
-
-vim.opt.shortmess:append("c")
-
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
-
 -- material colorscheme setup
 g.material_style = "oceanic"
 
 -- save require material colorscheme
-local status_ok, material = pcall(require, "material")
-if not status_ok then
+local status_ok_material, material = pcall(require, "material")
+if not status_ok_material then
 	return
 end
 
