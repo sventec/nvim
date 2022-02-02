@@ -54,7 +54,7 @@ packer.startup(function(use)
 			"hrsh7th/cmp-nvim-lua", -- source for nvim's Lua API
 			"saadparwaiz1/cmp_luasnip", -- source for luasnip snippets
 			-- "hrsh7th/cmp-copilot", -- source for github copilot
-			"uga-rosa/cmp-dictionary", -- source for dictionary words
+			-- "uga-rosa/cmp-dictionary", -- source for dictionary words
 		},
 	})
 	-- use("github/copilot.vim")

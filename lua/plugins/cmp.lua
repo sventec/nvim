@@ -1,22 +1,28 @@
 -- nvim-cmp config
 
 -- nvim-cmp dictionary completions setup
-local dict = require("cmp_dictionary")
+-- local dict = require("cmp_dictionary")
 
-dict.setup({
-	dic = {
-		["*"] = { "/usr/share/dict/words" },
-		-- ["markdown"] = "/usr/share/dict/words",
-		-- ["txt"] = "/usr/share/dict/words",
-	},
-	-- The following are default values
-	exact = 2,
-	first_case_insensitive = false,
-})
+-- dict.setup({
+-- 	dic = {
+-- 		["*"] = { "/usr/share/dict/words" },
+-- 		-- ["markdown"] = "/usr/share/dict/words",
+-- 		-- ["txt"] = "/usr/share/dict/words",
+-- 	},
+-- 	-- The following are default values
+-- 	exact = 2,
+-- 	first_case_insensitive = false,
+-- })
 
-local cmp = require("cmp")
+local status_ok, cmp = pcall(require, "cmp")
+if not status_ok then
+	return
+end
 
-local luasnip = require("luasnip")
+local status_ok_lsnip, luasnip = pcall(require, "luasnip")
+if not status_ok_lsnip then
+	return
+end
 
 -- credit LunarVim/Neovim-from-scratch
 -- for most excellent defaults
