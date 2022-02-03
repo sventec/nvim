@@ -5,7 +5,11 @@ if not status_ok then
 	return
 end
 
-local gps = require("nvim-gps")
+local status_ok_gps, gps = pcall(require, "nvim-gps")
+if not status_ok_gps then
+  return
+end
+
 gps.setup()
 
 local function lsp_progress()
@@ -46,7 +50,8 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+    theme = "everforest",
+		-- theme = "auto",
 		-- section_separators = { left = "", right = "" },
 		-- component_separators = { left = "", right = "" },
 		-- component_separators = { left = "\\", right = "/" },
