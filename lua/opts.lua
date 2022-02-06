@@ -84,7 +84,7 @@ vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 -- To use nvchad/nvim-base16 version of everforest, etc.
 local status_ok, base16 = pcall(require, "base16")
 if not status_ok then
-	return
+  return
 end
 base16(base16.themes("everforest"), true)
 
@@ -100,28 +100,28 @@ g.material_style = "oceanic"
 -- save require material colorscheme
 local status_ok_material, material = pcall(require, "material")
 if not status_ok_material then
-	return
+  return
 end
 
 material.setup({
-	contrast = {
-		sidebars = true,
-		floating_windows = true,
-	},
-	italics = {
-		keywords = true,
-		functions = true,
-		comments = true,
-		strings = false,
-		variables = false,
-	},
-	contrast_filetypes = {
-		"terminal",
-		"packer",
-		"qf",
-	},
-	disable = {
-		borders = false,
-		eob_lines = true,
-	},
+  contrast = {
+    sidebars = true,
+    floating_windows = true,
+  },
+  italics = {
+    keywords = true,
+    functions = true,
+    comments = true,
+    strings = false,
+    variables = false,
+  },
+  contrast_filetypes = {
+    "terminal",
+    "packer",
+    "qf",
+  },
+  disable = {
+    borders = false,
+    eob_lines = true,
+  },
 })

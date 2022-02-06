@@ -5,7 +5,7 @@ local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
 function nmap(key, command)
-	map("n", key, command, default_opts)
+  map("n", key, command, default_opts)
 end
 
 -- set leader to space
