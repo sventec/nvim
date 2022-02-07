@@ -23,6 +23,7 @@ indent_blankline.setup({
 		"NvimTree",
 		"Trouble",
 		"",
+		"txt",
 	},
 	buftype_exclude = { "terminal", "nofile" },
 	show_trailing_blankline_indent = false,
