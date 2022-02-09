@@ -100,17 +100,17 @@ nmap("<leader>3", ":b#<CR>")
 nmap("<leader>n", ":bn<CR>")
 nmap("<leader>,", ":Buffers<CR>")
 
--- FIXME: not entirely sure, something to do with aligning
-nmap("<leader>gb", "gaip*<Bar>")
+-- Align markdown tables?
+-- nmap("<leader>gb", "gaip*<Bar>")
 
 -- toggle comment on line
-nmap("<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>")
+-- nmap("<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>")
 
 -- call formatting on file
-nmap("<leader>F", "<cmd>lua vim.lsp.buf.formatting()<cr>")
+-- nmap("<leader>F", "<cmd>lua vim.lsp.buf.formatting()<cr>")
 
 -- call formatting on selection (visual mode)
-map("v", "<leader>F", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", default_opts)
+-- map("v", "<leader>F", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", default_opts)
 
 -- lspconfig diagnostics keybinds
 map("n", "<leader>ep", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", default_opts)
