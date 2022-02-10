@@ -23,7 +23,7 @@ opt.sidescrolloff = 8
 opt.mouse = "a" -- enable mouse
 
 opt.spelllang = "en"
--- opt.spell = true -- enable spelling globally
+-- opt.spell = true -- enable spell checking globally
 
 -- indent and tabs
 opt.smarttab = true -- smarter tab
