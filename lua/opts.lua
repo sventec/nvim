@@ -8,9 +8,9 @@ local g = vim.g -- global variables
 local opt = vim.opt -- vim options
 
 -- disable tilde on nonexistet lines in buffer
-cmd [[let &fcs='eob: ']]
+cmd([[let &fcs='eob: ']])
 
-vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- g.mapleader = " " -- set leader key -- set in keybinds.lua
 opt.timeoutlen = 100 -- how long to wait for sequence
@@ -61,6 +61,12 @@ opt.showtabline = 2 -- always show tabline
 opt.numberwidth = 4 -- set number column width to 2 (4 default)
 opt.signcolumn = "yes" -- always show sign column, so text doesn't shift
 
+-- folding
+opt.foldenable = false
+vim.wo.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 99
+
 -- power consumption tweaks
 opt.hidden = true -- use background buffers
 opt.history = 1000 -- remember 1000 lines in history
@@ -84,7 +90,7 @@ vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 -- To use nvchad/nvim-base16 version of everforest, etc.
 local status_ok, base16 = pcall(require, "base16")
 if not status_ok then
-  return
+	return
 end
 base16(base16.themes("everforest"), true)
 
@@ -100,28 +106,28 @@ g.material_style = "oceanic"
 -- save require material colorscheme
 local status_ok_material, material = pcall(require, "material")
 if not status_ok_material then
-  return
+	return
 end
 
 material.setup({
-  contrast = {
-    sidebars = true,
-    floating_windows = true,
-  },
-  italics = {
-    keywords = true,
-    functions = true,
-    comments = true,
-    strings = false,
-    variables = false,
-  },
-  contrast_filetypes = {
-    "terminal",
-    "packer",
-    "qf",
-  },
-  disable = {
-    borders = false,
-    eob_lines = true,
-  },
+	contrast = {
+		sidebars = true,
+		floating_windows = true,
+	},
+	italics = {
+		keywords = true,
+		functions = true,
+		comments = true,
+		strings = false,
+		variables = false,
+	},
+	contrast_filetypes = {
+		"terminal",
+		"packer",
+		"qf",
+	},
+	disable = {
+		borders = false,
+		eob_lines = true,
+	},
 })
