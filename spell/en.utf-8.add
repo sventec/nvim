@@ -4,3 +4,4 @@ config
 spotify
 env
 init
+darwin
