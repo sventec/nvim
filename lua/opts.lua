@@ -33,6 +33,7 @@ opt.expandtab = true -- expand tab to spaces
 opt.shiftwidth = 2 -- number of spaces per indent
 -- g.softtabstop = 2
 opt.tabstop = 2 -- one tab = 2 spaces
+set cindent cinkeys-=0# -- indenting with > and < also indents comments
 
 -- 2 space indent for listed filetypes
 cmd([[
