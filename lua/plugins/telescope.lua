@@ -22,7 +22,7 @@ telescope.setup({
 			horizontal = { mirror = false },
 			vertical = { mirror = false },
 		},
-		file_ignore_patterns = { ".git" },
+		file_ignore_patterns = { ".git", ".venv" },
 	},
 	path_display = { shorten = 5 },
 	border = {},
