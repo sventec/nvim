@@ -27,8 +27,6 @@ A non-exhaustive list of the programs needed to make full use of this config:
 - Optional:
   - fd-find
 
-Make sure to run `:checkhealth` from within neovim and install any missing components!
-
 ### Packer Install
 
 Before any plugins can be installed, packer must first be installed by following
