@@ -8,6 +8,17 @@ vim.cmd([[
   augroup end
 ]])
 
+-- Helper function for checking code-stats config presence
+function file_exists(name)
+	local f = io.open(name, "r")
+	if f ~= nil then
+		io.close(f)
+		return true
+	else
+		return false
+	end
+end
+
 -- Packer plugin setup
 
 packer = require("packer")
@@ -27,7 +38,10 @@ packer.startup(function(use)
 	-- keep packer updated
 	use("wbthomason/packer.nvim")
 
-	use("https://gitlab.com/code-stats/code-stats-vim.git")
+	-- only use code-stats if the local config file has been created
+	if file_exists(vim.fn.stdpath("config") .. "/lua/codestatsapi.lua") then
+		use("https://gitlab.com/code-stats/code-stats-vim.git")
+	end
 
 	-- Coding, LSP, autocomplete, snippets, etc.
 	use({
@@ -152,6 +166,13 @@ packer.startup(function(use)
 		"akinsho/bufferline.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup({})
+		end,
+	})
 	-- dashboard (dashboard-nvim or alpha)
 	-- use("glepnir/dashboard-nvim")
 	use("goolord/alpha-nvim")
@@ -180,7 +201,7 @@ packer.startup(function(use)
 	use("lewis6991/impatient.nvim") -- Speeds up loading modules
 	-- colors/themes
 	use("sainnhe/everforest")
-	use("nvchad/nvim-base16.lua")
+	use("RRethy/nvim-base16")
 	use("marko-cerovac/material.nvim")
 	use("folke/tokyonight.nvim")
 	use({

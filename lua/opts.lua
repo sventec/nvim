@@ -89,18 +89,32 @@ vim.opt.shortmess:append("c")
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 
--- To use nvchad/nvim-base16 version of everforest, etc.
-local status_ok, base16 = pcall(require, "base16")
-if not status_ok then
-	return
-end
-base16(base16.themes("everforest"), true)
-
 -- cmd[[colorscheme ayu-mirage]]
 -- cmd[[colorscheme catppuccin]]
 -- cmd("colorscheme everforest")
-g.everforest_enable_italic = 1
-g.everforest_disable_italic_comment = 0
+-- g.everforest_enable_italic = 1
+-- g.everforest_disable_italic_comment = 0
+
+-- base16 colors from NvChad's version of everforest
+-- See here for built-in colorschemes: https://github.com/RRethy/nvim-base16
+require("base16-colorscheme").setup({
+	base00 = "#2b3339",
+	base01 = "#323c41",
+	base02 = "#3a4248",
+	base03 = "#868d80",
+	base04 = "#d3c6aa",
+	base05 = "#d3c6aa",
+	base06 = "#e9e8d2",
+	base07 = "#fff9e8",
+	base08 = "#7fbbb3",
+	base09 = "#d699b6",
+	base0A = "#83c092",
+	base0B = "#dbbc7f",
+	base0C = "#e69875",
+	base0D = "#a7c080",
+	base0E = "#e67e80",
+	base0F = "#d699b6",
+})
 
 -- material colorscheme setup
 g.material_style = "oceanic"
