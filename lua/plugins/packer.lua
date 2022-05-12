@@ -2,18 +2,18 @@
 
 -- Automatically install packer
 -- Credit: https://github.com/LunarVim/Neovim-from-scratch
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system {
+  PACKER_BOOTSTRAP = vim.fn.system({
     "git",
     "clone",
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
     install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -44,7 +44,7 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- only use code-stats if the local config file has been created
-  local codestats_path = vim.fn.stdpath "config" .. "/lua/codestatsapi.lua"
+  local codestats_path = vim.fn.stdpath("config") .. "/lua/codestatsapi.lua"
   if vim.fn.empty(vim.fn.glob(codestats_path)) == 0 then
     use("https://gitlab.com/code-stats/code-stats-vim.git")
   end
@@ -158,9 +158,6 @@ packer.startup(function(use)
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("gitsigns").setup()
-    end,
   })
   use("folke/which-key.nvim")
   use({
