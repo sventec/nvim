@@ -100,7 +100,10 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["G"] = { '<cmd>gg"+yG<cr>', "Copy whole file" },
 
-	["t"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble window" },
+	["t"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+
+	["u"] = { "yyp<c-v>$r-", "Underline current line with -" },
+	["U"] = { "yyp<c-v>$r=", "Underline current line with =" },
 
 	-- p = {
 	-- 	name = "Packer",

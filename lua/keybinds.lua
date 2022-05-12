@@ -79,15 +79,12 @@ nmap("<leader>o", "o<ESC>")
 nmap("<leader>O", "O<ESC>")
 
 -- sort block of text (paragraph)
-nmap("<leader>s", "Vip:sort<CR>")
-
--- underline the current line with dashes
-nmap("<leader>u", "yyp<c-v>$r-")
--- underline the current line with equals sign
-nmap("<leader>U", "yyp<c-v>$r=")
+-- conflicts currently
+-- nmap("<leader>s", "Vip:sort<CR>")
 
 -- surround current line with comment box (#)
-nmap("<leader>b", "I# <ESC>A #<ESC>yyp<c-v>$r#yykP")
+-- conflicts currently
+-- nmap("<leader>b", "I# <ESC>A #<ESC>yyp<c-v>$r#yykP")
 
 -- easier split navigation
 nmap("C-J", "<C-w><C-j>")
