@@ -95,9 +95,14 @@ vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 -- g.everforest_enable_italic = 1
 -- g.everforest_disable_italic_comment = 0
 
+local status_ok_base16, base16_colorscheme = pcall(require, "base16-colorscheme")
+if not status_ok_base16 then
+	return
+end
+
 -- base16 colors from NvChad's version of everforest
 -- See here for built-in colorschemes: https://github.com/RRethy/nvim-base16
-require("base16-colorscheme").setup({
+base16_colorscheme.setup({
 	base00 = "#2b3339",
 	base01 = "#323c41",
 	base02 = "#3a4248",
