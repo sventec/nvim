@@ -17,8 +17,8 @@ Check out the related video series
 
 A non-exhaustive list of the programs needed to make full use of this config:
 
-- nvim 0.6.1+
-- Nerd Font for terminal
+- nvim 0.7.0+
+- [Nerd Font](https://github.com/ryanoasis/nerd-fonts) for terminal
 - fzf
 - ripgrep
 - python 3.8+ (tested on 3.10)
@@ -28,6 +28,8 @@ A non-exhaustive list of the programs needed to make full use of this config:
   - fd-find
 
 ### Packer Install
+
+**This step is now optional.** Packer will be automatically downloaded and installed on first run.
 
 Before any plugins can be installed, packer must first be installed by following
 the instructions on their [GitHub page](https://github.com/wbthomason/packer.nvim).
@@ -76,10 +78,4 @@ To use the codestats.net plugin, create the `lua/codestatsapi.lua` file with the
 vim.g.codestats_api_key = "<API KEY HERE>"
 ```
 
-To disable the plugin and remove errors about the missing file, change the following
-line in [`lua/plugins/packer.lua`](./lua/plugins/packer.lua) by either deleting it
-or commenting it out:
-
-```lua
-  use("https://gitlab.com/code-stats/code-stats-vim.git")
-```
+If that file doesn't exist, the plugin will not be loaded or installed.
