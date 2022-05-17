@@ -106,7 +106,7 @@ local mappings = {
     g = { "<cmd>Glow<cr>", "Glow Preview" },
   },
 
-  ["t"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+  ["T"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
 
   ["u"] = { "yyp<c-v>$r-", "Underline current line with -" },
   ["U"] = { "yyp<c-v>$r=", "Underline current line with =" },
@@ -179,6 +179,7 @@ local mappings = {
     },
     t = { "<cmd>ToggleAlternate<cr>", "Toggle boolean value" },
   },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -190,6 +191,15 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     d = { "<cmd>lua require('telescope').extensions.dict.synonyms()<cr>", "Synonyms - word under cursor" },
+  },
+
+  t = {
+    name = "Terminal",
+    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 }
 

@@ -110,16 +110,17 @@ packer.startup(function(use)
     end,
   })
   use("rmagatti/alternate-toggler") -- toggles boolean values on <leader>lt
-  use({
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup({
-        mapping = { "jk", "kj" },
-        timeout = vim.o.timeoutlen,
-        clear_empty_lines = false,
-      })
-    end,
-  })
+  -- use({
+  --   "max397574/better-escape.nvim",
+  --   config = function()
+  --     require("better_escape").setup({
+  --       mapping = { "jk", "kj" },
+  --       timeout = vim.o.timeoutlen,
+  --       clear_empty_lines = false,
+  --     })
+  --   end,
+  -- })
+  use("akinsho/toggleterm.nvim")
   -- use({
   --  "kkoomen/vim-doge", -- autogenerate docstrings
   --  config = function()
