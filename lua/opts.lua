@@ -103,6 +103,10 @@ if not status_ok_base16 then
   return
 end
 
+base16_colorscheme.with_config({
+  telescope = true, -- This can be made false to use the standard Telescope style
+})
+
 -- base16 colors from NvChad's version of everforest
 -- See here for built-in colorschemes: https://github.com/RRethy/nvim-base16
 base16_colorscheme.setup({
