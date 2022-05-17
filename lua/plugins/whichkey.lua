@@ -100,25 +100,10 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["G"] = { '<cmd>gg"+yG<cr>', "Copy whole file" },
 
-  m = {
-    name = "Markdown",
-    p = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle .md Preview" },
-    g = { "<cmd>Glow<cr>", "Glow Preview" },
-  },
-
   ["T"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
 
   ["u"] = { "yyp<c-v>$r-", "Underline current line with -" },
   ["U"] = { "yyp<c-v>$r=", "Underline current line with =" },
-
-  -- p = {
-  -- 	name = "Packer",
-  -- 	c = { "<cmd>PackerCompile<cr>", "Compile" },
-  -- 	i = { "<cmd>PackerInstall<cr>", "Install" },
-  -- 	s = { "<cmd>PackerSync<cr>", "Sync" },
-  -- 	S = { "<cmd>PackerStatus<cr>", "Status" },
-  -- 	u = { "<cmd>PackerUpdate<cr>", "Update" },
-  -- },
 
   g = {
     name = "Git",
@@ -159,6 +144,7 @@ local mappings = {
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    h = { "<cmd>lua vim.diagnostic.hide(nil, 0)<cr>", "Hide buf diagnostics" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
@@ -178,7 +164,23 @@ local mappings = {
       "Workspace Symbols",
     },
     t = { "<cmd>ToggleAlternate<cr>", "Toggle boolean value" },
+    y = { "<cmd>lua vim.diagnostic.show(nil, 0)<cr>", "Show buf diagnostics" },
   },
+
+  m = {
+    name = "Markdown",
+    p = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle .md Preview" },
+    g = { "<cmd>Glow<cr>", "Glow Preview" },
+  },
+
+  -- p = {
+  -- 	name = "Packer",
+  -- 	c = { "<cmd>PackerCompile<cr>", "Compile" },
+  -- 	i = { "<cmd>PackerInstall<cr>", "Install" },
+  -- 	s = { "<cmd>PackerSync<cr>", "Sync" },
+  -- 	S = { "<cmd>PackerStatus<cr>", "Status" },
+  -- 	u = { "<cmd>PackerUpdate<cr>", "Update" },
+  -- },
 
   s = {
     name = "Search",

@@ -229,7 +229,7 @@ packer.startup(function(use)
   -- }}}
   -- colors/themes {{{
   use("sainnhe/everforest")
-  use("RRethy/nvim-base16")
+  use("RRethy/nvim-base16") -- TODO: Fork and add support for additional plugins? & Change toggleterm colors (to normal term colors?)
   use("marko-cerovac/material.nvim")
   use("folke/tokyonight.nvim")
   use({
