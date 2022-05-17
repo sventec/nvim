@@ -176,6 +176,26 @@ packer.startup(function(use)
       require("todo-comments").setup({})
     end,
   })
+  use("kyazdani42/nvim-tree.lua")
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.g.mkdp_auto_close = 0
+      -- vim.g.mkdp_theme = "dark"
+      vim.g.mkdp_browser = "firefox"
+    end,
+  })
+  use({
+    "ellisonleao/glow.nvim",
+    branch = "main",
+    config = function()
+      vim.g.glow_style = "light"
+      vim.g.glow_border = "rounded"
+    end,
+  })
   -- dashboard (dashboard-nvim or alpha)
   -- use("glepnir/dashboard-nvim")
   use("goolord/alpha-nvim")

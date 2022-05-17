@@ -20,6 +20,7 @@ require("plugins.bufferline")
 require("plugins.whichkey")
 require("plugins.tabout")
 require("plugins.dashboard")
+require("plugins.nvim-tree")
 require("codestatsapi") -- will need to create this
 
 -- LuaSnip setup
