@@ -65,8 +65,9 @@ opt.signcolumn = "yes" -- always show sign column, so text doesn't shift
 
 -- folding
 opt.foldenable = false
-vim.wo.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldmethod = "marker"
+-- vim.wo.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 99
 
 -- power consumption tweaks
@@ -89,6 +90,8 @@ vim.opt.shortmess:append("c")
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 
+-- cmd([[colorscheme kanagawa]])
+-- cmd[[colorscheme nightfox]]
 -- cmd[[colorscheme ayu-mirage]]
 -- cmd[[colorscheme catppuccin]]
 -- cmd("colorscheme everforest")
@@ -97,28 +100,28 @@ vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 
 local status_ok_base16, base16_colorscheme = pcall(require, "base16-colorscheme")
 if not status_ok_base16 then
-	return
+  return
 end
 
 -- base16 colors from NvChad's version of everforest
 -- See here for built-in colorschemes: https://github.com/RRethy/nvim-base16
 base16_colorscheme.setup({
-	base00 = "#2b3339",
-	base01 = "#323c41",
-	base02 = "#3a4248",
-	base03 = "#868d80",
-	base04 = "#d3c6aa",
-	base05 = "#d3c6aa",
-	base06 = "#e9e8d2",
-	base07 = "#fff9e8",
-	base08 = "#7fbbb3",
-	base09 = "#d699b6",
-	base0A = "#83c092",
-	base0B = "#dbbc7f",
-	base0C = "#e69875",
-	base0D = "#a7c080",
-	base0E = "#e67e80",
-	base0F = "#d699b6",
+  base00 = "#2b3339",
+  base01 = "#323c41",
+  base02 = "#3a4248",
+  base03 = "#868d80",
+  base04 = "#d3c6aa",
+  base05 = "#d3c6aa",
+  base06 = "#e9e8d2",
+  base07 = "#fff9e8",
+  base08 = "#7fbbb3",
+  base09 = "#d699b6",
+  base0A = "#83c092",
+  base0B = "#dbbc7f",
+  base0C = "#e69875",
+  base0D = "#a7c080",
+  base0E = "#e67e80",
+  base0F = "#d699b6",
 })
 
 -- material colorscheme setup
@@ -127,28 +130,28 @@ g.material_style = "oceanic"
 -- save require material colorscheme
 local status_ok_material, material = pcall(require, "material")
 if not status_ok_material then
-	return
+  return
 end
 
 material.setup({
-	contrast = {
-		sidebars = true,
-		floating_windows = true,
-	},
-	italics = {
-		keywords = true,
-		functions = true,
-		comments = true,
-		strings = false,
-		variables = false,
-	},
-	contrast_filetypes = {
-		"terminal",
-		"packer",
-		"qf",
-	},
-	disable = {
-		borders = false,
-		eob_lines = true,
-	},
+  contrast = {
+    sidebars = true,
+    floating_windows = true,
+  },
+  italics = {
+    keywords = true,
+    functions = true,
+    comments = true,
+    strings = false,
+    variables = false,
+  },
+  contrast_filetypes = {
+    "terminal",
+    "packer",
+    "qf",
+  },
+  disable = {
+    borders = false,
+    eob_lines = true,
+  },
 })

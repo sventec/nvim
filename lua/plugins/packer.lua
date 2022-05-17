@@ -49,7 +49,7 @@ packer.startup(function(use)
     use("https://gitlab.com/code-stats/code-stats-vim.git")
   end
 
-  -- Coding, LSP, autocomplete, snippets, etc.
+  -- Coding, LSP, autocomplete, snippets, etc. {{{
   use({
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
@@ -91,7 +91,6 @@ packer.startup(function(use)
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" },
   })
-  -- })
   use("ggandor/lightspeed.nvim") -- replacing hop
   use({
     "numToStr/Comment.nvim",
@@ -144,12 +143,14 @@ packer.startup(function(use)
     end,
     requires = "nvim-treesitter/nvim-treesitter",
   })
-  -- notetaking and writing
+  -- }}}
+  -- notetaking and writing {{{
   use({
     "nvim-neorg/neorg",
     requires = "nvim-lua/plenary.nvim",
   })
-  -- visual plugins
+  -- }}}
+  -- visual plugins {{{
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -197,15 +198,6 @@ packer.startup(function(use)
       vim.g.glow_border = "rounded"
     end,
   })
-  -- dashboard (dashboard-nvim or alpha)
-  -- use("glepnir/dashboard-nvim")
-  use("goolord/alpha-nvim")
-  use({
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  })
   use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -219,11 +211,23 @@ packer.startup(function(use)
       })
     end,
   })
-  -- performance
+  -- }}}
+  -- dashboard (dashboard-nvim or alpha) {{{
+  -- use("glepnir/dashboard-nvim")
+  use("goolord/alpha-nvim")
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  })
+  -- }}}
+  -- performance {{{
   use("nathom/filetype.nvim")
   use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
   use("lewis6991/impatient.nvim") -- Speeds up loading modules
-  -- colors/themes
+  -- }}}
+  -- colors/themes {{{
   use("sainnhe/everforest")
   use("RRethy/nvim-base16")
   use("marko-cerovac/material.nvim")
@@ -249,4 +253,63 @@ packer.startup(function(use)
       })
     end,
   })
+  use({
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup({
+        undercurl = true,
+        commentStyle = "italic",
+        functionStyle = "NONE",
+        keywordStyle = "italic",
+        statementStyle = "bold",
+        typeStyle = "NONE",
+        variablebuiltinStyle = "italic",
+        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        globalStatus = false, -- adjust window separators highlight for laststatus=3
+      })
+    end,
+  })
+  -- nightfox {{{
+  use({
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup({
+        options = {
+          terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+          dim_inactive = false, -- Non focused panes set to alternative background
+          styles = {
+            comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
+            conditionals = "NONE",
+            constants = "NONE",
+            functions = "NONE",
+            keywords = "NONE",
+            numbers = "NONE",
+            operators = "NONE",
+            strings = "NONE",
+            types = "NONE",
+            variables = "NONE",
+          },
+          inverse = { -- Inverse highlight for different types
+            match_paren = false,
+            visual = false,
+            search = false,
+          },
+          modules = { -- List of various plugins and additional options
+            cmp = true,
+            diagnostic = true,
+            gitsigns = true,
+            lightspeed = true,
+            lsp_trouble = true,
+            nvimtree = true,
+            telescope = true,
+            treesitter = true,
+            tsrainbow = true,
+            whichkey = true,
+          },
+        },
+      })
+    end,
+  })
+  -- }}}
+  -- }}}
 end)
