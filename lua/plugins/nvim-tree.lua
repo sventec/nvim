@@ -17,12 +17,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
   callback = function()
     if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
-      vim.cmd "quit"
+      vim.cmd("quit")
     end
-  end
+  end,
 })
 
-nvim_tree.setup {
+nvim_tree.setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
@@ -69,9 +69,9 @@ nvim_tree.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
+        { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+        { key = "h", cb = tree_cb("close_node") },
+        { key = "v", cb = tree_cb("vsplit") },
       },
     },
     number = false,
@@ -85,19 +85,18 @@ nvim_tree.setup {
     open_file = {
       quit_on_open = true,
       window_picker = {
-            enable = false,
+        enable = false,
       },
     },
   },
 
---  unknown options as of 22.05
---
---  update_to_buf_dir = {
---    enable = true,
---    auto_open = true,
---  },
---  auto_resize = true,
---  git_hl = 1,
---  root_folder_modifier = ":t",
-
-}
+  --  unknown options as of 22.05
+  --
+  --  update_to_buf_dir = {
+  --    enable = true,
+  --    auto_open = true,
+  --  },
+  --  auto_resize = true,
+  --  git_hl = 1,
+  --  root_folder_modifier = ":t",
+})
