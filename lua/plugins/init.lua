@@ -270,27 +270,24 @@ local plugins = {
       util.packer_lazy_load("symbols-outline.nvim")
     end,
   },
-
-  ["https://gitlab.com/code-stats/code-stats-vim.git"] = {
-    setup = function()
-      require("codestatsapi")
-    end,
-  },
 }
 
--- TODO: optionally include codestats.net tracking, see readme
--- local codestats_path = vim.fn.stdpath("config") .. "/lua/codestatsapi.lua"
--- if vim.fn.empty(vim.fn.glob(codestats_path)) == 0 then
---   table.insert(
---     plugins,
---     { ["https://gitlab.com/code-stats/code-stats-vim.git"] = {
---       -- setup = function()
---       --   util.packer_lazy_load("code-stats-vim")
---       --   require("codestatsapi) -- create this file, see readme
---       -- end,
---     }
---     }
---   )
--- end
+-- optionally include codestats.net tracking, see readme for details
+-- if the `codestatsapi.lua plugin
+local codestats_path = vim.fn.stdpath("config") .. "/lua/codestatsapi.lua"
+if vim.fn.empty(vim.fn.glob(codestats_path)) == 0 then
+  -- table.insert(
+  --   plugins,
+  local codestats_packer = {
+    ["https://gitlab.com/code-stats/code-stats-vim.git"] = {
+      setup = function()
+        require("codestatsapi") -- create this file, see readme (contains API key)
+        util.packer_lazy_load("code-stats-vim")
+      end,
+    },
+  }
+  plugins = vim.tbl_deep_extend("force", codestats_packer, plugins)
+  -- )
+end
 
 require("core.packer").run(plugins)
