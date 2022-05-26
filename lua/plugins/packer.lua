@@ -178,6 +178,12 @@ packer.startup(function(use)
       require("todo-comments").setup({})
     end,
   })
+  use({
+    "kosayoda/nvim-lightbulb",
+    config = function()
+      require("nvim-lightbulb").setup({ autocmd = { enabled = true } })
+    end,
+  })
   use("kyazdani42/nvim-tree.lua")
   use({
     "iamcco/markdown-preview.nvim",
@@ -229,7 +235,7 @@ packer.startup(function(use)
   -- }}}
   -- colors/themes {{{
   use("sainnhe/everforest")
-  use("RRethy/nvim-base16") -- TODO: Fork and add support for additional plugins? & Change toggleterm colors (to normal term colors?)
+  use("RRethy/nvim-base16")
   use("marko-cerovac/material.nvim")
   use("folke/tokyonight.nvim")
   use({
