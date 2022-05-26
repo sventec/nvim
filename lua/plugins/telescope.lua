@@ -112,9 +112,9 @@ telescope.setup({
   },
 })
 
-function nmap(key, command)
-  vim.api.nvim_set_keymap("n", key, command, { noremap = true, silent = true })
-end
+-- function nmap(key, command)
+--   vim.api.nvim_set_keymap("n", key, command, { noremap = true, silent = true })
+-- end
 
 -- nmap("<leader>ff", "<cmd>Telescope find_files<cr>")
 -- nmap("<leader>fo", "<cmd>Telescope oldfiles<cr>")

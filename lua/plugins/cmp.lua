@@ -24,8 +24,12 @@ if not status_ok_lsnip then
   return
 end
 
--- credit LunarVim/Neovim-from-scratch
--- for most excellent defaults
+local status_ok_comparator, comparator = pcall(require, "cmp-under-comparator")
+if not status_ok_comparator then
+  return
+end
+
+-- credit LunarVim/Neovim-from-scratch for some excellent defaults
 
 -- load luasnip vscode-like plugins (such as friendly-snippets)
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -74,7 +78,7 @@ local kind_icons = {
 cmp.setup({
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -83,7 +87,7 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-y>"] = cmp.config.disable, -- this disables the default mapping
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -168,7 +172,7 @@ cmp.setup({
       cmp.config.compare.offset,
       cmp.config.compare.exact,
       cmp.config.compare.score,
-      require("cmp-under-comparator").under,
+      comparator.under,
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
       cmp.config.compare.length,
