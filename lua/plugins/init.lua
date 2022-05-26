@@ -197,10 +197,17 @@ local plugins = {
     end,
   },
 
+  -- versatile & extensible search plugin
+  ["nvim-telescope/telescope.nvim"] = {
+    cmd = "Telescope",
+    config = function()
+      require("plugins.telescope")
+    end,
+  },
+
   -- startup dashboard view
   ["goolord/alpha-nvim"] = {
     -- disable = true,
-    after = "telescope", -- used for commands on dashboard
     config = function()
       require("plugins.dashboard")
     end,
@@ -221,14 +228,6 @@ local plugins = {
     cmd = { "nvimtreetoggle", "nvimtreefocus" },
     config = function()
       require("plugins.nvim-tree")
-    end,
-  },
-
-  -- versatile & extensible search plugin
-  ["nvim-telescope/telescope.nvim"] = {
-    cmd = "telescope",
-    config = function()
-      require("plugins.telescope")
     end,
   },
 
@@ -279,7 +278,7 @@ local plugins = {
   },
 }
 
--- optionally include codestats.net tracking, see readme
+-- TODO: optionally include codestats.net tracking, see readme
 -- local codestats_path = vim.fn.stdpath("config") .. "/lua/codestatsapi.lua"
 -- if vim.fn.empty(vim.fn.glob(codestats_path)) == 0 then
 --   table.insert(

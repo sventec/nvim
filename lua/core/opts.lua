@@ -89,10 +89,9 @@ completeopt = { "menuone", "noselect" } -- mostly just for cmp, completion optio
 
 -- colorscheme
 opt.termguicolors = true
-g.background = "dark"
+opt.background = "dark"
 
 -- etc. vimscript configuration
-
 opt.shortmess:append("c")
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
