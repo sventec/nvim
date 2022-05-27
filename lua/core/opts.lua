@@ -94,7 +94,7 @@ opt.background = "dark"
 -- etc. vimscript configuration
 opt.shortmess:append("c")
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set whichwrap+=<,>,[,],h,l]]) -- allow wrapping to next line with h + l
 vim.cmd([[set iskeyword+=-]]) -- words (such as diw) can contain dashes
 
 -- disable (likely) unused builtin vim plugins

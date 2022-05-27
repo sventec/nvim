@@ -50,18 +50,16 @@ local plugins = {
     end,
   },
 
+  -- component showing relative location of current symbol
+  ["SmiteshP/nvim-gps"] = {},
+
   -- statusbar at bottom of screen
   ["nvim-lualine/lualine.nvim"] = {
     after = "nvim-web-devicons",
+    wants = "nvim-gps",
     config = function()
       require("plugins.lualine")
     end,
-  },
-
-  -- component showing relative location of current symbol
-  ["SmiteshP/nvim-gps"] = {
-    event = { "bufread", "bufnewfile" },
-    -- after = "lualine",
   },
 
   -- buffers as tabs on top of screen
