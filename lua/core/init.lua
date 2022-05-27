@@ -25,7 +25,12 @@ util.packer_lazy_load = function(plugin, timer)
   if plugin then
     timer = timer or 0
     vim.defer_fn(function()
-      require("packer").loader(plugin)
+      local status_ok, packer = pcall(require, "packer")
+      if not status_ok then
+        return
+      end
+
+      packer.loader(plugin)
     end, timer)
   end
 end

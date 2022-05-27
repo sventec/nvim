@@ -16,3 +16,6 @@ require("core.keybinds")
 -- setup packer
 require("core.packer").bootstrap()
 require("plugins")
+
+-- set base colorscheme, if any
+require("plugins.colors").base()

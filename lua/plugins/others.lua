@@ -81,4 +81,47 @@ M.leap = function()
   leap.set_default_keymaps()
 end
 
+M.neogen = function()
+  local status_ok, neogen = pcall(require, "neogen")
+  if not status_ok then
+    return
+  end
+
+  require("neogen").setup({
+    enabled = true,
+    languages = {
+      python = {
+        template = {
+          -- google_docstrings, numpydoc, or reST
+          annotation_convention = "google_docstrings",
+        },
+      },
+    },
+  })
+end
+
+M.todo = function()
+  local status_ok, todo = pcall(require, "todo-comments")
+  if not status_ok then
+    return
+  end
+
+  todo.setup()
+end
+
+M.trouble = function()
+  local status_ok, trouble = pcall(require, "trouble")
+  if not status_ok then
+    return
+  end
+
+  trouble.setup({
+    mode = "document_diagnostics",
+    auto_close = false,
+    auto_open = false,
+    padding = false,
+    height = 8,
+  })
+end
+
 return M

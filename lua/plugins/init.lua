@@ -6,6 +6,9 @@ local plugins = {
   ["lewis6991/impatient.nvim"] = {},
   ["wbthomason/packer.nvim"] = {},
 
+  -- fixes https://github.com/neovim/neovim/issues/12587
+  ["antoinemadec/FixCursorHold.nvim"] = {},
+
   -- popup terminal on demand
   ["akinsho/toggleterm.nvim"] = {
     config = function()
@@ -15,9 +18,27 @@ local plugins = {
 
   -- allows defining custom base16 colors
   ["rrethy/nvim-base16"] = {
-    after = "toggleterm.nvim",
+    disable = false, -- togle colorscheme loading
     config = function()
-      require("plugins.colors")
+      require("plugins.colors").base16()
+    end,
+  },
+
+  -- colorscheme: nightfox
+  ["EdenEast/nightfox.nvim"] = {
+    disable = true, -- toggle colorscheme loading
+    after = "toggleterm",
+    config = function()
+      require("plugins.colors").nightfox()
+    end,
+  },
+
+  -- colorscheme: catppuccin
+  ["catppuccin/nvim"] = {
+    disable = true, -- toggle colorscheme loading
+    as = "catppuccin",
+    config = function()
+      require("plugins.colors").catppuccin()
     end,
   },
 
@@ -37,6 +58,12 @@ local plugins = {
     end,
   },
 
+  -- component showing relative location of current symbol
+  ["SmiteshP/nvim-gps"] = {
+    event = { "bufread", "bufnewfile" },
+    -- after = "lualine",
+  },
+
   -- buffers as tabs on top of screen
   ["akinsho/bufferline.nvim"] = {
     after = "nvim-web-devicons",
@@ -50,7 +77,7 @@ local plugins = {
   ["lukas-reineke/cmp-under-comparator"] = {},
 
   ["lukas-reineke/indent-blankline.nvim"] = {
-    event = "bufread",
+    event = { "bufread", "bufnewfile" },
     config = function()
       require("plugins.indent-blankline")
     end,
@@ -58,7 +85,7 @@ local plugins = {
 
   -- render hex colors in editor
   ["norcalli/nvim-colorizer.lua"] = {
-    event = "bufread",
+    event = { "bufread", "bufnewfile" },
     config = function()
       require("colorizer").setup()
     end,
@@ -67,15 +94,31 @@ local plugins = {
   -- better syntax highlighting & more
   ["nvim-treesitter/nvim-treesitter"] = {
     event = { "bufread", "bufnewfile" },
-    run = ":tsupdate",
+    run = ":TSUpdate",
     config = function()
       require("plugins.treesitter")
+    end,
+  },
+
+  -- intelligently use tab to escape brackets, quotes, etc.
+  ["abecodes/tabout.nvim"] = {
+    after = "nvim-treesitter",
+    config = function()
+      require("plugins.tabout")
     end,
   },
 
   -- rainbow brackets for treesitter
   ["p00f/nvim-ts-rainbow"] = {
     after = "nvim-treesitter",
+  },
+
+  -- dynamically generate docstrings
+  ["danymat/neogen"] = {
+    after = "nvim-treesitter",
+    config = function()
+      require("plugins.others").neogen()
+    end,
   },
 
   -- show line git status in sidebar
@@ -137,7 +180,7 @@ local plugins = {
 
   -- easy definition of custom filetypes
   ["nathom/filetype.nvim"] = {
-    event = "bufread",
+    event = { "bufread", "bufnewfile" },
     config = function()
       require("plugins.others").filetype()
     end,
@@ -244,15 +287,20 @@ local plugins = {
 
   -- predecessor of leap.nvim
   -- ["ggandor/lightspeed.nvim"] = {
-  --    event = "bufread",
+  -- event = { "bufread", "bufnewfile" },
   -- },
 
   -- use `s` and `s` for quick text hopping
   ["ggandor/leap.nvim"] = {
-    event = "bufread",
+    event = { "bufread", "bufnewfile" },
     config = function()
       require("plugins.others").leap()
     end,
+  },
+
+  -- toggle boolean values with command
+  ["rmagatti/alternate-toggler"] = {
+    event = { "bufread", "bufnewfile" },
   },
 
   -- fix python indentation to adhere to pep8
@@ -262,6 +310,7 @@ local plugins = {
     end,
   },
 
+  -- sidebar displaying document symbols
   ["simrat39/symbols-outline.nvim"] = {
     config = function()
       require("plugins.symbols-outline")
@@ -270,24 +319,36 @@ local plugins = {
       util.packer_lazy_load("symbols-outline.nvim")
     end,
   },
+
+  -- highlights/marks TODO, FIXME, etc. comments
+  ["folke/todo-comments.nvim"] = {
+    event = { "bufread", "bufnewfile" },
+    config = function()
+      require("plugins.others").todo()
+    end,
+  },
+
+  -- popup buffer displaying document LSP diagnostics
+  ["folke/trouble.nvim"] = {
+    wants = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("plugins.others").trouble()
+    end,
+  },
 }
 
 -- optionally include codestats.net tracking, see readme for details
--- if the `codestatsapi.lua plugin
 local codestats_path = vim.fn.stdpath("config") .. "/lua/codestatsapi.lua"
 if vim.fn.empty(vim.fn.glob(codestats_path)) == 0 then
-  -- table.insert(
-  --   plugins,
   local codestats_packer = {
     ["https://gitlab.com/code-stats/code-stats-vim.git"] = {
       setup = function()
-        require("codestatsapi") -- create this file, see readme (contains API key)
-        util.packer_lazy_load("code-stats-vim")
+        require("codestatsapi") -- create this file to use plugin, see readme (contains API key)
+        util.packer_lazy_load("code-stats-vim.git")
       end,
     },
   }
   plugins = vim.tbl_deep_extend("force", codestats_packer, plugins)
-  -- )
 end
 
 require("core.packer").run(plugins)

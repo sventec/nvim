@@ -1,13 +1,6 @@
 -- Plugin installation and packer configuration here
 
 packer.startup(function(use)
-  use("p00f/nvim-ts-rainbow") -- rainbow brackets for treesitter
-
-  use({
-    "abecodes/tabout.nvim",
-    wants = { "nvim-treesitter" },
-  })
-
   use({
     "ekickx/clipboard-image.nvim",
     config = function()
@@ -18,41 +11,14 @@ packer.startup(function(use)
       })
     end,
   })
-  use("rmagatti/alternate-toggler") -- toggles boolean values on <leader>lt
-
-  use({
-    "danymat/neogen",
-    config = function()
-      require("neogen").setup({
-        enabled = true,
-        languages = {
-          python = {
-            template = {
-              -- google_docstrings, numpydoc, or reST
-              annotation_convention = "google_docstrings",
-            },
-          },
-        },
-      })
-    end,
-    requires = "nvim-treesitter/nvim-treesitter",
-  })
 
   use({
     "nvim-neorg/neorg",
     requires = "nvim-lua/plenary.nvim",
   })
 
-  use("SmiteshP/nvim-gps") -- component for statusline
-
   use("rudism/telescope-dict.nvim") -- dictionary/thesaurus Telescope module
-  use({
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup({})
-    end,
-  })
+
   use({
     "kosayoda/nvim-lightbulb",
     config = function()
@@ -79,38 +45,10 @@ packer.startup(function(use)
       vim.g.glow_border = "rounded"
     end,
   })
-  use({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({
-        mode = "document_diagnostics",
-        auto_close = false,
-        auto_open = false,
-        padding = false,
-        height = 8,
-      })
-    end,
-  })
-
-  use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
   use("sainnhe/everforest")
   use("marko-cerovac/material.nvim")
   use("folke/tokyonight.nvim")
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function()
-      require("catppuccin").setup({
-        integrations = {
-          which_key = true,
-          lightspeed = true,
-          ts_rainbow = true,
-        },
-      })
-    end,
-  })
   use({
     "Shatur/neovim-ayu",
     config = function()
@@ -131,51 +69,9 @@ packer.startup(function(use)
         typeStyle = "NONE",
         variablebuiltinStyle = "italic",
         dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-        globalStatus = false, -- adjust window separators highlight for laststatus=3
+        globalStatus = true, -- adjust window separators highlight for laststatus=3
       })
     end,
   })
-  -- nightfox {{{
-  use({
-    "EdenEast/nightfox.nvim",
-    config = function()
-      require("nightfox").setup({
-        options = {
-          terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = false, -- Non focused panes set to alternative background
-          styles = {
-            comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
-            conditionals = "NONE",
-            constants = "NONE",
-            functions = "NONE",
-            keywords = "NONE",
-            numbers = "NONE",
-            operators = "NONE",
-            strings = "NONE",
-            types = "NONE",
-            variables = "NONE",
-          },
-          inverse = { -- Inverse highlight for different types
-            match_paren = false,
-            visual = false,
-            search = false,
-          },
-          modules = { -- List of various plugins and additional options
-            cmp = true,
-            diagnostic = true,
-            gitsigns = true,
-            lightspeed = true,
-            lsp_trouble = true,
-            nvimtree = true,
-            telescope = true,
-            treesitter = true,
-            tsrainbow = true,
-            whichkey = true,
-          },
-        },
-      })
-    end,
-  })
-  -- }}}
   -- }}}
 end)
