@@ -14,11 +14,12 @@ local sources = {
   nls.builtins.formatting.stylua,
 
   -- plaintext/language sources
-  nls.builtins.diagnostics.write_good.with({
-    filetypes = { "text" },
-  }),
+  -- nls.builtins.diagnostics.write_good.with({
+  --   filetypes = { "text" },
+  -- }),
   -- nls.builtins.completion.spell,
   nls.builtins.code_actions.proselint,
+  nls.builtins.diagnostics.proselint,
 
   -- python sources
   nls.builtins.diagnostics.pylint.with({
