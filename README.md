@@ -50,7 +50,7 @@ Then, start neovim (ignore errors) and run `:PackerSync`.
 
 The tree-sitter executable is _not_ required unless parsers are being generated, which
 won't happen during normal use. After first installation, update and install parsers with
-`:TSUpdate`, or install all maintained parsers with `:TSInstall maintained`.
+`:TSUpdate`, or install all maintained parsers with `:TSInstall all`.
 
 As of 2022-05-27, `markdown` isn't in the list of maintained parsers, so you can
 install that parser as well with `:TSInstall markdown`.

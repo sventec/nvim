@@ -28,7 +28,7 @@ parser_configs.norg_table = {
 }
 
 require("nvim-treesitter.configs").setup({
-  ensure_isntalled = { "maintained", "norg", "norg_meta", "norg_table" },
+  ensure_isntalled = { "all", "markdown", "norg", "norg_meta", "norg_table" }, -- "all" or a list of languages
   sync_install = false,
   autopairs = {
     enable = true,
