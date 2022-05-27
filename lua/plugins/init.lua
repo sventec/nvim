@@ -267,8 +267,8 @@ local plugins = {
 
   -- sidebar file explorer
   ["kyazdani42/nvim-tree.lua"] = {
-    ft = "alpha",
-    cmd = { "nvimtreetoggle", "nvimtreefocus" },
+    -- ft = "alpha",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require("plugins.nvim-tree")
     end,

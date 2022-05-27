@@ -156,6 +156,7 @@ local mappings = {
       "Prev Diagnostic",
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    o = { "<cmd>SymbolsOutline<cr>", "Toggle Outline Sidebar" },
     q = { "<cmd>lua vim.lsp.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -163,7 +164,7 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
-    t = { "<cmd>ToggleAlternate<cr>", "Toggle boolean value" },
+    t = { "<cmd>ToggleAlternate<cr>", "Toggle Boolean Value" },
     y = { "<cmd>lua vim.diagnostic.show(nil, 0)<cr>", "Show buf diagnostics" },
   },
 
