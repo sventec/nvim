@@ -42,6 +42,14 @@ local plugins = {
     end,
   },
 
+  ["mcchrish/zenbones.nvim"] = {
+    disable = true, -- toggle colorscheme loading
+    requires = "rktjmp/lush.nvim",
+    config = function()
+      require("plugins.colors").zenbones()
+    end,
+  },
+
   -- icons used by many other plugins
   ["kyazdani42/nvim-web-devicons"] = {
     after = "nvim-base16",
@@ -178,7 +186,7 @@ local plugins = {
 
   -- easy definition of custom filetypes
   ["nathom/filetype.nvim"] = {
-    event = { "bufread", "bufnewfile" },
+    -- event = { "bufread", "bufnewfile" },
     config = function()
       require("plugins.others").filetype()
     end,

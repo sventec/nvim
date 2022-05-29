@@ -32,6 +32,9 @@ A non-exhaustive list of the dependencies needed to make full use of this config
 - python 3.8+ (tested on 3.10)
 - python3-pip
 - pynvim (pip package)
+- Clipboard utility
+  - Windows: win32yank
+  - Linux: xsel
 - Optional (Recommended):
   - fd-find
   - npm (for lsp-installer)

@@ -13,6 +13,7 @@ M.base = function()
   -- cmd[[colorscheme ayu-mirage]]
   -- cmd[[colorscheme catppuccin]]
   -- cmd("colorscheme everforest")
+  -- cmd("colorscheme zenbones")
 
   -- everforest colorscheme setup
   -- g.everforest_enable_italic = 1
@@ -149,6 +150,12 @@ M.catppuccin = function()
       which_key = true,
     },
   })
+end
+
+M.zenbones = function()
+  -- this overrides the default in lua/core/opts.lua as it's loaded after
+  -- vim.opt.background = "light"
+  cmd([[colorscheme zenbones]])
 end
 
 return M
