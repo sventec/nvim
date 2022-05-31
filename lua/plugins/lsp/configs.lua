@@ -6,7 +6,7 @@ end
 local lspconfig = require("lspconfig")
 
 -- Additional servers: gopls (Go), ltex (plaintext - LanguageTool)
-local servers = { "jsonls", "sumneko_lua", "pyright" }
+local servers = { "jsonls", "sumneko_lua", "pyright", "ltex" }
 
 lsp_installer.setup({
   ensure_installed = servers,
