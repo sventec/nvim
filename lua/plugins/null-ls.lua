@@ -20,6 +20,9 @@ local sources = {
   -- nls.builtins.completion.spell,
   nls.builtins.code_actions.proselint,
   nls.builtins.diagnostics.proselint,
+  nls.builtins.diagnostics.vale.with({
+    filetypes = { "markdown", "tex", "txt", "asciidoc" },
+  }),
 
   -- python sources
   nls.builtins.diagnostics.pylint.with({
