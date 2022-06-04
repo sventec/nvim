@@ -5,12 +5,13 @@ if not status_ok then
   return
 end
 
-local status_ok_gps, gps = pcall(require, "nvim-gps")
-if not status_ok_gps then
-  return
-end
+-- nvim-gps shows current symbol context in statusline
+-- local status_ok_gps, gps = pcall(require, "nvim-gps")
+-- if not status_ok_gps then
+--   return
+-- end
 
-gps.setup()
+-- gps.setup()
 
 local function lsp_progress()
   local messages = vim.lsp.util.get_progress_messages()
@@ -59,6 +60,7 @@ lualine.setup({
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
     always_divide_middle = true,
+    globalstatus = true,
   },
   sections = {
     lualine_a = {},
@@ -67,7 +69,7 @@ lualine.setup({
       "branch",
       "diff",
       "filename",
-      { gps.get_location, cond = gps.is_available },
+      -- { gps.get_location, cond = gps.is_available },
     },
     lualine_x = {
       lsp_progress,

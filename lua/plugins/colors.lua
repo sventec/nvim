@@ -146,10 +146,13 @@ M.catppuccin = function()
       telescope = true,
       treesitter = true,
       ts_rainbow = true,
-      vimtree = { enabled = true },
+      -- vimtree = { enabled = true },
       which_key = true,
     },
   })
+
+  vim.g.catppuccin_flavor = "macchiato" -- latte, frappe, macchiato, mocha
+  vim.cmd([[colorscheme catppuccin]])
 end
 
 M.zenbones = function()

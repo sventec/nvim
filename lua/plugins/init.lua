@@ -59,12 +59,12 @@ local plugins = {
   },
 
   -- component showing relative location of current symbol
-  ["SmiteshP/nvim-gps"] = {},
+  -- ["SmiteshP/nvim-gps"] = {},
 
   -- statusbar at bottom of screen
   ["nvim-lualine/lualine.nvim"] = {
     after = "nvim-web-devicons",
-    wants = "nvim-gps",
+    -- wants = "nvim-gps",
     config = function()
       require("plugins.lualine")
     end,
