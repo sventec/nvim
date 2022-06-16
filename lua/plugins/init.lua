@@ -27,7 +27,7 @@ local plugins = {
   -- colorscheme: nightfox
   ["EdenEast/nightfox.nvim"] = {
     disable = true, -- toggle colorscheme loading
-    after = "toggleterm",
+    -- after = "toggleterm",
     config = function()
       require("plugins.colors").nightfox()
     end,
