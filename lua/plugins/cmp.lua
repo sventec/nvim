@@ -182,18 +182,17 @@ cmp.setup({
 })
 
 -- disable cmp in current buffer
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>c",
-  "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>",
-  { silent = true }
-)
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<leader>c",
+--   "<cmd>lua require('cmp').setup.buffer { enabled = false }<CR>",
+--   { silent = true }
+-- )
 
 -- nvim-cmp-cmdline setup
 cmp.setup.cmdline(":", {
   sources = cmp.config.sources({
     { name = "path" },
-  }, {
     { name = "cmdline" },
   }),
 })

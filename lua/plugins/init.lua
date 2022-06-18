@@ -341,6 +341,18 @@ local plugins = {
       require("plugins.others").trouble()
     end,
   },
+
+  -- org-like note management with neovim
+  ["nvim-neorg/neorg"] = {
+    config = function()
+      require("plugins.neorg")
+    end,
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neorg/neorg-telescope",
+    },
+    -- tag = "*",
+  },
 }
 
 -- optionally include codestats.net tracking, see readme for details
