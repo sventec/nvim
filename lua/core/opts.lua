@@ -85,7 +85,7 @@ opt.lazyredraw = true -- speed up scrolling
 opt.synmaxcol = 240 -- max number of columns in syntax highlighting
 
 -- autocompletion options
-completeopt = { "menuone", "noselect" } -- mostly just for cmp, completion options
+g.completeopt = { "menuone", "noselect" } -- mostly just for cmp, completion options
 
 -- colorscheme
 opt.termguicolors = true
