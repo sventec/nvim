@@ -364,6 +364,23 @@ local plugins = {
       require("plugins.orgmode")
     end,
   },
+
+  ["dkarter/bullets.vim"] = {
+    event = { "bufread", "bufnewfile" },
+    config = function()
+      require("plugins.others").bullets()
+    end,
+  },
+
+  ["iamcco/markdown-preview.nvim"] = {
+    event = { "bufread", "bufnewfile" },
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      require("plugins.others").mdpreview()
+    end,
+  },
 }
 
 -- optionally include codestats.net tracking, see readme for details

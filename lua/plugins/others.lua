@@ -124,4 +124,16 @@ M.trouble = function()
   })
 end
 
+M.bullets = function()
+  vim.g.bullets_enable_in_empty_buffers = 0
+  -- vim.g.bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*', 'std+']
+end
+
+M.mdpreview = function()
+  vim.g.mkdp_auto_close = 0
+  -- vim.g.mkdp_theme = "dark"
+  -- vim.g.mkdp_browser = "firefox"
+  vim.g.mkdp_browser = "qutebrowser"
+end
+
 return M

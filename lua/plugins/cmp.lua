@@ -137,6 +137,7 @@ cmp.setup({
         path = "[Path]",
         nvim_lua = "[Lua]",
         neorg = "[Neorg]",
+        orgmode = "[Org]",
       })[entry.source.name]
       return vim_item
     end,
