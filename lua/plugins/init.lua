@@ -108,7 +108,8 @@ local plugins = {
 
   -- intelligently use tab to escape brackets, quotes, etc.
   ["abecodes/tabout.nvim"] = {
-    after = "nvim-treesitter",
+    wants = { "nvim-treesitter" },
+    after = { "nvim-cmp" },
     config = function()
       require("plugins.tabout")
     end,
@@ -200,7 +201,7 @@ local plugins = {
 
   -- completion menu
   ["hrsh7th/nvim-cmp"] = {
-    after = "friendly-snippets",
+    -- after = "friendly-snippets",
     wants = "cmp-under-comparator",
     config = function()
       require("plugins.cmp")
@@ -211,6 +212,9 @@ local plugins = {
   ["l3mon4d3/luasnip"] = {
     wants = "friendly-snippets",
     after = "nvim-cmp",
+    config = function()
+      require("plugins.luasnip")
+    end,
   },
 
   -- cmp completion providers

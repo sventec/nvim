@@ -10,6 +10,7 @@ local sources = {
     filetypes = { "html", "json", "yaml", "markdown" },
     extra_args = { "--no-semi", "--single-quote" },
   }),
+
   -- lua sources
   nls.builtins.formatting.stylua,
 
@@ -47,6 +48,9 @@ local sources = {
   nls.builtins.formatting.gofmt,
   nls.builtins.formatting.goimports,
   -- nls.builtins.formatting.golines,
+
+  -- yaml sources
+  nls.builtins.diagnostics.yamllint,
 }
 
 nls.setup({
