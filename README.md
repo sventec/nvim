@@ -1,4 +1,6 @@
-# neovim config
+# **OLD ARCHIVE** - neovim config
+
+**DO NOT USE THIS CONFIG, it's saved purely for archival purposes.**
 
 Another Lua neovim config, requires nvim 0.7.0+
 
