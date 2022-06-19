@@ -75,8 +75,8 @@ map("v", "<leader>p", '"+p', default_opts)
 map("v", "<leader>P", '"+P', default_opts)
 
 -- insert empty line without entering insert mode
-nmap("<leader>o", "o<ESC>")
-nmap("<leader>O", "O<ESC>")
+-- nmap("<leader>o", "o<ESC>")
+-- nmap("<leader>O", "O<ESC>")
 
 -- sort block of text (paragraph)
 -- conflicts currently

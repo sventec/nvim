@@ -353,6 +353,13 @@ local plugins = {
     },
     -- tag = "*",
   },
+
+  -- intended as a clone of orgmode
+  ["nvim-orgmode/orgmode"] = {
+    config = function()
+      require("plugins.orgmode")
+    end,
+  },
 }
 
 -- optionally include codestats.net tracking, see readme for details

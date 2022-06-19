@@ -28,7 +28,7 @@ local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 -- }
 
 require("nvim-treesitter.configs").setup({
-  ensure_isntalled = { "all", "markdown", "norg" }, -- "all" or a list of languages
+  ensure_isntalled = { "all", "markdown", "norg", "org" }, -- "all" or a list of languages
   sync_install = false,
   autopairs = {
     enable = true,
@@ -36,7 +36,8 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = {"org"},
+    -- additional_vim_regex_highlighting = true,
   },
   indent = {
     enable = true,

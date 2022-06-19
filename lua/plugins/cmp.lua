@@ -147,6 +147,7 @@ cmp.setup({
     { name = "luasnip" },
     { name = "nvim_lua" },
     { name = "neorg" },
+    { name = "orgmode" },
     { name = "buffer" },
     { name = "path" },
     -- {
