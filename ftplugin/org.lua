@@ -10,4 +10,4 @@ vim.opt_local.spell = true
 vim.opt.wrap = true
 
 -- conceal text markup symbols
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 3

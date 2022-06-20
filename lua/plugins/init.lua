@@ -42,6 +42,7 @@ local plugins = {
     end,
   },
 
+  -- colorscheme: zenbones
   ["mcchrish/zenbones.nvim"] = {
     disable = true, -- toggle colorscheme loading
     requires = "rktjmp/lush.nvim",
@@ -173,6 +174,7 @@ local plugins = {
     end,
   },
 
+  -- show function signature when typing
   ["ray-x/lsp_signature.nvim"] = {
     after = "null-ls.nvim",
   },
@@ -365,13 +367,15 @@ local plugins = {
     end,
   },
 
-  ["dkarter/bullets.vim"] = {
-    event = { "bufread", "bufnewfile" },
-    config = function()
-      require("plugins.others").bullets()
-    end,
-  },
+  -- automatically add next entry of [un]ordered list on <CR>
+  -- ["dkarter/bullets.vim"] = {
+  --   event = { "bufread", "bufnewfile" },
+  --   config = function()
+  --     require("plugins.others").bullets()
+  --   end,
+  -- },
 
+  -- show live markdown preview in browser with :MarkdownPreviewToggle
   ["iamcco/markdown-preview.nvim"] = {
     event = { "bufread", "bufnewfile" },
     run = function()
