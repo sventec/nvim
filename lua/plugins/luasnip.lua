@@ -11,13 +11,8 @@ local insert = ls.insert_node
 local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
+local partial = require("luasnip.extras").partial
 
--- helper function to return current date
-local date = function()
-  return { os.date("%Y-%m-%d") }
-end
-
--- additional snippets
 ls.add_snippets(nil, {
   all = {
     snip({
@@ -25,7 +20,19 @@ ls.add_snippets(nil, {
       namr = "Date",
       dscr = "Date in the form of YYYY-MM-DD",
     }, {
-      func(date, {}),
+      partial(os.date, "%Y-%m-%d"),
+    }),
+  },
+})
+
+ls.add_snippets(nil, {
+  all = {
+    snip({
+      trig = "datehr",
+      namr = "Date (HR)",
+      dscr = "Human Readable date in the form of Month DD, YYYY",
+    }, {
+      partial(os.date, "%b %d, %Y"),
     }),
   },
 })
