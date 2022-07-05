@@ -98,6 +98,8 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
@@ -197,10 +199,12 @@ cmp.setup.cmdline(":", {
     { name = "path" },
     { name = "cmdline" },
   }),
+  mapping = cmp.mapping.preset.cmdline({}),
 })
 
 cmp.setup.cmdline("/", {
   sources = {
     { name = "buffer" },
   },
+  mapping = cmp.mapping.preset.cmdline({}),
 })
