@@ -29,7 +29,7 @@ local sources = {
   nls.builtins.diagnostics.pylint.with({
     --  method = nls.methods.DIAGNOSTICS_ON_SAVE,  -- this can be used if live is too slow
   }),
-  nls.builtins.diagnostics.flake8.with({ extra_args = { "--max-line-length", "88" } }),
+  nls.builtins.diagnostics.flake8.with({ extra_args = { "--max-line-length", "120" } }),
   nls.builtins.formatting.black.with({ extra_args = { "--fast" } }),
   -- nls.builtins.formatting.isort,
   nls.builtins.formatting.reorder_python_imports,
