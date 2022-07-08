@@ -165,4 +165,23 @@ M.zenbones = function()
   -- cmd([[colorscheme zenwritten]])
 end
 
+M.kanagawa = function()
+  local status_ok, kanagawa = pcall(require, "kanagawa")
+  if not status_ok then
+    return
+  end
+
+  kanagawa.setup({
+    undercurl = true,
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    variablebuiltinStyle = { italic = true },
+    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+    globalStatus = true, -- adjust window separators highlight for laststatus=3
+  })
+end
+
 return M

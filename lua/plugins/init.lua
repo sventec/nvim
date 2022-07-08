@@ -53,6 +53,13 @@ local plugins = {
     end,
   },
 
+  -- colorscheme: kanagawa
+  ["rebelot/kanagawa.nvim"] = {
+    config = function()
+      require("plugins.colors").kanagawa()
+    end,
+  },
+
   -- icons used by many other plugins
   ["kyazdani42/nvim-web-devicons"] = {
     after = "nvim-base16",
@@ -325,14 +332,14 @@ local plugins = {
   },
 
   -- sidebar displaying document symbols
-  ["simrat39/symbols-outline.nvim"] = {
-    config = function()
-      require("plugins.symbols-outline")
-    end,
-    setup = function()
-      util.packer_lazy_load("symbols-outline.nvim")
-    end,
-  },
+  -- ["simrat39/symbols-outline.nvim"] = {
+  --   config = function()
+  --     require("plugins.symbols-outline")
+  --   end,
+  --   setup = function()
+  --     util.packer_lazy_load("symbols-outline.nvim")
+  --   end,
+  -- },
 
   -- highlights/marks TODO, FIXME, etc. comments
   ["folke/todo-comments.nvim"] = {

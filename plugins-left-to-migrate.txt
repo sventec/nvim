@@ -1,4 +1,3 @@
-packer.startup(function(use)
   use({
     "ekickx/clipboard-image.nvim",
     config = function()
@@ -28,6 +27,7 @@ packer.startup(function(use)
     end,
   })
 
+  == colorschemes ==
   use("marko-cerovac/material.nvim")
   use("folke/tokyonight.nvim")
   use({
@@ -38,21 +38,3 @@ packer.startup(function(use)
       })
     end,
   })
-  use({
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        undercurl = true,
-        commentStyle = "italic",
-        functionStyle = "NONE",
-        keywordStyle = "italic",
-        statementStyle = "bold",
-        typeStyle = "NONE",
-        variablebuiltinStyle = "italic",
-        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-        globalStatus = true, -- adjust window separators highlight for laststatus=3
-      })
-    end,
-  })
-  -- }}}
-end)
