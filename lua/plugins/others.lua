@@ -126,7 +126,7 @@ end
 
 M.bullets = function()
   vim.g.bullets_enable_in_empty_buffers = 0
-  -- vim.g.bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*', 'std+']
+  vim.g.bullets_outline_levels = { "ROM", "ABC", "num", "abc", "rom", "std-" }
 end
 
 M.mdpreview = function()

@@ -19,14 +19,16 @@ local plugins = {
   -- allows defining custom base16 colors
   ["rrethy/nvim-base16"] = {
     disable = false, -- togle colorscheme loading
-    config = function()
-      require("plugins.colors").base16()
-    end,
+    -- setup function is called in plugins.colors.base()
+    -- comment `M.base16()` there to disable base16 as active colorscheme
+    -- config = function()
+    --   require("plugins.colors").base16()
+    -- end,
   },
 
   -- colorscheme: nightfox
   ["EdenEast/nightfox.nvim"] = {
-    disable = true, -- toggle colorscheme loading
+    disable = false, -- toggle colorscheme loading
     -- after = "toggleterm",
     config = function()
       require("plugins.colors").nightfox()
@@ -35,7 +37,7 @@ local plugins = {
 
   -- colorscheme: catppuccin
   ["catppuccin/nvim"] = {
-    disable = true, -- toggle colorscheme loading
+    disable = false, -- toggle colorscheme loading
     as = "catppuccin",
     config = function()
       require("plugins.colors").catppuccin()
@@ -44,7 +46,7 @@ local plugins = {
 
   -- colorscheme: zenbones
   ["mcchrish/zenbones.nvim"] = {
-    disable = true, -- toggle colorscheme loading
+    disable = false, -- toggle colorscheme loading
     requires = "rktjmp/lush.nvim",
     config = function()
       require("plugins.colors").zenbones()

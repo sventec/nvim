@@ -8,12 +8,15 @@ M.base = function()
   -- a colorscheme that doesn't require configuration can be set here
   -- this is sourced after plugin load
 
+  -- call base16(), which has a setup function seting it as active colorscheme
+  M.base16()
+
   -- cmd([[colorscheme kanagawa]])
   -- cmd[[colorscheme nightfox]]
   -- cmd[[colorscheme ayu-mirage]]
   -- cmd[[colorscheme catppuccin]]
   -- cmd("colorscheme everforest")
-  -- cmd("colorscheme zenbones")
+  -- cmd("colorscheme zenwritten")
 
   -- everforest colorscheme setup
   -- g.everforest_enable_italic = 1
@@ -152,13 +155,14 @@ M.catppuccin = function()
   })
 
   vim.g.catppuccin_flavor = "macchiato" -- latte, frappe, macchiato, mocha
-  vim.cmd([[colorscheme catppuccin]])
+  -- vim.cmd([[colorscheme catppuccin]])
 end
 
 M.zenbones = function()
   -- this overrides the default in lua/core/opts.lua as it's loaded after
   -- vim.opt.background = "light"
-  cmd([[colorscheme zenbones]])
+  -- cmd([[colorscheme zenbones]])
+  -- cmd([[colorscheme zenwritten]])
 end
 
 return M
