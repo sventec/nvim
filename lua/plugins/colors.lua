@@ -161,8 +161,21 @@ end
 M.zenbones = function()
   -- this overrides the default in lua/core/opts.lua as it's loaded after
   -- vim.opt.background = "light"
-  -- cmd([[colorscheme zenbones]])
   -- cmd([[colorscheme zenwritten]])
+
+  local lush = require("lush")
+  local palette = require("zenwritten.palette")
+
+  -- Add or override color specs here
+  local specs = lush.parse(function()
+    return {
+      EyelinerPrimary({ fg = palette.dark.water }),
+      EyelinerSecondary({ fg = palette.dark.sky }),
+    }
+  end)
+
+  -- Apply specs using lush
+  lush.apply(lush.compile(specs))
 end
 
 M.kanagawa = function()

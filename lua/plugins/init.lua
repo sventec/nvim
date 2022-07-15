@@ -263,6 +263,7 @@ local plugins = {
 
   -- versatile & extensible search plugin
   ["nvim-telescope/telescope.nvim"] = {
+    branch = "0.1.x",
     cmd = "Telescope",
     config = function()
       require("plugins.telescope")
@@ -318,6 +319,9 @@ local plugins = {
       require("plugins.others").leap()
     end,
   },
+
+  -- highlights unique characters on line for easier f/F navigation
+  -- ["jinh0/eyeliner.nvim"] = {},
 
   -- toggle boolean values with command
   ["rmagatti/alternate-toggler"] = {
