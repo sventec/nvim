@@ -80,6 +80,13 @@ local plugins = {
     end,
   },
 
+  -- LSP load status in bottom corner of screen
+  ["j-hui/fidget.nvim"] = {
+    config = function()
+      require("plugins.others").fidget()
+    end,
+  },
+
   -- buffers as tabs on top of screen
   ["akinsho/bufferline.nvim"] = {
     after = "nvim-web-devicons",

@@ -4,7 +4,7 @@
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
-function nmap(key, command)
+local function nmap(key, command)
   map("n", key, command, default_opts)
 end
 
@@ -15,7 +15,7 @@ vim.g.maplocalleader = " "
 
 -- native keybinds
 
--- better window navigation
+-- easier window navigation
 nmap("<C-h>", "<C-w>h")
 nmap("<C-j>", "<C-w>j")
 nmap("<C-k>", "<C-w>k")
@@ -85,12 +85,6 @@ map("v", "<leader>P", '"+P', default_opts)
 -- surround current line with comment box (#)
 -- conflicts currently
 -- nmap("<leader>b", "I# <ESC>A #<ESC>yyp<c-v>$r#yykP")
-
--- easier split navigation
-nmap("C-J", "<C-w><C-j>")
-nmap("C-K", "<C-w><C-k>")
-nmap("C-L", "<C-w><C-l>")
-nmap("C-h", "<C-w><C-h>")
 
 -- easier buffer navigation
 nmap("<leader>3", ":b#<CR>")

@@ -136,4 +136,13 @@ M.mdpreview = function()
   vim.g.mkdp_browser = "qutebrowser"
 end
 
+M.fidget = function()
+  local status_ok, fidget = pcall(require, "fidget")
+  if not status_ok then
+    return
+  end
+
+  fidget.setup()
+end
+
 return M

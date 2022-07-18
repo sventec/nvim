@@ -206,6 +206,9 @@ local mappings = {
   },
 }
 
+which_key.setup(setup)
+
+which_key.register(mappings, opts)
 which_key.register({
   l = {
     name = "LSP",
@@ -219,6 +222,3 @@ which_key.register({
   noremap = true, -- use `noremap` when creating keymaps
   nowait = true, -- use `nowait` when creating keymaps
 })
-
-which_key.setup(setup)
-which_key.register(mappings, opts)
