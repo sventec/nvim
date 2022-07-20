@@ -36,7 +36,10 @@ local sources = {
   -- nls.builtins.diagnostics.pydocstyle.with({ extra_args = { "--convention", "google" } }),
 
   -- markdown sources
-  nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }),
+  -- markdownlint rules: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+  -- MD013: line length (too long)
+  -- MD036: no emphasis as heading
+  nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013 MD036" } }),
   nls.builtins.formatting.markdownlint,
 
   -- shell sources

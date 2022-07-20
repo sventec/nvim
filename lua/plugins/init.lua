@@ -188,12 +188,14 @@ local plugins = {
     config = function()
       require("plugins.null-ls")
     end,
+    requires = { "nvim-lua/plenary.nvim" },
   },
 
   -- show function signature when typing
-  ["ray-x/lsp_signature.nvim"] = {
-    after = "null-ls.nvim",
-  },
+  -- alternatively, toggle sig with <C-k> (signature help), K (hover)
+  -- ["ray-x/lsp_signature.nvim"] = {
+  --   after = "null-ls.nvim",
+  -- },
 
   -- maps kj and jk to <esc>
   ["max397574/better-escape.nvim"] = {
