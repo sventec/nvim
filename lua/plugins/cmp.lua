@@ -151,7 +151,7 @@ cmp.setup({
     { name = "nvim_lua" },
     { name = "neorg" },
     { name = "orgmode" },
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 5 },
     { name = "path" },
     -- {
     -- 	name = "dictionary",

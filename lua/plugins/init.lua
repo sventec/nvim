@@ -156,21 +156,21 @@ local plugins = {
     end,
   },
 
-  -- allows for installation & updating of lsp servers
-  ["williamboman/nvim-lsp-installer"] = {
-    opt = true,
+  -- successor to nvim-lsp-installer (installs LSPs)
+  ["williamboman/mason.nvim"] = {
+    module = "mason",
+    -- wants = "mason-lspconfig",
     setup = function()
-      util.packer_lazy_load("nvim-lsp-installer")
-      -- reload the current file so lsp actually starts for it
-      vim.defer_fn(function()
-        vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
-      end, 0)
+      require("mason").setup()
     end,
   },
 
+  -- mason plugin for lspconfig
+  ["williamboman/mason-lspconfig.nvim"] = {},
+
   -- bundle of common lsp server configurations
   ["neovim/nvim-lspconfig"] = {
-    after = "nvim-lsp-installer",
+    -- after = "mason.nvim",
     module = "lspconfig",
     config = function()
       require("plugins.lsp")

@@ -1,14 +1,22 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+-- lsp server configuration
+
+local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not status_ok_lspconfig then
   return
 end
 
-local lspconfig = require("lspconfig")
-
+-- Set desired servers here
 -- Additional servers: gopls (Go), ltex (plaintext - LanguageTool), marksman (Markdown, wiki link completion & etc.)
 local servers = { "jsonls", "sumneko_lua", "pyright" }
 
-lsp_installer.setup({
+-- mason-lspconfig is used to automatically install configured servers
+local status_ok_mlc, mlc = pcall(require, "mason-lspconfig")
+if not status_ok_mlc then
+  return
+end
+
+-- install any configured servers with Mason
+mlc.setup({
   ensure_installed = servers,
 })
 
