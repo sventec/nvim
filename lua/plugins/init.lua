@@ -329,8 +329,12 @@ local plugins = {
     end,
   },
 
-  -- highlights unique characters on line for easier f/F navigation
-  -- ["jinh0/eyeliner.nvim"] = {},
+  -- highlights unique characters on line for easier f/F/t/T navigation
+  ["jinh0/eyeliner.nvim"] = {
+    config = function()
+      require("plugins.others").eyeliner()
+    end,
+  },
 
   -- toggle boolean values with command
   ["rmagatti/alternate-toggler"] = {

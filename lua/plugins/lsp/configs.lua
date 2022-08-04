@@ -1,9 +1,6 @@
 -- lsp server configuration
 
-local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
-if not status_ok_lspconfig then
-  return
-end
+local lspconfig = require("lspconfig")
 
 -- Set desired servers here
 -- Additional servers: gopls (Go), ltex (plaintext - LanguageTool), marksman (Markdown, wiki link completion & etc.)
