@@ -1,4 +1,5 @@
 return {
+  -- cmd = { "py" },
   settings = {
     python = {
       analysis = {

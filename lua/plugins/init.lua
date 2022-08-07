@@ -68,13 +68,12 @@ local plugins = {
     end,
   },
 
-  -- component showing relative location of current symbol
-  -- ["SmiteshP/nvim-gps"] = {},
+  -- component showing relative location of current symbol in lualine
+  ["SmiteshP/nvim-navic"] = {},
 
   -- statusbar at bottom of screen
   ["nvim-lualine/lualine.nvim"] = {
     after = "nvim-web-devicons",
-    -- wants = "nvim-gps",
     config = function()
       require("plugins.lualine")
     end,
@@ -158,11 +157,8 @@ local plugins = {
 
   -- successor to nvim-lsp-installer (installs LSPs)
   ["williamboman/mason.nvim"] = {
-    module = "mason",
+    -- module = "mason",
     -- wants = "mason-lspconfig",
-    setup = function()
-      require("mason").setup()
-    end,
   },
 
   -- mason plugin for lspconfig
@@ -171,25 +167,32 @@ local plugins = {
   -- bundle of common lsp server configurations
   ["neovim/nvim-lspconfig"] = {
     -- after = "mason.nvim",
-    module = "lspconfig",
+    -- module = "lspconfig",
     config = function()
       require("plugins.lsp")
     end,
   },
 
   -- allows definition of lsp settings using json
-  ["tamago324/nlsp-settings.nvim"] = {
-    after = "nvim-lspconfig",
-  },
+  -- ["tamago324/nlsp-settings.nvim"] = {
+  --   after = "nvim-lspconfig",
+  -- },
 
-  -- adds formatters, linters & etc. as lsp sources
+  -- -- adds formatters, linters & etc. as lsp sources
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugins.null-ls")
-    end,
+    -- after = "nvim-lspconfig",
     requires = { "nvim-lua/plenary.nvim" },
   },
+
+  -- adds signature help, docs, completion for nvim Lua API
+  -- configured in lua/plugins/lsp/mason.lua
+  ["folke/lua-dev.nvim"] = {},
+
+  -- provides jsonls access to SchemaStore
+  ["b0o/schemastore.nvim"] = {},
+
+  -- illuminates matching symbols to that under cursor
+  ["RRethy/vim-illuminate"] = {},
 
   -- show function signature when typing
   -- alternatively, toggle sig with <C-k> (signature help), K (hover)
@@ -372,6 +375,11 @@ local plugins = {
     config = function()
       require("plugins.others").trouble()
     end,
+  },
+
+  -- project-wide search and replace helper/UI
+  ["nvim-pack/nvim-spectre"] = {
+    requires = { "nvim-lua/plenary.nvim" },
   },
 
   -- org-like note management with neovim

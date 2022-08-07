@@ -100,6 +100,8 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["G"] = { '<cmd>gg"+yG<cr>', "Copy whole file" },
 
+  ["S"] = { "<cmd>lua require('spectre').open()<CR>", "Open Spectre" },
+
   ["T"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
 
   ["u"] = { "yyp<c-v>$r-", "Underline current line with -" },
@@ -143,7 +145,7 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.formatting({ async = true })<cr>", "Format" },
     h = { "<cmd>lua vim.diagnostic.hide(nil, 0)<cr>", "Hide buf diagnostics" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
