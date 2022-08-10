@@ -36,3 +36,15 @@ ls.add_snippets(nil, {
     }),
   },
 })
+
+ls.add_snippets(nil, {
+  all = {
+    snip({
+      trig = "time",
+      namr = "Date w/ Time",
+      dscr = "Human Readable date with time in format YYY-MM-DD-HHMMSS",
+    }, {
+      partial(os.date, "%Y-%m-%d-%H%M%S"),
+    }),
+  },
+})

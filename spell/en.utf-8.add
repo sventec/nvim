@@ -15,3 +15,7 @@ Bluelight
 qtile
 backend
 AUR
+markdownlint
+keepachangelog
+semver
+v2
