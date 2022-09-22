@@ -23,6 +23,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 nvim_tree.setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
@@ -45,7 +47,8 @@ nvim_tree.setup({
   },
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    -- update_cwd = true,
+    update_root = true,
     ignore_list = {},
   },
   system_open = {
@@ -63,7 +66,6 @@ nvim_tree.setup({
   },
   view = {
     width = 30,
-    height = 30,
     hide_root_folder = false,
     side = "left",
     mappings = {
@@ -74,8 +76,8 @@ nvim_tree.setup({
         { key = "v", cb = tree_cb("vsplit") },
       },
     },
-    number = false,
-    relativenumber = false,
+    number = true,
+    relativenumber = true,
   },
   trash = {
     cmd = "trash",

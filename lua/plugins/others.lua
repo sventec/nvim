@@ -156,4 +156,15 @@ M.eyeliner = function()
   })
 end
 
+M.projects = function()
+  local status_ok, proj = pcall(require, "project_nvim")
+  if not status_ok then
+    return
+  end
+
+  proj.setup()
+  -- Telescope extension to browse projects
+  require("telescope").load_extension("projects")
+end
+
 return M

@@ -37,7 +37,7 @@ null_ls.setup({
     -- markdownlint rules: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
     -- MD013: line length (too long)
     -- MD036: no emphasis as heading
-    diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013 MD036" } }),
+    diagnostics.markdownlint.with({ extra_args = { "-r", "~MD013,~MD036,~MD025" } }),
     formatting.markdownlint,
 
     -- plaintext/language sources

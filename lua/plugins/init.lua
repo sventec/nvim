@@ -106,7 +106,7 @@ local plugins = {
   },
 
   -- render hex colors in editor
-  ["norcalli/nvim-colorizer.lua"] = {
+  ["NvChad/nvim-colorizer.lua"] = {
     event = { "bufread", "bufnewfile" },
     config = function()
       require("colorizer").setup()
@@ -282,6 +282,13 @@ local plugins = {
     end,
   },
 
+  -- project management (workspaces)
+  ["ahmedkhalf/project.nvim"] = {
+    config = function()
+      require("plugins.others").projects()
+    end,
+  },
+
   -- startup dashboard view
   ["goolord/alpha-nvim"] = {
     -- disable = true,
@@ -383,16 +390,16 @@ local plugins = {
   },
 
   -- org-like note management with neovim
-  ["nvim-neorg/neorg"] = {
-    config = function()
-      require("plugins.neorg")
-    end,
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-neorg/neorg-telescope",
-    },
-    -- tag = "*",
-  },
+  -- ["nvim-neorg/neorg"] = {
+  --   config = function()
+  --     require("plugins.neorg")
+  --   end,
+  --   requires = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-neorg/neorg-telescope",
+  --   },
+  --   -- tag = "*",
+  -- },
 
   -- intended as a clone of orgmode
   ["nvim-orgmode/orgmode"] = {

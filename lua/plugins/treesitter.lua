@@ -35,8 +35,8 @@ require("nvim-treesitter.configs").setup({
   },
   highlight = {
     enable = true, -- false will disable the whole extension
-    disable = { }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = {"org"},
+    disable = {}, -- list of language that will be disabled
+    additional_vim_regex_highlighting = { "org" },
     -- additional_vim_regex_highlighting = true,
   },
   indent = {
@@ -51,7 +51,7 @@ require("nvim-treesitter.configs").setup({
     enable_autocmd = false,
   },
   rainbow = { -- provided by p00f/nvim-ts-rainbow
-    enable = true, -- enable the extension
+    enable = false, -- enable the extension
     extended_mode = true, -- enable for non-bracket delimieters, like 'end'
     max_file_lines = 1000, -- disable for file > 1000 lines
   },
