@@ -167,4 +167,31 @@ M.projects = function()
   require("telescope").load_extension("projects")
 end
 
+M.colorizer = function()
+  local status_ok, colorizer = pcall(require, "colorizer")
+  if not status_ok then
+    return
+  end
+
+  colorizer.setup({
+    filetypes = {
+      "*",
+    },
+    user_default_options = {
+      names = false,
+    },
+  })
+end
+
+M.autolist = function()
+  local status_ok, autolist = pcall(require, "autolist")
+  if not status_ok then
+    return
+  end
+
+  autolist.setup({
+    new_entry_on_o = false,
+  })
+end
+
 return M

@@ -107,9 +107,8 @@ local plugins = {
 
   -- render hex colors in editor
   ["NvChad/nvim-colorizer.lua"] = {
-    event = { "bufread", "bufnewfile" },
     config = function()
-      require("colorizer").setup()
+      require("plugins.others").colorizer()
     end,
   },
 
@@ -408,13 +407,12 @@ local plugins = {
     end,
   },
 
-  -- automatically add next entry of [un]ordered list on <CR>
-  -- ["dkarter/bullets.vim"] = {
-  --   event = { "bufread", "bufnewfile" },
-  --   config = function()
-  --     require("plugins.others").bullets()
-  --   end,
-  -- },
+  -- automatic list extension (bullets, etc.)
+  ["gaoDean/autolist.nvim"] = {
+    config = function()
+      require("plugins.others").autolist()
+    end,
+  },
 
   -- show live markdown preview in browser with :MarkdownPreviewToggle
   ["iamcco/markdown-preview.nvim"] = {
