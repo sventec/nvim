@@ -33,10 +33,10 @@ local settings = {
 }
 
 mason.setup(settings)
-mason_lspconfig.setup {
+mason_lspconfig.setup({
   ensure_installed = servers,
   automatic_installation = true,
-}
+})
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
@@ -54,36 +54,38 @@ for _, server in pairs(servers) do
   server = vim.split(server, "@")[1]
 
   if server == "jsonls" then
-    local jsonls_opts = require "plugins.lsp.settings.jsonls"
+    local jsonls_opts = require("plugins.lsp.settings.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
   if server == "yamlls" then
-    local yamlls_opts = require "plugins.lsp.settings.yamlls"
+    local yamlls_opts = require("plugins.lsp.settings.yamlls")
     opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
   end
 
   if server == "sumneko_lua" then
-    local l_status_ok, lua_dev = pcall(require, "lua-dev")
+    local l_status_ok, lua_dev = pcall(require, "neodev")
     if not l_status_ok then
       return
     end
-    local luadev = lua_dev.setup {
+    local luadev = lua_dev.setup({
       -- add any options here, or leave empty to use the default settings
       lspconfig = {
         on_attach = opts.on_attach,
         capabilities = opts.capabilities,
       },
-    }
+    })
     lspconfig.sumneko_lua.setup(luadev)
-    goto continue
+    -- goto continue
   end
 
   if server == "pyright" then
-    local pyright_opts = require "plugins.lsp.settings.pyright"
+    local pyright_opts = require("plugins.lsp.settings.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  lspconfig[server].setup(opts)
-  ::continue::
+  if server ~= "sumneko_lua" then
+    lspconfig[server].setup(opts)
+  end
+  -- ::continue::
 end

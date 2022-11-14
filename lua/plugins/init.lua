@@ -185,7 +185,7 @@ local plugins = {
 
   -- adds signature help, docs, completion for nvim Lua API
   -- configured in lua/plugins/lsp/mason.lua
-  ["folke/lua-dev.nvim"] = {},
+  ["folke/neodev.nvim"] = {},
 
   -- provides jsonls access to SchemaStore
   ["b0o/schemastore.nvim"] = {},
@@ -413,6 +413,13 @@ local plugins = {
       require("plugins.others").autolist()
     end,
   },
+
+  -- markdown editing assistance
+  -- ["preservim/vim-markdown"] = {
+  --   ft = "markdown",
+  -- },
+
+  ["SidOfc/mkdx"] = {},
 
   -- show live markdown preview in browser with :MarkdownPreviewToggle
   ["iamcco/markdown-preview.nvim"] = {
