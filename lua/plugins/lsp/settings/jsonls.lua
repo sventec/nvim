@@ -1,6 +1,11 @@
 local status_ok, schemastore = pcall(require, "schemastore")
 if not status_ok then
-  return
+  -- return barebones fallback config
+  return {
+    init_options = {
+      provideFormatter = false,
+    },
+  }
 end
 
 return {
