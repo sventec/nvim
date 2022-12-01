@@ -13,6 +13,9 @@ map("", "<Space>", "<Nop>", default_opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- rebind 'gx' as e.g. nvim-tree disables
+nmap("gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+
 -- native keybinds
 
 -- easier window navigation

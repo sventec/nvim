@@ -1,13 +1,22 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
+-- Mason config
+-- Define and configure language servers here
+
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
   return
 end
 
-local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok_1 then
+local mlc_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mlc_ok then
   return
 end
 
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
+  return
+end
+
+-- List of servers to automatically install
 local servers = {
   "cssls",
   "cssmodules_ls",
@@ -19,7 +28,8 @@ local servers = {
   "bashls",
 }
 
-local settings = {
+-- Mason settings
+mason.setup({
   ui = {
     border = "rounded",
     icons = {
@@ -28,47 +38,51 @@ local settings = {
       package_uninstalled = "◍",
     },
   },
+  keymaps = {
+    toggle_package_expand = "<CR>",
+    install_package = "i",
+    update_package = "u",
+    check_package_version = "c",
+    update_all_packages = "U",
+    check_outdated_packages = "C",
+    uninstall_package = "X",
+    cancel_installation = "<C-c>",
+    apply_language_filter = "<C-f>",
+  },
   log_level = vim.log.levels.INFO,
   max_concurrent_installers = 4,
-}
-
-mason.setup(settings)
-mason_lspconfig.setup({
-  ensure_installed = servers,
-  automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-  return
-end
+mason_lspconfig.setup({
+  ensure_installed = servers,
+  automatic_installation = true, -- Automatically install above list of servers
+})
 
-local opts = {}
+-- Configure language server handlers here
+mason_lspconfig.setup_handlers({
+  -- Default handler (for servers not explicitly specified)
+  function(server_name)
+    local opts = {
+      on_attach = require("plugins.lsp.handlers").on_attach,
+      capabilities = require("plugins.lsp.handlers").capabilities,
+    }
 
-for _, server in pairs(servers) do
-  opts = {
-    on_attach = require("plugins.lsp.handlers").on_attach,
-    capabilities = require("plugins.lsp.handlers").capabilities,
-  }
+    local has_opts, s_opts = pcall(require, "plugins.lsp.settings." .. server_name)
+    if has_opts then
+      opts = vim.tbl_deep_extend("force", s_opts, opts)
+    end
 
-  server = vim.split(server, "@")[1]
-
-  if server == "jsonls" then
-    local jsonls_opts = require("plugins.lsp.settings.jsonls")
-    opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-  end
-
-  if server == "yamlls" then
-    local yamlls_opts = require("plugins.lsp.settings.yamlls")
-    opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
-  end
-
-  if server == "sumneko_lua" then
+    lspconfig[server_name].setup(opts)
+  end,
+  -- Handlers with non-default seutp functions defined explicitly below
+  ["sumneko_lua"] = function()
     local n_status_ok, neo_dev = pcall(require, "neodev")
     if not n_status_ok then
+      -- Setup without neodev.nvim if not present
       lspconfig.sumneko_lua.setup({})
       return
     end
+
     -- https://github.com/folke/neodev.nvim
     neo_dev.setup({
       library = {
@@ -83,8 +97,8 @@ for _, server in pairs(servers) do
 
     lspconfig.sumneko_lua.setup({
       lspconfig = {
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = require("plugins.lsp.handlers").on_attach,
+        capabilities = require("plugins.lsp.handlers").capabilities,
       },
       settings = {
         Lua = {
@@ -94,16 +108,5 @@ for _, server in pairs(servers) do
         },
       },
     })
-    -- goto continue
-  end
-
-  if server == "pyright" then
-    local pyright_opts = require("plugins.lsp.settings.pyright")
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
-
-  if server ~= "sumneko_lua" then
-    lspconfig[server].setup(opts)
-  end
-  -- ::continue::
-end
+  end,
+})

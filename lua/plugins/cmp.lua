@@ -158,6 +158,9 @@ cmp.setup({
     -- 	keyword_length = 3,
     -- },
   },
+  completion = {
+    keyword_length = 2,
+  },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,

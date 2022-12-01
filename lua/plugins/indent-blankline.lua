@@ -30,7 +30,7 @@ indent_blankline.setup({
   show_first_indent_level = false,
   show_current_context = true,
   show_current_context_start = false, -- seems to be buggy atm
-  -- use_treesitter = true,
+  use_treesitter = true,
 })
 
 -- vim.g.indent_blankline_context_patterns = {
