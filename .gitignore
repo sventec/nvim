@@ -7,5 +7,5 @@ lua/codestatsapi.lua
 # Ignore any logs
 *.log
 
-# Ignore old nvim config
-.old/*
+# Ignore backups
+*.bak

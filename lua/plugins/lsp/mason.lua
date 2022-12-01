@@ -64,18 +64,36 @@ for _, server in pairs(servers) do
   end
 
   if server == "sumneko_lua" then
-    local l_status_ok, lua_dev = pcall(require, "neodev")
-    if not l_status_ok then
+    local n_status_ok, neo_dev = pcall(require, "neodev")
+    if not n_status_ok then
+      lspconfig.sumneko_lua.setup({})
       return
     end
-    local luadev = lua_dev.setup({
-      -- add any options here, or leave empty to use the default settings
+    -- https://github.com/folke/neodev.nvim
+    neo_dev.setup({
+      library = {
+        enabled = true, -- enable/disable neodev modification of sumneko_lua
+        runtime = true, -- add runtime path
+        types = true, -- add full signature, docs, completion for vim.[api, lsp, treesitter, etc.]
+        plugins = false, -- add installed opt/start plugins in packpath. alternatively, a list of plugins to add.
+      },
+      setup_jsonls = true, -- disable if jsonls is not being used
+      lspconfig = true,
+    })
+
+    lspconfig.sumneko_lua.setup({
       lspconfig = {
         on_attach = opts.on_attach,
         capabilities = opts.capabilities,
       },
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
     })
-    lspconfig.sumneko_lua.setup(luadev)
     -- goto continue
   end
 
