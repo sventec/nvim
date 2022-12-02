@@ -276,6 +276,7 @@ local plugins = {
   ["nvim-telescope/telescope.nvim"] = {
     branch = "0.1.x",
     cmd = "Telescope",
+    module = "telescope",
     config = function()
       require("plugins.telescope")
     end,
@@ -401,11 +402,11 @@ local plugins = {
   -- },
 
   -- intended as a clone of orgmode
-  ["nvim-orgmode/orgmode"] = {
-    config = function()
-      require("plugins.orgmode")
-    end,
-  },
+  -- ["nvim-orgmode/orgmode"] = {
+  --   config = function()
+  --     require("plugins.orgmode")
+  --   end,
+  -- },
 
   -- automatic list extension (bullets, etc.)
   ["gaoDean/autolist.nvim"] = {
