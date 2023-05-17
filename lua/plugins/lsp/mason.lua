@@ -22,7 +22,7 @@ local servers = {
   "cssmodules_ls",
   "html",
   "jsonls",
-  "sumneko_lua",
+  "lua_ls",
   "pyright",
   "yamlls",
   "bashls",
@@ -75,18 +75,18 @@ mason_lspconfig.setup_handlers({
     lspconfig[server_name].setup(opts)
   end,
   -- Handlers with non-default seutp functions defined explicitly below
-  ["sumneko_lua"] = function()
+  ["lua_ls"] = function()
     local n_status_ok, neo_dev = pcall(require, "neodev")
     if not n_status_ok then
       -- Setup without neodev.nvim if not present
-      lspconfig.sumneko_lua.setup({})
+      lspconfig.lua_ls.setup({})
       return
     end
 
     -- https://github.com/folke/neodev.nvim
     neo_dev.setup({
       library = {
-        enabled = true, -- enable/disable neodev modification of sumneko_lua
+        enabled = true, -- enable/disable neodev modification of lua_ls
         runtime = true, -- add runtime path
         types = true, -- add full signature, docs, completion for vim.[api, lsp, treesitter, etc.]
         plugins = false, -- add installed opt/start plugins in packpath. alternatively, a list of plugins to add.
@@ -95,7 +95,7 @@ mason_lspconfig.setup_handlers({
       lspconfig = true,
     })
 
-    lspconfig.sumneko_lua.setup({
+    lspconfig.lua_ls.setup({
       lspconfig = {
         on_attach = require("plugins.lsp.handlers").on_attach,
         capabilities = require("plugins.lsp.handlers").capabilities,
