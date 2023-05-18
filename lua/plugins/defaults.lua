@@ -1,5 +1,6 @@
 -- modifications to LazyVim default specs here
 local python_line_length = "120" -- used by ruff_lsp & null-ls python sources
+
 return {
   -- ==VISUAL== --
   -- disable animated indent scope context highlights
@@ -76,6 +77,14 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       autoformat = false, -- disable autoformat on save
+      capabilities = {
+        textDocument = {
+          foldingRange = { -- capabilities for nvim-ufo
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      },
       servers = {
         pyright = { -- auto install pyright with Mason
           settings = {
