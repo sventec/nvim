@@ -1,5 +1,0 @@
-snippet pcall
-  local status_ok, ${1:name} = pcall(require, "${2:package}")
-  if not status_ok then
-    return
-  end${0}
