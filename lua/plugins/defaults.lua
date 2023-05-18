@@ -61,6 +61,15 @@ return {
       },
     },
   },
+  -- move neo-tree to open on right
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   opts = {
+  --     window = {
+  --       position = "right",
+  --     },
+  --   },
+  -- },
   -- ==LSP/CODE== --
   -- modify LSP config
   {
@@ -89,6 +98,10 @@ return {
         --     },
         --   },
         -- },
+      },
+      diagnostics = {
+        underline = true,
+        -- virtual_text = false,
       },
     },
   },

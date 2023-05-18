@@ -26,5 +26,4 @@ map("v", "<leader>P", '"+P', { silent = true })
 
 -- Telescope lsp document symbols keybind
 -- example: can be used with marksman LSP to search & jump to .md file heading
-map("n", "<leader>sl", "<cmd>Telescope lsp_document_symbols<cr>")
-
+map("n", "<leader>sl", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Search All Symbols" })
