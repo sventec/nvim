@@ -71,6 +71,18 @@ return {
   --     },
   --   },
   -- },
+  -- use classic cmdline instead of popup window
+  {
+    "folke/noice.nvim",
+    opts = {
+      cmdline = {
+        view = "cmdline", -- or cmdline_popup
+      },
+      presets = {
+        command_palette = false, -- floating tab completion w/ cmdline_popup
+      },
+    },
+  },
   -- ==LSP/CODE== --
   -- modify LSP config
   {
