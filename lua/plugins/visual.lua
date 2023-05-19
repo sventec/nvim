@@ -6,7 +6,11 @@ return {
     opts = {
       colorcolumn = { "80", "88", "120" },
       disabled_filetypes = { "alpha", "help", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-      custom_colorcolumn = { text = "80", markdown = "120" },
+      custom_colorcolumn = { -- column overrides for specific languages
+        text = "80",
+        markdown = "120",
+        python = { "88", "120" },
+      },
       scope = "file", -- file, window, line
     },
   },

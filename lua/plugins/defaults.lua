@@ -55,11 +55,11 @@ return {
         "regex",
         "toml",
       },
-      indent = {
-        disable = {
-          "python", -- use vim-python-pep8-indent for indents instead
-        },
-      },
+      -- indent = {
+      --   disable = {
+      --     "python", -- use vim-python-pep8-indent for indents instead
+      --   },
+      -- },
     },
   },
   -- move neo-tree to open on right
@@ -161,4 +161,6 @@ return {
       })
     end,
   },
+  -- disable mini.pairs in faovr of nvim-autopairs
+  { "echasnovski/mini.pairs", enable = false },
 }

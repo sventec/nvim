@@ -1,7 +1,8 @@
 # LazyVim Config - Keybinds
 
 The following document contains references for default and custom LazyVim
-keybinds, to assist with learning and migration.
+keybinds, to assist with learning and migration. A LazyVim custom keybind
+reference is available [here](https://www.lazyvim.org/keymaps).
 
 ## Migrated/Changed Keybinds
 

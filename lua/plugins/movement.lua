@@ -13,7 +13,7 @@ return {
       completion = false, -- if the tabkey is used in a completion pum
       ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
     },
-    event = "BufEnter",
+    event = "BufReadPre",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "L3MON4D3/LuaSnip",
