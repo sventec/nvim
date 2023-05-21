@@ -24,6 +24,6 @@ map("n", "<leader>P", '"+P')
 map("v", "<leader>p", '"+p', { silent = true })
 map("v", "<leader>P", '"+P', { silent = true })
 
--- Telescope lsp document symbols keybind
--- example: can be used with marksman LSP to search & jump to .md file heading
-map("n", "<leader>sl", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Search All Symbols" })
+-- unbind LazyVim keybind that shadows 'gq'/'gw' formatting
+-- https://github.com/LazyVim/LazyVim/blob/b227d9727a7ae1f0ad48504d613fb099dc9c461b/lua/lazyvim/config/keymaps.lua#L67
+vim.cmd.unmap("gw")

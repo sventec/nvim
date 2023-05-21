@@ -83,6 +83,20 @@ return {
       },
     },
   },
+  -- add additional Telescope keybind
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      -- stylua: ignore
+      {
+        -- Telescope lsp document symbols keybind
+        -- example: can be used with marksman LSP to search & jump to .md file heading
+        "<leader>sl",
+        function() require("telescope.builtin").lsp_document_symbols() end,
+        desc = "Search All Symbols",
+      },
+    },
+  },
   -- ==LSP/CODE== --
   -- modify LSP config
   {
@@ -155,7 +169,7 @@ return {
         -- bash (shfmt already present in default source list)
         nls.builtins.diagnostics.shellcheck,
         -- markdown
-        nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }),  -- disable line length
+        nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
         -- yaml
         nls.builtins.diagnostics.yamllint,
       })
