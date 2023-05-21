@@ -31,4 +31,13 @@ return {
       end)
     end,
   },
+  -- add hints for unique chars on line for f/F/t/T
+  {
+    "jinh0/eyeliner.nvim",
+    event = "VeryLazy",
+    opts = {
+      highlight_on_key = true,
+      dim = true,
+    },
+  },
 }
