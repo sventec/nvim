@@ -18,6 +18,3 @@ opt.foldlevel = 99 -- set all folds open by default
 opt.linebreak = true -- wrap on word boundaries
 opt.colorcolumn = { "81", "89", "121" } -- vertical marker at columns 81, 89, 121
 -- opt.signcolumn = "yes:2" -- display git gutter & diagnostics in separate columns, always visible
-
--- ==misc. QOL== --
-cmd([[set cindent cinkeys-=0#]]) -- indenting with > and < also indents comments

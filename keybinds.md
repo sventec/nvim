@@ -17,3 +17,4 @@ These binds are different on this LazyVim setup vs. previous 'pure' nvim setup.
 - Telescope - show git files: `<M-i>`
 - Telescope - show cwd files only: `<M-c>`
 - Noice - dismiss all notification popups: `<leader>un` / `<leader>snd`
+- vim-illuminate - move to prev/next occurrence of symbol under cursor: `[[` / `]]`
