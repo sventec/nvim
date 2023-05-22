@@ -7,9 +7,11 @@ reference is available [here](https://www.lazyvim.org/keymaps).
 ## Migrated/Changed Keybinds
 
 These binds are different on this LazyVim setup vs. previous 'pure' nvim setup.
+Some may have been added in this config specifically.
 
 - Clear search highlight: `<esc>` - insert & normal
 - View line diagnostics: `<leader>cd`
+- LuaSnip prev/next placeholder: `<C-h>` / `<C-l>`
 
 ## New Keybinds
 

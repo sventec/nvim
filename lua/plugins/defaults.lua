@@ -166,7 +166,6 @@ return {
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
         nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
-
         -- ansible
         nls.builtins.diagnostics.ansiblelint,
         -- bash (shfmt already present in default source list)
@@ -201,5 +200,17 @@ return {
       -- path relative to $MYVIMRC
       require("luasnip.loaders.from_vscode").lazy_load({ paths = "./my_snippets" })
     end,
+    -- stylua: ignore
+    keys = {
+      {
+        "<C-l>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true, silent = true, mode = "i",
+      },
+      { "<C-l>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<C-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
   },
 }

@@ -4,11 +4,11 @@
     "snippets": [
       {
         "language" : ["markdown"],
-        "path": "./my_snippets/markdown.json"
+        "path": "./markdown.json"
       },
       {
         "language" : ["python"],
-        "path": "./my_snippets/python.json"
+        "path": "./python.json"
       }
     ]
   }
