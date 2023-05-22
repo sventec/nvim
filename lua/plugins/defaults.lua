@@ -35,14 +35,6 @@ return {
       },
     },
   },
-  {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        numbers = "ordinal",
-      },
-    },
-  },
   -- auto install additional treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
@@ -126,6 +118,13 @@ return {
             },
           },
         },
+        jsonls = {
+          -- lazy-load schemastore when needed
+          on_new_config = function(new_config)
+            new_config.settings.yaml.schemas = new_config.settings.yaml.schemas or {}
+            vim.list_extend(new_config.settings.yaml.schemas, require("schemastore").yaml.schemas())
+          end,
+        },
         -- ruff_lsp = {
         --   init_options = {
         --     settings = {
@@ -150,6 +149,7 @@ return {
         "ruff",
         "reorder-python-imports",
         "yamllint",
+        "yaml-language-server",
       })
     end,
   },
@@ -158,21 +158,27 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources, {
+      -- opts.sources = vim.list_extend(opts.sources, {})
+      -- overwrite default soruces
+      opts.sources = {
         -- python
         nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
         nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
+
         -- ansible
         nls.builtins.diagnostics.ansiblelint,
         -- bash (shfmt already present in default source list)
         nls.builtins.diagnostics.shellcheck,
+        nls.builtins.formatting.shfmt,
+        -- lua
+        nls.builtins.formatting.stylua,
         -- markdown
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
         -- yaml
         nls.builtins.diagnostics.yamllint,
-      })
+      }
     end,
   },
   {
@@ -183,7 +189,17 @@ return {
     end,
   },
   -- disable mini.pairs in faovr of nvim-autopairs
-  { "echasnovski/mini.pairs", enable = false },
+  { "echasnovski/mini.pairs", enabled = false },
   -- disable flit.nvim in favor of traditional f/F/t/T movement
-  { "ggandor/flit.nvim", enable = false },
+  { "ggandor/flit.nvim", enabled = false },
+  -- add additional snippets from nvim/snippets directory
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      -- load snipmate *.snipppets files
+      -- require("luasnip.loaders.from_snipmate").lazy_load()
+      -- path relative to $MYVIMRC
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = "./my_snippets" })
+    end,
+  },
 }
