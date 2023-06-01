@@ -75,7 +75,7 @@ return {
       },
     },
   },
-  -- add additional Telescope keybind
+  -- add additional Telescope keybinds
   {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -83,9 +83,18 @@ return {
       {
         -- Telescope lsp document symbols keybind
         -- example: can be used with marksman LSP to search & jump to .md file heading
-        "<leader>sl",
+        "<leader>sL",
         function() require("telescope.builtin").lsp_document_symbols() end,
         desc = "Search All Symbols",
+      },
+      {
+        -- Telescope lsp references under cursor keybind
+        -- See all references to lsp symbol under cursor
+        "<leader>sl",
+        function()
+          require("telescope.builtin").lsp_references()
+        end,
+        desc = "Symbol Under Cursor References",
       },
     },
   },
