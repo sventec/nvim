@@ -123,20 +123,30 @@ return {
         },
       },
       servers = {
-        pyright = { -- auto install pyright with Mason
+        pylsp = { -- after server installation run :PylspInstall pylsp-rope
           settings = {
-            python = {
-              analysis = {
-                -- typeCheckingMode = "basic",
-                -- diagnosticMode = "workspace",
-                inlayHints = {
-                  variableTypes = true,
-                  functionReturnTypes = true,
-                },
+            pylsp = {
+              plugins = {
+                autopep8 = { enabled = false },
+                mccabe = { enabled = false },
+                pycodestyle = { enabled = false },
+                pyflakes = { enabled = false },
+                yapf = { enabled = false },
               },
             },
           },
         },
+        -- pyright = {}, -- included to ensure autoinstall
+        -- pyright = { -- auto install pyright with Mason
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         -- typeCheckingMode = "basic",
+        --         -- diagnosticMode = "workspace",
+        --       },
+        --     },
+        --   },
+        -- },
         jsonls = {
           -- lazy-load schemastore when needed
           on_new_config = function(new_config)
@@ -164,6 +174,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "black",
+        "mypy",
         -- "ruff-lsp",
         "ruff",
         "reorder-python-imports",
@@ -182,6 +193,7 @@ return {
       -- overwrite default soruces
       opts.sources = {
         -- python
+        nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--ignore-missing-imports" } }),
         nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
