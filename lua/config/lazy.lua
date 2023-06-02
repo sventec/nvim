@@ -12,7 +12,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
-    { import = "lazyvim.plugins.extras.formatting.prettier" }, -- prettierd formatting
     { import = "lazyvim.plugins.extras.util.project"}, -- switch projects
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins

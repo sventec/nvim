@@ -40,4 +40,16 @@ return {
       dim = true,
     },
   },
+  -- show explanation for regex under cursor
+  {
+    "bennypowers/nvim-regexplainer",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      filetypes = { "js", "python" },
+    },
+  },
 }

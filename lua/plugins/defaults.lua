@@ -81,10 +81,20 @@ return {
     keys = {
       -- stylua: ignore
       {
+        -- generate docstring with neogen
+        "<leader>cD",
+        function()
+          require("neogen").generate({})
+        end,
+        desc = "Generate Docstring",
+      },
+      {
         -- Telescope lsp document symbols keybind
         -- example: can be used with marksman LSP to search & jump to .md file heading
         "<leader>sL",
-        function() require("telescope.builtin").lsp_document_symbols() end,
+        function()
+          require("telescope.builtin").lsp_document_symbols()
+        end,
         desc = "Search All Symbols",
       },
       {
@@ -159,6 +169,7 @@ return {
         "reorder-python-imports",
         "yamllint",
         "yaml-language-server",
+        "prettierd",
       })
     end,
   },
@@ -180,12 +191,16 @@ return {
         -- bash (shfmt already present in default source list)
         nls.builtins.diagnostics.shellcheck,
         nls.builtins.formatting.shfmt,
+        nls.builtins.formatting.beautysh,
         -- lua
         nls.builtins.formatting.stylua,
         -- markdown
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
+        nls.builtins.formatting.markdownlint,
         -- yaml
         nls.builtins.diagnostics.yamllint,
+        -- misc. (markdown, html, etc.)
+        nls.builtins.formatting.prettierd,
       }
     end,
   },

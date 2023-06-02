@@ -20,4 +20,20 @@ return {
       },
     },
   },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {
+      enabled = true,
+      snippet_engine = "luasnip",
+      languages = {
+        python = {
+          template = {
+            -- google_docstrings, numpydoc, or reST
+            annotation_convention = "google_docstrings",
+          },
+        },
+      },
+    },
+  },
 }

@@ -20,3 +20,7 @@ Some may have been added in this config specifically.
 - Telescope - show cwd files only: `<M-c>`
 - Noice - dismiss all notification popups: `<leader>un` / `<leader>snd`
 - vim-illuminate - move to prev/next occurrence of symbol under cursor: `[[` / `]]`
+- autopairs - insert mode, insert closing pair: `<M-e>`
+  - Insert mode: enter opening char (e.g. `"`, `(`), then `<M-e>` and select location for closing char
+- regexplainer - explain regex under cursor: `gR`
+- mini.surround surround-based keybinds: `gz*`
