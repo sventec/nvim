@@ -81,14 +81,6 @@ return {
     keys = {
       -- stylua: ignore
       {
-        -- generate docstring with neogen
-        "<leader>cD",
-        function()
-          require("neogen").generate({})
-        end,
-        desc = "Generate Docstring",
-      },
-      {
         -- Telescope lsp document symbols keybind
         -- example: can be used with marksman LSP to search & jump to .md file heading
         "<leader>sL",

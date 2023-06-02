@@ -23,6 +23,8 @@ return {
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
+    -- stylua: ignore
+    keys = { { "<leader>cD", function() require("neogen").generate({}) end, desc = "Generate Docstring", } },
     opts = {
       enabled = true,
       snippet_engine = "luasnip",
