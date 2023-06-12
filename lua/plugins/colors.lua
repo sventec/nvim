@@ -1,4 +1,5 @@
 -- colorscheme installation, confguration
+local Util = require("lazy.core.util")
 return {
   -- set colorscheme
   {
@@ -17,10 +18,14 @@ return {
       "rktjmp/lush.nvim",
     },
     lazy = true,
+    -- stylua: ignore
+    keys = { { "<leader>uC", function() Util.telescope("colorscheme", { enable_preview = true }) end, desc = "Colorscheme with preview" } },
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    -- stylua: ignore
+    keys = { { "<leader>uC", function() Util.telescope("colorscheme", { enable_preview = true }) end, desc = "Colorscheme with preview" } },
     -- lazy = true,
     opts = {
       flavour = "macchiato", -- latte, frappe, macchiato, mocha
@@ -53,10 +58,17 @@ return {
       },
     },
   },
-  { "rebelot/kanagawa.nvim", lazy = true },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    -- stylua: ignore
+    keys = { { "<leader>uC", function() Util.telescope("colorscheme", { enable_preview = true }) end, desc = "Colorscheme with preview" } },
+  },
   {
     "Shatur/neovim-ayu",
     lazy = true,
+    -- stylua: ignore
+    keys = { { "<leader>uC", function() Util.telescope("colorscheme", { enable_preview = true }) end, desc = "Colorscheme with preview" } },
     config = function()
       require("ayu").setup({
         mirage = true,
