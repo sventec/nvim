@@ -24,3 +24,4 @@ Some may have been added in this config specifically.
   - Insert mode: enter opening char (e.g. `"`, `(`), then `<M-e>` and select location for closing char
 - regexplainer - explain regex under cursor: `gR`
 - mini.surround surround-based keybinds: `gz*`
+- edgy.nvim - next/previous window: `[w` / `]w`
