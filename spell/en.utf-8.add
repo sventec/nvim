@@ -5,3 +5,4 @@ config
 keybind
 semver
 Neovim
+codestats

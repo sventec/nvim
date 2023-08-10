@@ -1,5 +1,5 @@
 -- colorscheme installation, confguration
-local Util = require("lazy.core.util")
+local Util = require("lazyvim.util")
 return {
   -- set colorscheme
   {
@@ -33,6 +33,7 @@ return {
       integrations = {
         alpha = true,
         cmp = true,
+        flash = true,
         gitsigns = true,
         illuminate = true,
         indent_blankline = {
