@@ -170,8 +170,8 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "black",
         "mypy",
-        -- "ruff-lsp",
-        "ruff",
+        "ruff-lsp",
+        -- "ruff",
         "reorder-python-imports",
         "yamllint",
         "yaml-language-server",
@@ -189,7 +189,7 @@ return {
       opts.sources = {
         -- python
         nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--ignore-missing-imports" } }),
-        nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
+        -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
         nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
