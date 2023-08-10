@@ -104,6 +104,11 @@ return {
   -- modify LSP config
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- change a keymap
+      keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
+    end,
     opts = {
       autoformat = false, -- disable autoformat on save
       capabilities = {
@@ -115,44 +120,42 @@ return {
         },
       },
       servers = {
-        pylsp = { -- after server installation run :PylspInstall pylsp-rope
-          settings = {
-            pylsp = {
-              plugins = {
-                autopep8 = { enabled = false },
-                mccabe = { enabled = false },
-                pycodestyle = { enabled = false },
-                pyflakes = { enabled = false },
-                yapf = { enabled = false },
-              },
-            },
-          },
-        },
-        -- pyright = {}, -- included to ensure autoinstall
-        -- pyright = { -- auto install pyright with Mason
+        -- pylsp = { -- after server installation run :PylspInstall pylsp-rope
         --   settings = {
-        --     python = {
-        --       analysis = {
-        --         -- typeCheckingMode = "basic",
-        --         -- diagnosticMode = "workspace",
+        --     pylsp = {
+        --       plugins = {
+        --         autopep8 = { enabled = false },
+        --         mccabe = { enabled = false },
+        --         pycodestyle = { enabled = false },
+        --         pyflakes = { enabled = false },
+        --         yapf = { enabled = false },
         --       },
         --     },
         --   },
         -- },
-        jsonls = {
-          -- lazy-load schemastore when needed
-          on_new_config = function(new_config)
-            new_config.settings.yaml.schemas = new_config.settings.yaml.schemas or {}
-            vim.list_extend(new_config.settings.yaml.schemas, require("schemastore").yaml.schemas())
-          end,
+        -- pyright = {}, -- included to ensure autoinstall
+        pyright = { -- auto install pyright with Mason
+          settings = {
+            pyright = {
+              autoImportCompletion = true,
+            },
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly", -- "workspace"
+                useLibraryCodeForTypes = false,
+                -- typeCheckingMode = "basic",
+              },
+            },
+          },
         },
-        -- ruff_lsp = {
-        --   init_options = {
-        --     settings = {
-        --       args = { "--line-length", python_line_length },
-        --     },
-        --   },
-        -- },
+        ruff_lsp = {
+          init_options = {
+            settings = {
+              args = { "--line-length", python_line_length },
+            },
+          },
+        },
       },
       diagnostics = {
         underline = true,
@@ -217,8 +220,6 @@ return {
   },
   -- disable mini.pairs in faovr of nvim-autopairs
   { "echasnovski/mini.pairs", enabled = false },
-  -- disable flit.nvim in favor of traditional f/F/t/T movement
-  { "ggandor/flit.nvim", enabled = false },
   -- add additional snippets from nvim/snippets directory
   {
     "L3MON4D3/LuaSnip",
@@ -239,6 +240,15 @@ return {
       },
       { "<C-l>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<C-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
+  },
+  -- disable f/F/t/T motions for flash.nvim in favor of default motions
+  {
+    "folke/flash.nvim",
+    opts = {
+      char = {
+        enabled = false,
+      },
     },
   },
 }

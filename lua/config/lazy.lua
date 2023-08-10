@@ -11,12 +11,21 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
     { import = "lazyvim.plugins.extras.util.project" }, -- switch projects
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight colorcodes
     -- { import = "lazyvim.plugins.extras.vscode"}, -- vim.g.vscode-aware. enable only plugins with vscode=true spec, keymap changes.
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
+    -- python basics (added mostly for debug/test setups)
+    { import = "lazyvim.plugins.extras.lang.python" },
+    -- python semantic highlighting
+    -- { import = "lazyvim.plugins.extras.lang.python-semshi" },  -- disabled due to error when opening py file on start
+    -- additional langs
+    { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
+    { import = "lazyvim.plugins.extras.lang.yaml" },
+    -- { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "plugins" },
   },
   defaults = {
