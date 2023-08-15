@@ -246,8 +246,11 @@ return {
   {
     "folke/flash.nvim",
     opts = {
-      char = {
-        enabled = false,
+      modes = {
+        char = {
+          enabled = false,
+          jump_labels = false,
+        },
       },
     },
   },
