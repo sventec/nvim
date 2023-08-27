@@ -19,7 +19,8 @@ require("lazy").setup({
     -- python basics (added mostly for debug/test setups)
     { import = "lazyvim.plugins.extras.lang.python" },
     -- python semantic highlighting
-    -- { import = "lazyvim.plugins.extras.lang.python-semshi" },  -- disabled due to error when opening py file on start
+    -- After install, run :UpdateRemotePlugins
+    { import = "lazyvim.plugins.extras.lang.python-semshi" }, -- disabled due to error when opening py file on start
     -- additional langs
     { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
     { import = "lazyvim.plugins.extras.lang.yaml" },

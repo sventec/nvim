@@ -204,6 +204,7 @@ return {
         -- markdown
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
         nls.builtins.formatting.markdownlint,
+        nls.builtins.diagnostics.vale,
         -- yaml
         nls.builtins.diagnostics.yamllint,
         -- misc. (markdown, html, etc.)
@@ -246,8 +247,10 @@ return {
   {
     "folke/flash.nvim",
     opts = {
-      char = {
-        enabled = false,
+      modes = {
+        char = {
+          enabled = false,
+        },
       },
     },
   },
