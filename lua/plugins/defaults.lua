@@ -143,7 +143,7 @@ return {
               analysis = {
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly", -- "workspace"
-                useLibraryCodeForTypes = false,
+                useLibraryCodeForTypes = true,
                 -- typeCheckingMode = "basic",
               },
             },
@@ -188,10 +188,12 @@ return {
       -- overwrite default soruces
       opts.sources = {
         -- python
-        nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" } }),
+        nls.builtins.diagnostics.mypy.with({
+          extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
+        }),
         -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
-        nls.builtins.formatting.reorder_python_imports,
+        nls.builtins.formatting.reorder_python_imports.with({ extra_args = { "--application-directories=.:src" } }),
         nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
         -- ansible
         nls.builtins.diagnostics.ansiblelint,
@@ -252,6 +254,34 @@ return {
           jump_labels = false,
         },
       },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      on_attach = function(buffer)
+        -- Reference from https://github.com/LazyVim/LazyVim/blob/f9dadc11b39fb0b027473caaab2200b35c9f0c8b/lua/lazyvim/plugins/editor.lua#L332C7-L353C1
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        end
+
+        -- stylua: ignore start
+        map("n", "]h", gs.next_hunk, "Next Hunk")
+        map("n", "[h", gs.prev_hunk, "Prev Hunk")
+        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+        map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+        map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+        map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>ghb", function() gs.blame_line() end, "Blame Line")  -- Changed keybind
+        map("n", "<leader>ghB", function() gs.blame_line({ full = true }) end, "Blame Line With Preview")  -- Added keybind
+        map("n", "<leader>ghd", gs.diffthis, "Diff This")
+        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+      end,
     },
   },
 }
