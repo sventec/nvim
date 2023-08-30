@@ -188,7 +188,7 @@ return {
       -- overwrite default soruces
       opts.sources = {
         -- python
-        nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--ignore-missing-imports" } }),
+        nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" } }),
         -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
@@ -204,7 +204,6 @@ return {
         -- markdown
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
         nls.builtins.formatting.markdownlint,
-        nls.builtins.diagnostics.vale,
         -- yaml
         nls.builtins.diagnostics.yamllint,
         -- misc. (markdown, html, etc.)
