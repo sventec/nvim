@@ -65,13 +65,11 @@ return {
   -- select python virtual environment (venv)
   {
     "linux-cultist/venv-selector.nvim",
-    cmd = "VenvSelect",
     opts = {
       search_venv_managers = true, -- search venv manager (Poetry, Pipenv) locations for venv
       search_workspace = true, -- search current workspace for venv
       search = false, -- only search above locations
       name = { "venv", ".venv" },
     },
-    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }
