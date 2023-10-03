@@ -181,7 +181,8 @@ return {
       opts.sources = {
         -- python
         nls.builtins.diagnostics.mypy.with({
-          extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
+          extra_args = { "--ignore-missing-imports" },
+          -- extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
         }),
         -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
