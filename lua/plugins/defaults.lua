@@ -5,14 +5,6 @@ return {
   -- ==VISUAL== --
   -- disable animated indent scope context highlights
   { "echasnovski/mini.indentscope", enabled = false },
-  -- add scope context highlighting to indent-blankline
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = {
-      show_current_context = true,
-      -- show_current_context_start = true,
-    },
-  },
   -- remove lualine pointed arrow separators in favor of vertical lines
   {
     "nvim-lualine/lualine.nvim",
@@ -181,14 +173,16 @@ return {
   },
   -- add additional null-ls sources
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       -- opts.sources = vim.list_extend(opts.sources, {})
       -- overwrite default soruces
       opts.sources = {
         -- python
-        nls.builtins.diagnostics.mypy.with({ extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" } }),
+        nls.builtins.diagnostics.mypy.with({
+          extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
+        }),
         -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
         nls.builtins.formatting.reorder_python_imports,
@@ -202,7 +196,7 @@ return {
         -- lua
         nls.builtins.formatting.stylua,
         -- markdown
-        nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }), -- disable line length
+        nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013", "MD018", "MD041", "MD012" } }), -- disable line length, atx hashtag heading, first line H1, multiple blank lines
         nls.builtins.formatting.markdownlint,
         -- yaml
         nls.builtins.diagnostics.yamllint,

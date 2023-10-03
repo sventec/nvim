@@ -1,8 +1,14 @@
 {
   "CHANGELOG": {
     "prefix": "CHANGELOG",
-    "body": [
-      "testing, WIP"
-    ]
+    "body": ["testing, WIP"]
+  },
+  "valeoff": {
+    "prefix": "vale-off",
+    "body": ["<!-- vale off -->"]
+  },
+  "valeon": {
+    "prefix": "vale-on",
+    "body": ["<!-- vale on -->"]
   }
 }
