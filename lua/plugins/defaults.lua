@@ -102,7 +102,6 @@ return {
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
     end,
     opts = {
-      autoformat = false, -- disable autoformat on save
       capabilities = {
         textDocument = {
           foldingRange = { -- capabilities for nvim-ufo
