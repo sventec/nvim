@@ -55,8 +55,11 @@ git clone https://github.com/sventec/nvim.git ~/.config/nvim
 Once the dotfiles have been cloned, start `nvim` for the first time, and allow
 all plugins to install. Once all plugins have installed, quit Neovim and reopen it.
 
-After Neovim reopens, with all plugins activated, run the following commands.
-These only need to be run now, not after every time opening `nvim`.
+If, after reopening Neovim, there are still missing tools or errors are being
+generated, try the following steps. These should be automatically executed
+during plugin installation, but can be run again manually if needed.
+
+Open any file with `nvim`, and run the following commands:
 
 - `:MasonUpdate` to install required formatters, linters, and LSPs
 - `:UpdateRemotePlugins` to set up `python-semshi`
