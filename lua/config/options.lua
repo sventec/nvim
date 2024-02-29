@@ -7,6 +7,9 @@ local cmd = vim.cmd
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
 
+-- disable format on save (works w/ LSP, format functions, etc. in LazyVim)
+vim.g.autoformat = false
+
 -- folding
 -- opt.foldenable = false -- disable folding entirely
 -- opt.foldmethod = "marker" -- use {{{ / }}} to mark folds

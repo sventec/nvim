@@ -29,8 +29,9 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
 
-    -- TEMP: only here until migration to conform.nvim and nvim-lint
-    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    --- -- other editing --
+    -- use prettier extra to autoconfigure all supported filetypes with conform.nvim
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },

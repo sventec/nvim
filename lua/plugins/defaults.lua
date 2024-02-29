@@ -1,5 +1,5 @@
 -- modifications to LazyVim default specs here
-local python_line_length = "120" -- used by ruff_lsp & null-ls python sources
+-- local python_line_length = "120" -- used by ruff_lsp & null-ls python sources
 
 return {
   -- ==VISUAL== --
@@ -145,17 +145,19 @@ return {
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly", -- "workspace"
                 useLibraryCodeForTypes = true,
-                -- typeCheckingMode = "basic",
+                -- typeCheckingMode = "basic", -- default is "standard"
               },
             },
           },
         },
         ruff_lsp = {
-          init_options = {
-            settings = {
-              args = { "--line-length", python_line_length },
-            },
-          },
+          -- this can instead be set globally in ~/.config/ruff/pyproject.toml
+          -- doing so allows local project configs to override this setting
+          --   init_options = {
+          --     settings = {
+          --       args = { "--line-length", python_line_length },
+          --     },
+          --   },
         },
       },
       diagnostics = {
@@ -163,59 +165,6 @@ return {
         -- virtual_text = false,
       },
     },
-  },
-  -- add additional tools for Mason auto install
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        -- "black",
-        "mypy",
-        "ruff-lsp",
-        "pyright",
-        -- "ruff",
-        -- "reorder-python-imports",
-        "yamllint",
-        -- "yaml-language-server",
-        "prettierd",
-      })
-    end,
-  },
-  -- add additional null-ls sources
-  {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      -- opts.sources = vim.list_extend(opts.sources, {})
-      -- overwrite default soruces
-      opts.sources = {
-        -- python
-        nls.builtins.diagnostics.mypy.with({
-          extra_args = { "--ignore-missing-imports" },
-          -- extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
-        }),
-        -- ruff provided via ruff_lsp in lazyvim.plugins.extras.lang.python
-        -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
-        -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
-        -- nls.builtins.formatting.reorder_python_imports.with({ extra_args = { "--application-directories=.:src" } }),  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
-        nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
-        -- ansible
-        nls.builtins.diagnostics.ansiblelint,
-        -- bash (shfmt already present in default source list)
-        -- nls.builtins.diagnostics.shellcheck,  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
-        nls.builtins.formatting.shfmt,
-        -- nls.builtins.formatting.beautysh,  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
-        -- lua
-        nls.builtins.formatting.stylua,
-        -- markdown
-        nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013", "MD018", "MD041", "MD012" } }), -- disable line length, atx hashtag heading, first line H1, multiple blank lines
-        nls.builtins.formatting.markdownlint,
-        -- yaml
-        nls.builtins.diagnostics.yamllint,
-        -- misc. (markdown, html, etc.)
-        nls.builtins.formatting.prettierd,
-      }
-    end,
   },
   {
     "hrsh7th/nvim-cmp",
