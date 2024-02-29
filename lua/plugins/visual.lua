@@ -52,7 +52,7 @@ return {
       { "gR", function() require("regexplainer").toggle() end, desc = "Toggle Regexplainer", },
     },
     opts = {
-      filetypes = { "js", "python" },
+      filetypes = { "js", "python", "text" },
     },
   },
   -- provide document symbol outline window

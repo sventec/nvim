@@ -1,5 +1,16 @@
 -- formatting (code format, etc.)
 return {
+  -- replacement for null-ls, code formatters
+  -- {
+  --   "stevearc/conform.nvim",
+  --   opts = {
+  --     -- formatter options, custom formatters
+  --     -- formatters = {},
+  --     formatters_by_ft = {
+  --       python = {""}
+  --     },
+  --   },
+  -- },
   { "vimjas/vim-python-pep8-indent", enabled = false },
   -- bracket pairs, replacing built-in mini.pairs
   {
@@ -20,6 +31,7 @@ return {
       },
     },
   },
+  -- autogenerate docstrings from code
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",

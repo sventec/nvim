@@ -5,6 +5,16 @@ return {
   -- ==VISUAL== --
   -- disable animated indent scope context highlights
   { "echasnovski/mini.indentscope", enabled = false },
+  -- add visual customizations to indent-blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = {
+      scope = {
+        enabled = true,
+        show_start = false,
+      },
+    },
+  },
   -- remove lualine pointed arrow separators in favor of vertical lines
   {
     "nvim-lualine/lualine.nvim",
@@ -159,13 +169,14 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        "black",
+        -- "black",
         "mypy",
         "ruff-lsp",
+        "pyright",
         -- "ruff",
-        "reorder-python-imports",
+        -- "reorder-python-imports",
         "yamllint",
-        "yaml-language-server",
+        -- "yaml-language-server",
         "prettierd",
       })
     end,
@@ -183,16 +194,17 @@ return {
           extra_args = { "--ignore-missing-imports" },
           -- extra_args = { "--install-types", "--non-interactive", "--ignore-missing-imports" },
         }),
+        -- ruff provided via ruff_lsp in lazyvim.plugins.extras.lang.python
         -- nls.builtins.diagnostics.ruff.with({ extra_args = { "--line-length", python_line_length } }),
         -- nls.builtins.formatting.ruff.with({ extra_args = { "--line-length", python_line_length } }),  -- ruff best-effort autofixer
-        nls.builtins.formatting.reorder_python_imports.with({ extra_args = { "--application-directories=.:src" } }),
+        -- nls.builtins.formatting.reorder_python_imports.with({ extra_args = { "--application-directories=.:src" } }),  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
         nls.builtins.formatting.black.with({ extra_args = { "--fast", "-l", python_line_length } }),
         -- ansible
         nls.builtins.diagnostics.ansiblelint,
         -- bash (shfmt already present in default source list)
-        nls.builtins.diagnostics.shellcheck,
+        -- nls.builtins.diagnostics.shellcheck,  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
         nls.builtins.formatting.shfmt,
-        nls.builtins.formatting.beautysh,
+        -- nls.builtins.formatting.beautysh,  -- deprecated (https://github.com/nvimtools/none-ls.nvim/issues/58)
         -- lua
         nls.builtins.formatting.stylua,
         -- markdown
