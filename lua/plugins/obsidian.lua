@@ -28,7 +28,6 @@ return {
       "BufNewFile " .. vault .. "/**.md",
       "BufReadPre " .. vault .. "/**.md",
     },
-    ft = "markdown",
     opts = {
       workspaces = {
         {
