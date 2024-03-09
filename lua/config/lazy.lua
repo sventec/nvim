@@ -25,6 +25,7 @@ require("lazy").setup({
     --- -- additional (not python) languages --
     { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
     { import = "lazyvim.plugins.extras.lang.yaml" },
+    -- { import = "lazyvim.plugins.extras.lang.ansible" },
     -- { import = "lazyvim.plugins.extras.lang.docker" },
     -- { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
@@ -32,6 +33,7 @@ require("lazy").setup({
     --- -- other editing --
     -- use prettier extra to autoconfigure all supported filetypes with conform.nvim
     { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- harpoon added, configured in plugins/movement.lua
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },
