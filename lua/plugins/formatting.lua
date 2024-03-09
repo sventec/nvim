@@ -66,7 +66,7 @@ return {
         -- python = { "mypy" }, -- ruff-lsp and pyright handle lint messages via LSP
         sh = { "shellcheck" },
         yaml = { "yamllint" },
-        markdown = { "markdownlint" },
+        -- markdown = { "markdownlint" },
       },
       -- customize linter args (lazyvim feature)
       -- linters = {

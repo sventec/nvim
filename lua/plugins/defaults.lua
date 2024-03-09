@@ -43,6 +43,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "lua",
         "markdown",
         "markdown_inline",
         "python",
@@ -112,6 +113,9 @@ return {
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
     end,
     opts = {
+      codelens = {
+        enabled = true,
+      },
       capabilities = {
         textDocument = {
           foldingRange = { -- capabilities for nvim-ufo
