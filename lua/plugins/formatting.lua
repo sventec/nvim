@@ -36,6 +36,7 @@ return {
         -- misc
         -- prettier provided by lazyvim.plugins.extras.formatting.prettier
         -- "prettierd", -- json/html/css/etc. formatting
+        "gh", -- github cli tool, for octo.nvim
       })
     end,
   },

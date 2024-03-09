@@ -63,6 +63,7 @@ Open any file with `nvim`, and run the following commands:
 
 - `:MasonUpdate` to install required formatters, linters, and LSPs
 - `:UpdateRemotePlugins` to set up `python-semshi`
+  - Run this with a `.py` file open
 
 Allow the installations to complete, then run `:LazyHealth` to load all plugins
 and open the check health window. Browse the output and resolve any errors or
