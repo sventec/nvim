@@ -128,24 +128,24 @@ return {
       -- obsidian.nvim functionality
       -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
       -- stylua: ignore
-      { "gf", function() return require("obsidian").util.gf_passthrough() end, noremap = false, expr = true, buffer = true },
+      { "gf", function() return require("obsidian").util.gf_passthrough() end, noremap = false, expr = true, buffer = true, ft = "markdown" },
       -- stylua: ignore
-      { "<leader>oc", function() return require("obsidian").util.toggle_checkbox() end, desc = "Toggle checkbox", buffer = true },
+      { "<leader>oc", function() return require("obsidian").util.toggle_checkbox() end, desc = "Toggle checkbox", buffer = true, ft = "markdown" },
 
       -- command binds, <leader>o.
-      { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "View backlinks" },
-      { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Open daily note" },
-      { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Find file by name" },
-      { "<leader>og", "<cmd>ObsidianSearch<cr>", desc = "Grep vault" },
-      { "<leader>ol", "<cmd>ObsidianLink<cr>", desc = "Create link from selection", mode = "v" },
-      { "<leader>oL", "<cmd>ObsidianLinks<cr>", desc = "See all links in file" },
-      { "<leader>on", ":ObsidianNew ", desc = "New note" },
-      { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open current note in Obsidian" },
-      { "<leader>op", "<cmd>ObsidianPasteImg<cr>", desc = "Paste image" },
-      { "<leader>or", ":ObsidianRename ", desc = "Rename [--dry-run]" },
-      { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Insert template" },
-      { "<leader>ow", ":ObsidianWorkspace ", desc = "Switch workspace" },
-      { "<leader>ox", "<cmd>ObsidianFollowLink<cr>", desc = "Follow link under cursor" },
+      { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "View backlinks", ft = "markdown" },
+      { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Open daily note", ft = "markdown" },
+      { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Find file by name", ft = "markdown" },
+      { "<leader>og", "<cmd>ObsidianSearch<cr>", desc = "Grep vault", ft = "markdown" },
+      { "<leader>ol", "<cmd>ObsidianLink<cr>", desc = "Create link from selection", mode = "v", ft = "markdown" },
+      { "<leader>oL", "<cmd>ObsidianLinks<cr>", desc = "See all links in file", ft = "markdown" },
+      { "<leader>on", ":ObsidianNew ", desc = "New note", ft = "markdown" },
+      { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open current note in Obsidian", ft = "markdown" },
+      { "<leader>op", "<cmd>ObsidianPasteImg<cr>", desc = "Paste image", ft = "markdown" },
+      { "<leader>or", ":ObsidianRename ", desc = "Rename [--dry-run]", ft = "markdown" },
+      { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Insert template", ft = "markdown" },
+      { "<leader>ow", ":ObsidianWorkspace ", desc = "Switch workspace", ft = "markdown" },
+      { "<leader>ox", "<cmd>ObsidianFollowLink<cr>", desc = "Follow link under cursor", ft = "markdown" },
     },
   },
 
