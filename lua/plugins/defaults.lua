@@ -101,6 +101,15 @@ return {
         end,
         desc = "Symbol Under Cursor References",
       },
+      {
+        -- Telescope filetypes keybind
+        -- List all filetypes (select to switch buffer ft)
+        "<leader>sf",
+        function()
+          require("telescope.builtin").filetypes()
+        end,
+        desc = "List All Filetypes",
+      },
     },
   },
   -- ==LSP/CODE== --
@@ -113,7 +122,11 @@ return {
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
     end,
     opts = {
+      -- NOTE: codelens and inlay_hints are Neovim >= 0.10.0 features
       codelens = {
+        enabled = true,
+      },
+      inlay_hints = {
         enabled = true,
       },
       capabilities = {
@@ -125,20 +138,35 @@ return {
         },
       },
       servers = {
-        -- pylsp = { -- after server installation run :PylspInstall pylsp-rope
-        --   settings = {
-        --     pylsp = {
-        --       plugins = {
-        --         autopep8 = { enabled = false },
-        --         mccabe = { enabled = false },
-        --         pycodestyle = { enabled = false },
-        --         pyflakes = { enabled = false },
-        --         yapf = { enabled = false },
-        --       },
-        --     },
-        --   },
-        -- },
-        -- pyright = {}, -- included to ensure autoinstall
+        basedpyright = { -- pyright but based. manually install off PyPI
+          settings = {
+            basedpyright = {
+              analysis = {
+                autoImportCompletions = true, -- offer auto-import completions
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly", -- "workspace"
+                useLibraryCodeForTypes = true,
+                -- https://detachhead.github.io/basedpyright/#/configuration?id=diagnostic-settings-defaults
+                -- TLDR: change this for less strict checking (less errors)
+                -- typeCheckingMode = "standard", -- basedpyright default is "all"
+                diagnosticSeverityOverrides = {
+                  -- https://detachhead.github.io/basedpyright/#/configuration?id=type-check-diagnostics-settings
+                  -- one of: error, warning, information, true, false, none
+                  reportMissingTypeStubs = "information", -- import has no type stub file
+                  reportAny = false, -- bans all usage of 'Any' type
+                  reportUnusedCallResult = false, -- call statements with return value that is not used (e.g. not _ = call())
+                  -- reportOptionalMemberAccess = "warning",  -- access to member of object that has Optional[] type (e.g. obj.append() on Optional[list])
+                  reportUnknownArgumentType = false, -- unknown (not statically typed/not inferrable) types
+                  reportUnknownLambdaType = false,
+                  reportUnknownMemberType = false,
+                  reportUnknownParameterType = false,
+                  reportUnknownVariableType = false,
+                },
+              },
+            },
+          },
+        },
+        -- TODO: remove pyright configuration when basedpyright is added to mason
         pyright = { -- auto install pyright with Mason
           settings = {
             pyright = {
@@ -163,6 +191,20 @@ return {
           --     },
           --   },
         },
+      },
+      setup = {
+        -- TODO: this can be removed once basedpyright is merged into mason and mason-lspconfig
+        pyright = function()
+          local Util = require("lazyvim.util")
+          if Util.lsp.get_config("basedpyright") then
+            -- disable pyright if basedpyright config exists, AND basedpyright is installed
+            -- otherwise (if basedpyright is disabled, or is not installed) use pyright
+            if vim.fn.executable(Util.lsp.get_config("basedpyright").cmd[1]) == 1 then
+              -- returning `true` will not setup LSP with Lspconfig
+              return true
+            end
+          end
+        end,
       },
       diagnostics = {
         underline = true,

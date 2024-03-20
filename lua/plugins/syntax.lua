@@ -31,7 +31,7 @@ return {
 
         -- markdown
         -- "marksman", -- lsp
-        "markdownlint-cli2", -- format, lint
+        "markdownlint", -- format, lint
 
         -- misc
         -- prettier provided by lazyvim.plugins.extras.formatting.prettier
@@ -45,9 +45,12 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        python = { "ruff_fix", "ruff_format" },
+        -- 'ruff_format' formatter is provided by 'ruff_lsp' LSP instead
+        -- 'ruff_fix' is available through "Fix All" LSP code action
+        -- python = { "ruff_fix", "ruff_format" },
         sh = { "shfmt" },
-        markdown = { "markdownlint-cli2" },
+        -- -- markdown formatting provided by 'marksman' LSP from lazyvim.plugins.extras.lang.markdown
+        -- markdown = { "markdownlint" },
         -- ["*"] is used on all filetypes
         ["*"] = { "trim_whitespace" },
         -- ["_"] is used as fallback formatter for langs not listed above
@@ -67,25 +70,30 @@ return {
         -- python = { "mypy" }, -- ruff-lsp and pyright handle lint messages via LSP
         sh = { "shellcheck" },
         yaml = { "yamllint" },
-        -- markdown = { "markdownlint" },
+        markdown = { "markdownlint" },
       },
       -- customize linter args (lazyvim feature)
-      -- linters = {
-      --   mypy = {
-      --     args = {
-      --       -- defaults: https://github.com/mfussenegger/nvim-lint/blob/master/lua/lint/linters/mypy.lua
-      --       "--show-column-numbers",
-      --       "--show-error-end",
-      --       "--hide-error-codes",
-      --       "--hide-error-context",
-      --       "--no-color-output",
-      --       "--no-error-summary",
-      --       "--no-pretty",
-      --       -- custom
-      --       "--ignore-missing-imports",
-      --     },
-      --   },
-      -- },
+      linters = {
+        markdownlint = {
+          args = {
+            "-r ~MD013,~MD024,~MD025,~MD041",
+          },
+        },
+        --   mypy = {
+        --     args = {
+        --       -- defaults: https://github.com/mfussenegger/nvim-lint/blob/master/lua/lint/linters/mypy.lua
+        --       "--show-column-numbers",
+        --       "--show-error-end",
+        --       "--hide-error-codes",
+        --       "--hide-error-context",
+        --       "--no-color-output",
+        --       "--no-error-summary",
+        --       "--no-pretty",
+        --       -- custom
+        --       "--ignore-missing-imports",
+        --     },
+        --   },
+      },
     },
   },
   { "vimjas/vim-python-pep8-indent", enabled = false },
