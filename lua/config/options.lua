@@ -4,6 +4,11 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+-- ==lazyvim== --
+-- set lazyvim.plugins.extras.lang.python to use basedpyright instead of pyright
+-- TODO: refactor all Python configs to separate plugin file/module
+vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
+
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
 

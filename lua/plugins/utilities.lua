@@ -42,4 +42,12 @@ return {
       },
     },
   },
+
+  -- use :Gitignore to generate .gitignore for project types (append to existing by default)
+  {
+    "wintermute-cell/gitignore.nvim",
+    keys = {
+      { "<leader>gi", "<cmd>Gitignore<cr>", desc = "Generate gitignore" },
+    },
+  },
 }

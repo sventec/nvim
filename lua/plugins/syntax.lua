@@ -6,8 +6,9 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         -- python
-        "mypy", -- lint
-        "pyright", -- lsp
+        -- "mypy", -- lint
+        "basedpyright", -- lsp - https://detachhead.github.io/basedpyright/
+        -- "pyright", -- lsp
         -- "reorder-python-imports", -- format
         "ruff", -- format (lint provided by ruff-lsp)
         "ruff-lsp", -- lsp

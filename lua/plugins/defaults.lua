@@ -155,6 +155,7 @@ return {
                   reportMissingTypeStubs = "information", -- import has no type stub file
                   reportAny = false, -- bans all usage of 'Any' type
                   reportUnusedCallResult = false, -- call statements with return value that is not used (e.g. not _ = call())
+                  reportMissingParameterType = false, -- function or method input parameters without type definition
                   -- reportOptionalMemberAccess = "warning",  -- access to member of object that has Optional[] type (e.g. obj.append() on Optional[list])
                   reportUnknownArgumentType = false, -- unknown (not statically typed/not inferrable) types
                   reportUnknownLambdaType = false,
@@ -166,7 +167,7 @@ return {
             },
           },
         },
-        -- TODO: remove pyright configuration when basedpyright is added to mason
+        -- NOTE: to enable pyright instead of basedpyright, change vim.g.lazyvim_python_lsp in options.lua
         pyright = { -- auto install pyright with Mason
           settings = {
             pyright = {
@@ -192,20 +193,6 @@ return {
           --   },
         },
       },
-      setup = {
-        -- TODO: this can be removed once basedpyright is merged into mason and mason-lspconfig
-        pyright = function()
-          local Util = require("lazyvim.util")
-          if Util.lsp.get_config("basedpyright") then
-            -- disable pyright if basedpyright config exists, AND basedpyright is installed
-            -- otherwise (if basedpyright is disabled, or is not installed) use pyright
-            if vim.fn.executable(Util.lsp.get_config("basedpyright").cmd[1]) == 1 then
-              -- returning `true` will not setup LSP with Lspconfig
-              return true
-            end
-          end
-        end,
-      },
       diagnostics = {
         underline = true,
         -- virtual_text = false,
@@ -216,7 +203,26 @@ return {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      -- only show completions after typing 2 characters
+      -- show completion sooner with <C-Space>
       opts.completion.keyword_length = 2
+
+      -- sort entries beginning with '_' lower than (after) others, for Python
+      -- credit: https://github.com/lukas-reineke/cmp-under-comparator
+      local compare_under = function(entry1, entry2)
+        local _, entry1_under = entry1.completion_item.label:find("^_+")
+        local _, entry2_under = entry2.completion_item.label:find("^_+")
+        entry1_under = entry1_under or 0
+        entry2_under = entry2_under or 0
+        if entry1_under > entry2_under then
+          return false
+        elseif entry1_under < entry2_under then
+          return true
+        end
+      end
+      -- extend existing comparators, ref:
+      -- https://github.com/LazyVim/LazyVim/blob/1432f318b6b061d3da510ebd795a3292b10e636b/lua/lazyvim/plugins/extras/lang/clangd.lua#L99
+      table.insert(opts.sorting.comparators, 1, compare_under)
     end,
   },
   -- disable mini.pairs in faovr of nvim-autopairs

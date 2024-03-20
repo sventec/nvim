@@ -67,8 +67,8 @@ return {
     "linux-cultist/venv-selector.nvim",
     opts = {
       search_venv_managers = true, -- search venv manager (Poetry, Pipenv) locations for venv
-      search_workspace = true, -- search current workspace for venv
-      search = false, -- only search above locations
+      search_workspace = true, -- search LSP workspace (root dir) for venv
+      search = true, -- search parent directories for venv folders
       name = { "venv", ".venv" },
     },
   },
