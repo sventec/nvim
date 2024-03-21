@@ -8,6 +8,8 @@ local cmd = vim.cmd
 -- set lazyvim.plugins.extras.lang.python to use basedpyright instead of pyright
 -- TODO: refactor all Python configs to separate plugin file/module
 vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
+-- configure NvChad/base46 cache directory
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/nvchad/base46/"
 
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
