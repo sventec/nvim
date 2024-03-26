@@ -2,6 +2,42 @@
 -- local python_line_length = "120" -- used by ruff_lsp & null-ls python sources
 
 return {
+  -- == Override LazyVim defaults== --
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      icons = {
+        dap = {
+          Breakpoint = { "● ", "DapBreakpoint" },
+          BreakpointCondition = { " ", "DapBreakpointCondition" },
+          -- LogPoint = { "◆", "DapLogPoint" },
+          LogPoint = { ".>", "DapLogPoint" },
+        },
+      },
+      -- colorscheme set in colors.lua
+      kind_filter = {
+        -- filter for symbol types to show in e.g. aerial.nvim
+        -- see :help SymbolKind
+        -- python = false, -- false to show all
+        python = {
+          "Class",
+          "Constant",
+          "Constructor",
+          "Enum",
+          "Field",
+          "Function",
+          "Interface",
+          "Method",
+          "Module",
+          "Namespace",
+          "Package",
+          "Property",
+          "Struct",
+          "Trait",
+        },
+      },
+    },
+  },
   -- ==VISUAL== --
   -- disable animated indent scope context highlights
   { "echasnovski/mini.indentscope", enabled = false },
@@ -18,24 +54,26 @@ return {
   -- remove lualine pointed arrow separators in favor of vertical lines
   {
     "nvim-lualine/lualine.nvim",
-    opts = {
-      options = {
-        component_separators = { left = " ", right = " " },
-        section_separators = { left = "", right = "" },
-      },
-      sections = {
-        -- replacing right-most section (current time) with file info
-        lualine_y = {
-          "encoding",
-          "filesize",
-          "filetype",
-        },
-        lualine_z = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-          { "location", padding = { left = 0, right = 1 } },
-        },
-      },
-    },
+    opts = function(_, opts)
+      opts.options.component_separators = { left = " ", right = " " }
+      opts.options.section_separators = { left = "", right = "" }
+
+      local function maximize_status()
+        return vim.t.maximized and "max " or ""
+      end
+
+      -- require("lazyvim.util").merge(opts.sections.lualine_c, { maximize_status })
+      opts.sections.lualine_c = vim.tbl_deep_extend("force", opts.sections.lualine_c, { maximize_status })
+      opts.sections.lualine_y = {
+        "encoding",
+        "filesize",
+        "filetype",
+      }
+      opts.sections.lualine_z = {
+        { "progress", separator = " ", padding = { left = 1, right = 0 } },
+        { "location", padding = { left = 0, right = 1 } },
+      }
+    end,
   },
   -- auto install additional treesitter parsers
   {
@@ -259,6 +297,15 @@ return {
           jump_labels = false,
         },
       },
+      jump = {
+        autojump = true, -- jump without label when only one match
+      },
+    },
+    keys = {
+      -- stylua: ignore
+      -- override Treesitter search settings to show rainbow highlights
+      -- makes it easier to visualize the Treesitter ranges
+      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter({label = {rainbow = {enabled = true}}}) end, desc = "Flash Treesitter" },
     },
   },
   {

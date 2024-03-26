@@ -16,6 +16,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
     -- { import = "lazyvim.plugins.extras.vscode"}, -- vim.g.vscode-aware. enable only plugins with vscode=true spec, keymap changes.
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
+    -- NOTE: aerial must be imported *after* edgy
+    { import = "lazyvim.plugins.extras.editor.aerial" }, -- code outline window (symbols-outline replacement)
 
     --- -- python extras (debug/test, LSP, etc.) --
     { import = "lazyvim.plugins.extras.lang.python" },
@@ -35,7 +37,8 @@ require("lazy").setup({
     --- -- other editing --
     -- use prettier extra to autoconfigure all supported filetypes with conform.nvim
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- harpoon added, configured in plugins/movement.lua
+    -- harpoon extra added, configured in plugins/movement.lua
+    { import = "lazyvim.plugins.extras.dap.core" },
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },

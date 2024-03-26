@@ -55,12 +55,14 @@ return {
       filetypes = { "js", "python", "text" },
     },
   },
-  -- provide document symbol outline window
+  -- maximize and restore windows
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
+    "declancm/maximize.nvim",
+    lazy = true,
+    -- stylua: ignore
+    keys = {
+      { "<leader>z", function() require("maximize").toggle() end, desc = "Maximize Window" },
+    },
   },
   -- select python virtual environment (venv)
   {
