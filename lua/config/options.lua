@@ -12,7 +12,7 @@ vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
 -- used to set colorscheme (duh),
 --   conditoinally configure some plugin integrations for e.g. catppuccin,
 --   and to configure defaults where a colorscheme is required
-vim.g.lazyvim_colorscheme = "catppuccin"
+vim.g.lazyvim_colorscheme = "everforest"
 
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
