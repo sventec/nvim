@@ -74,4 +74,14 @@ return {
       name = { "venv", ".venv" },
     },
   },
+  -- conditionally enable bufferline catppuccin integration
+  {
+    "akinsho/bufferline.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if vim.g.lazyvim_colorscheme == "catppuccin" then
+        opts = vim.tbl_deep_extend("force", opts, { highlights = require("catppuccin.groups.integrations.bufferline").get() })
+      end
+    end,
+  },
 }

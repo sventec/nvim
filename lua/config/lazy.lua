@@ -52,7 +52,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "everforest", "tokyonight", "habamax" } }, -- use colors when installing missing plugin during startup
+  install = { colorscheme = { vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "everforest", "tokyonight", "habamax" } }, -- use colors when installing missing plugin during startup
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {

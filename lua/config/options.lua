@@ -8,6 +8,11 @@ local cmd = vim.cmd
 -- set lazyvim.plugins.extras.lang.python to use basedpyright instead of pyright
 -- TODO: refactor all Python configs to separate plugin file/module
 vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
+-- custom: define desired colorscheme as global variable
+-- used to set colorscheme (duh),
+--   conditoinally configure some plugin integrations for e.g. catppuccin,
+--   and to configure defaults where a colorscheme is required
+vim.g.lazyvim_colorscheme = "catppuccin"
 
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
