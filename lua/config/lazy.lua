@@ -18,6 +18,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
     -- NOTE: aerial must be imported *after* edgy
     { import = "lazyvim.plugins.extras.editor.aerial" }, -- code outline window (symbols-outline replacement)
+    -- set vscode = true in plugin spec to load when embedded in vscode
+    { import = "lazyvim.plugins.extras.vscode" }, -- load stripped set of plugins in vscode embedded nvim
 
     --- -- python extras (debug/test, LSP, etc.) --
     { import = "lazyvim.plugins.extras.lang.python" },
@@ -31,7 +33,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.markdown" }, -- md live preview, syntax
     -- { import = "lazyvim.plugins.extras.lang.ansible" },
     -- { import = "lazyvim.plugins.extras.lang.docker" },
-    -- { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
 
     --- -- other editing --
@@ -52,7 +54,9 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "everforest", "tokyonight", "habamax" } }, -- use colors when installing missing plugin during startup
+  install = {
+    colorscheme = { vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "everforest", "tokyonight", "habamax" },
+  }, -- use colors when installing missing plugin during startup
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {

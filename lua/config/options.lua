@@ -12,7 +12,7 @@ vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
 -- used to set colorscheme (duh),
 --   conditoinally configure some plugin integrations for e.g. catppuccin,
 --   and to configure defaults where a colorscheme is required
-vim.g.lazyvim_colorscheme = "everforest"
+vim.g.lazyvim_colorscheme = "catppuccin"
 
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
@@ -25,7 +25,6 @@ vim.g.autoformat = false
 -- opt.foldmethod = "marker" -- use {{{ / }}} to mark folds
 -- opt.foldlevelstart = 99 -- start buffer with all folds open (can be overriden by modeline etc.)
 opt.foldcolumn = "0" -- fold column for nvim-ufo, set to "1" to see fold buttons & guides
-opt.foldlevel = 99 -- set all folds open by default
 
 -- ==visual== --
 opt.linebreak = true -- wrap on word boundaries
