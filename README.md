@@ -17,7 +17,7 @@ The following is required for use of the features in this config:
 - Basic tools, e.g. `git`, `curl`, `unzip`, etc.
 - Neovim packages: `neovim`, `python-pynvim`
   - Neovim version **must be >= 0.9.0**
-- [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font (I use Jetbrains Mono NF)
+- [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font (I use JetBrains Mono NF)
 - Packages for use by plugins
   - For Mason (installs formatters, linters, LSPs): `npm`, `cargo`
   - For Telescope (fuzzy finders, etc.): `rg`, `fd`
@@ -56,18 +56,8 @@ Once the dotfiles have been cloned, start `nvim` for the first time, and allow
 all plugins to install. Once all plugins have installed, quit Neovim and reopen it.
 
 If, after reopening Neovim, there are still missing tools or errors are being
-generated, try the following steps. These should be automatically executed
-during plugin installation, but can be run again manually if needed.
-
-Open any file with `nvim`, and run the following commands:
-
-- `:MasonUpdate` to install required formatters, linters, and LSPs
-- `:UpdateRemotePlugins` to set up `python-semshi`
-  - Run this with a `.py` file open
-
-Allow the installations to complete, then run `:LazyHealth` to load all plugins
-and open the check health window. Browse the output and resolve any errors or
-warnings as desired.
+generated, run `:LazyHealth` to load all plugins and open the check health
+window. Troubleshoot the installation (e.g. look for missing binaries) using this.
 
 ## Disclaimer
 
