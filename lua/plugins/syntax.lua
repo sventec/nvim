@@ -10,8 +10,7 @@ return {
         "basedpyright", -- lsp - https://detachhead.github.io/basedpyright/
         -- "pyright", -- lsp
         -- "reorder-python-imports", -- format
-        "ruff", -- format (lint provided by ruff-lsp)
-        "ruff-lsp", -- lsp
+        "ruff", -- format, lint (includes LSP server)
 
         -- lua
         "lua-language-server", -- lsp
@@ -46,12 +45,13 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        -- 'ruff_format' formatter is provided by 'ruff_lsp' LSP instead
+        -- 'ruff_format' formatter is provided by 'ruff server' LSP instead
         -- 'ruff_fix' is available through "Fix All" LSP code action
         -- python = { "ruff_fix", "ruff_format" },
         sh = { "shfmt" },
         -- -- markdown formatting provided by 'marksman' LSP from lazyvim.plugins.extras.lang.markdown
         -- markdown = { "markdownlint" },
+        hcl = { "packer_fmt" },
         -- ["*"] is used on all filetypes
         ["*"] = { "trim_whitespace" },
         -- ["_"] is used as fallback formatter for langs not listed above
@@ -165,5 +165,10 @@ return {
         desc = "Select context-aware indent (inner, entire range) in line-wise visual mode",
       },
     },
+  },
+  -- syntax highlighting for .tridactylrc
+  {
+    "tridactyl/vim-tridactyl",
+    ft = "tridactyl",
   },
 }

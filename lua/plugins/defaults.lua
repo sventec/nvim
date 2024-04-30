@@ -179,9 +179,9 @@ return {
     end,
     opts = {
       -- NOTE: codelens and inlay_hints are Neovim >= 0.10.0 features
-      codelens = {
-        enabled = true,
-      },
+      -- codelens = {
+      --   enabled = true,
+      -- },
       inlay_hints = {
         enabled = true,
       },
@@ -218,6 +218,14 @@ return {
                   reportUnknownMemberType = false,
                   reportUnknownParameterType = false,
                   reportUnknownVariableType = false,
+                  -- include basedpyright-only options, even if "standard" is selected (defaults to only in "all")
+                  -- https://detachhead.github.io/basedpyright/#/configuration?id=based-options
+                  reportIgnoreCommentWithoutRule = "warning",
+                  reportUnreachable = "error",
+                  reportPrivateLocalImportUsage = "error",
+                  reportImplicitRelativeImport = "error",
+                  reportInvalidCast = "error",
+                  reportMissingSuperCall = false,
                 },
               },
             },
@@ -239,7 +247,8 @@ return {
             },
           },
         },
-        ruff_lsp = {
+        -- NOTE: ruff uses the new `ruff server`, replacing ruff_lsp
+        ruff = {
           -- this can instead be set globally in ~/.config/ruff/pyproject.toml
           -- doing so allows local project configs to override this setting
           --   init_options = {
@@ -257,11 +266,15 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       -- only show completions after typing 2 characters
       -- show completion sooner with <C-Space>
       opts.completion.keyword_length = 2
+
+      -- filetypes for which brackets should be added to function completion
+      -- https://github.com/LazyVim/LazyVim/blob/main/CHANGELOG.md#10200-2024-03-28
+      opts.auto_brackets = opts.auto_brackets or {}
+      vim.list_extend(opts.auto_brackets, { "python" })
 
       -- sort entries beginning with '_' lower than (after) others, for Python
       -- credit: https://github.com/lukas-reineke/cmp-under-comparator
@@ -281,7 +294,7 @@ return {
       table.insert(opts.sorting.comparators, 1, compare_under)
     end,
   },
-  -- disable mini.pairs in faovr of nvim-autopairs
+  -- disable mini.pairs in favor of nvim-autopairs
   { "echasnovski/mini.pairs", enabled = false },
   -- add additional snippets from nvim/snippets directory
   {

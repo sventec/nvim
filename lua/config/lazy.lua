@@ -20,6 +20,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.aerial" }, -- code outline window (symbols-outline replacement)
     -- set vscode = true in plugin spec to load when embedded in vscode
     { import = "lazyvim.plugins.extras.vscode" }, -- load stripped set of plugins in vscode embedded nvim
+    { import = "lazyvim.plugins.extras.editor.dial" }, -- increment/decrement/toggle numbers, dates, booleans, etc.
 
     --- -- python extras (debug/test, LSP, etc.) --
     { import = "lazyvim.plugins.extras.lang.python" },
@@ -35,6 +36,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
 
     --- -- other editing --
     -- use prettier extra to autoconfigure all supported filetypes with conform.nvim
@@ -44,6 +46,10 @@ require("lazy").setup({
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },
+
+    --- -- project specific .lazy.lua plugin overrides --
+    -- INFO: must be last plugin spec loaded
+    { import = "lazyvim.plugins.extras.lazyrc" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -55,7 +61,12 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = {
-    colorscheme = { vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "everforest", "tokyonight", "habamax" },
+    colorscheme = {
+      vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "catppuccin",
+      "everforest",
+      "tokyonight",
+      "habamax",
+    },
   }, -- use colors when installing missing plugin during startup
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
