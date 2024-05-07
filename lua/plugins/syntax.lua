@@ -25,6 +25,9 @@ return {
         -- "ansible-language-server", -- lsp
         -- "ansible-lint", -- lint, required for ansible-language-server
 
+        -- toml
+        "taplo", -- lsp
+
         -- yaml
         "yamllint",
         -- "yaml-language-server",
@@ -49,7 +52,7 @@ return {
         -- 'ruff_fix' is available through "Fix All" LSP code action
         -- python = { "ruff_fix", "ruff_format" },
         sh = { "shfmt" },
-        -- -- markdown formatting provided by 'marksman' LSP from lazyvim.plugins.extras.lang.markdown
+        -- markdown formatting provided by 'marksman' LSP from lazyvim.plugins.extras.lang.markdown
         -- markdown = { "markdownlint" },
         hcl = { "packer_fmt" },
         -- ["*"] is used on all filetypes
@@ -71,7 +74,7 @@ return {
         -- python = { "mypy" }, -- ruff-lsp and pyright handle lint messages via LSP
         sh = { "shellcheck" },
         yaml = { "yamllint" },
-        markdown = { "markdownlint" },
+        markdown = { "markdownlint" }, -- "write_good"
       },
       -- customize linter args (lazyvim feature)
       linters = {
@@ -170,5 +173,36 @@ return {
   {
     "tridactyl/vim-tridactyl",
     ft = "tridactyl",
+  },
+  -- automatic new list bullet on <C-Enter> in markdown and plaintext
+  {
+    "gaoDean/autolist.nvim",
+    ft = {
+      "markdown",
+      "text",
+    },
+    config = function()
+      require("autolist").setup()
+
+      -- NOTE: keymaps are not defined in LazyVim `keys` table so the plugin isn't loaded outside markdown and text files
+      vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
+      vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
+      -- Ctrl-Enter in insert mode to bullet new line (doesn't mess with cmp completion)
+      vim.keymap.set("i", "<NL>", "<cr><cmd>AutolistNewBullet<cr>")
+      vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
+      vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
+      vim.keymap.set("n", "<cr>", "<cmd>AutolistToggleCheckbox<cr><cr>")
+      vim.keymap.set("n", "<C-r>", "<cmd>AutolistRecalculate<cr>")
+
+      -- cycle list types with dot-repeat
+      vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
+      vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
+
+      -- functions to recalculate list on edit
+      vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("n", "dd", "dd<cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
+    end,
   },
 }
