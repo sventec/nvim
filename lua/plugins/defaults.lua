@@ -247,16 +247,8 @@ return {
             },
           },
         },
-        -- NOTE: ruff uses the new `ruff server`, replacing ruff_lsp
-        ruff = {
-          -- this can instead be set globally in ~/.config/ruff/pyproject.toml
-          -- doing so allows local project configs to override this setting
-          --   init_options = {
-          --     settings = {
-          --       args = { "--line-length", python_line_length },
-          --     },
-          --   },
-        },
+        -- INFO: ruff vs. ruff_lsp is configured in config/options.lua as lazyvim_python_ruff
+        -- set global config defaults in ~/.config/ruff/pyproject.toml
       },
       diagnostics = {
         underline = true,
