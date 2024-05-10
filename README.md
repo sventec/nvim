@@ -17,7 +17,8 @@ The following is required for use of the features in this config:
 - Basic tools, e.g. `git`, `curl`, `unzip`, etc.
 - Neovim packages: `neovim`, `python-pynvim`
   - Neovim version **must be >= 0.9.0**
-- [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font (I use JetBrains Mono NF)
+  - Some config features only work on `0.10.0` (nightly), e.g. native LSP inlay hints
+- [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font, version >= 3 (I use JetBrains Mono)
 - Packages for use by plugins
   - For Mason (installs formatters, linters, LSPs): `npm`, `cargo`
   - For Telescope (fuzzy finders, etc.): `rg`, `fd`

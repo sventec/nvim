@@ -101,4 +101,14 @@ return {
       end
     end,
   },
+  -- change bottom highlight character for headlines.nvim
+  {
+    "lukas-reineke/headlines.nvim",
+    opts = {
+      markdown = {
+        -- fat_headline_lower_string = "▔",
+        fat_headline_lower_string = "▀",
+      },
+    },
+  },
 }
