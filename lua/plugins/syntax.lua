@@ -128,7 +128,7 @@ return {
     keys = { { "<leader>cD", function() require("neogen").generate({}) end, desc = "Generate Docstring", } },
     opts = {
       enabled = true,
-      snippet_engine = "luasnip",
+      snippet_engine = "nvim",
       languages = {
         python = {
           template = {
