@@ -122,6 +122,16 @@ return {
       presets = {
         command_palette = false, -- floating tab completion w/ cmdline_popup
       },
+      -- disable/hide "No information available" notification, from LSP hover
+      -- allows for using both ruff (for noqa descriptions) and pyright hover providers without annoying popup
+      routes = {
+        {
+          filter = {
+            event = "notify",
+            any = { { find = "No information available" } },
+          },
+        },
+      },
     },
   },
   -- add additional Telescope keybinds
@@ -243,6 +253,19 @@ return {
       diagnostics = {
         underline = true,
         -- virtual_text = false,
+      },
+      setup = {
+        [vim.g.lazyvim_python_ruff or "ruff_lsp"] = function()
+          LazyVim.lsp.on_attach(function(client, _)
+            if client.name == (vim.g.lazyvim_python_ruff or "ruff_lsp") then
+              -- LazyVim originally disables hover, to avoid "No information avaiable" notifications on pyright signature hovers:
+              -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/python.lua#L62
+              -- re-enabling it here to get hover for diagnostics (NOQA) codes, e.g. hover of "ANN001" provides docs
+              -- "No information available" messages are suppressed in noice.nvim config opts
+              client.server_capabilities.hoverProvider = true
+            end
+          end)
+        end,
       },
     },
   },
