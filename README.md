@@ -16,8 +16,8 @@ The following is required for use of the features in this config:
 
 - Basic tools, e.g. `git`, `curl`, `unzip`, etc.
 - Neovim packages: `neovim`, `python-pynvim`
-  - Neovim version **must be >= 0.9.0**
-  - Some config features only work on `0.10.0` (nightly), e.g. native LSP inlay hints
+  - Neovim version **must be >= 0.10.0**
+  - Use of 0.10.0 allows for LSP inlay hints, native snippets, native commenting, and more. The plugins providing these functions for versions >= 0.9 have been removed, and thus this config won't be fully functional without 0.10.0.
 - [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font, version >= 3 (I use JetBrains Mono)
 - Packages for use by plugins
   - For Mason (installs formatters, linters, LSPs): `npm`, `cargo`

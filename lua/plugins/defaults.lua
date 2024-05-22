@@ -41,16 +41,6 @@ return {
   -- ==VISUAL== --
   -- disable animated indent scope context highlights
   { "echasnovski/mini.indentscope", enabled = false },
-  -- add visual customizations to indent-blankline
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = {
-      scope = {
-        enabled = true,
-        show_start = false,
-      },
-    },
-  },
   -- remove lualine pointed arrow separators in favor of vertical lines
   {
     "nvim-lualine/lualine.nvim",
@@ -288,28 +278,6 @@ return {
   },
   -- disable mini.pairs in favor of nvim-autopairs
   { "echasnovski/mini.pairs", enabled = false },
-  -- add additional snippets from nvim/snippets directory
-  {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      -- load snipmate *.snipppets files
-      -- require("luasnip.loaders.from_snipmate").lazy_load()
-      -- path relative to $MYVIMRC
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = "./my_snippets" })
-    end,
-    -- stylua: ignore
-    keys = {
-      {
-        "<C-l>",
-        function()
-          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end,
-        expr = true, silent = true, mode = "i",
-      },
-      { "<C-l>", function() require("luasnip").jump(1) end, mode = "s" },
-      { "<C-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-    },
-  },
   -- disable f/F/t/T motions for flash.nvim in favor of default motions
   {
     "folke/flash.nvim",

@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
@@ -14,6 +14,7 @@ require("lazy").setup({
     --- -- misc extras: util, ui, ... --
     { import = "lazyvim.plugins.extras.util.project" }, -- detect and switch projects
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
+    { import = "lazyvim.plugins.extras.ui.treesitter-context" }, -- show scope context at top of screen
     -- { import = "lazyvim.plugins.extras.vscode"}, -- vim.g.vscode-aware. enable only plugins with vscode=true spec, keymap changes.
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
     -- NOTE: aerial must be imported *after* edgy
@@ -30,6 +31,7 @@ require("lazy").setup({
 
     --- -- additional (not python) languages --
     { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
+    { import = "lazyvim.plugins.extras.lang.toml" }, -- taplo (LSP), formatting
     { import = "lazyvim.plugins.extras.lang.yaml" }, -- yamlls, schemas, ...
     { import = "lazyvim.plugins.extras.lang.markdown" }, -- md live preview, syntax
     -- { import = "lazyvim.plugins.extras.lang.ansible" },
@@ -43,6 +45,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- harpoon extra added, configured in plugins/movement.lua
     { import = "lazyvim.plugins.extras.dap.core" },
+    -- motions for adding/editing/removing surrounding chars (like brackets) with `gs`
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },

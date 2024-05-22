@@ -11,9 +11,11 @@ vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
 vim.g.lazyvim_python_ruff = "ruff_lsp" -- or "ruff"
 -- custom: define desired colorscheme as global variable
 -- used to set colorscheme (duh),
---   conditoinally configure some plugin integrations for e.g. catppuccin,
+--   conditionally configure some plugin integrations for e.g. catppuccin,
 --   and to configure defaults where a colorscheme is required
 vim.g.lazyvim_colorscheme = "catppuccin"
+-- show/hide deprecation warnings (lazyvim)
+vim.g.deprecation_warnings = true
 
 -- ==plugins== --
 -- vim-tmux-navigator

@@ -5,6 +5,8 @@ return {
   {
     "abecodes/tabout.nvim",
     opts = {
+      -- FIXME: overriding nvim-snpipets Tab/S-Tab, configure as fallback
+      -- https://github.com/abecodes/tabout.nvim?tab=readme-ov-file#more-complex-keybindings
       tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
       backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
       act_as_tab = true, -- shift content if tab out is not possible
@@ -16,7 +18,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "L3MON4D3/LuaSnip",
       "hrsh7th/nvim-cmp",
     },
   },

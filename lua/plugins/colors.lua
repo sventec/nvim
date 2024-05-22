@@ -56,8 +56,6 @@ return {
         gitsigns = true,
         harpoon = true,
         headlines = true,
-        -- illuminate = { enabled = true, lsp = true },
-        illuminate = true,
         indent_blankline = { enabled = true, colored_indent_levels = false },
         lsp_trouble = true,
         markdown = true,
