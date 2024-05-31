@@ -15,7 +15,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" }, -- detect and switch projects
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
     { import = "lazyvim.plugins.extras.ui.treesitter-context" }, -- show scope context at top of screen
-    -- { import = "lazyvim.plugins.extras.vscode"}, -- vim.g.vscode-aware. enable only plugins with vscode=true spec, keymap changes.
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
     -- NOTE: aerial must be imported *after* edgy
     { import = "lazyvim.plugins.extras.editor.aerial" }, -- code outline window (symbols-outline replacement)
@@ -50,10 +49,6 @@ require("lazy").setup({
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },
-
-    --- -- project specific .lazy.lua plugin overrides --
-    -- INFO: must be last plugin spec loaded
-    { import = "lazyvim.plugins.extras.lazyrc" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
