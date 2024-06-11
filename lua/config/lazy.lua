@@ -25,9 +25,6 @@ require("lazy").setup({
 
     --- -- python extras (debug/test, LSP, etc.) --
     { import = "lazyvim.plugins.extras.lang.python" },
-    -- semantic highlighting - after install, run :UpdateRemotePlugins
-    -- disabled in favor of `basedpyright` LSP semantic highlighting, can re-enable if using standard pyright
-    -- { import = "lazyvim.plugins.extras.lang.python-semshi" },
 
     --- -- additional (not python) languages --
     { import = "lazyvim.plugins.extras.lang.json" }, -- json treesitter, SchemaStore, ...
@@ -38,7 +35,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.terraform" },
+    -- { import = "lazyvim.plugins.extras.lang.terraform" },
 
     --- -- other editing --
     -- use prettier extra to autoconfigure all supported filetypes with conform.nvim

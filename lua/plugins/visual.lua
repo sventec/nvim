@@ -77,16 +77,6 @@ return {
       { "<leader>z", function() require("maximize").toggle() end, desc = "Maximize Window" },
     },
   },
-  -- select python virtual environment (venv)
-  {
-    "linux-cultist/venv-selector.nvim",
-    opts = {
-      search_venv_managers = true, -- search venv manager (Poetry, Pipenv) locations for venv
-      search_workspace = true, -- search LSP workspace (root dir) for venv
-      search = true, -- search parent directories for venv folders
-      name = { "venv", ".venv" },
-    },
-  },
   -- conditionally enable bufferline catppuccin integration
   {
     "akinsho/bufferline.nvim",

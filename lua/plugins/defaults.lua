@@ -39,8 +39,6 @@ return {
     },
   },
   -- ==VISUAL== --
-  -- disable animated indent scope context highlights
-  { "echasnovski/mini.indentscope", enabled = false },
   -- remove lualine pointed arrow separators in favor of vertical lines
   {
     "nvim-lualine/lualine.nvim",

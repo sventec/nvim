@@ -139,8 +139,10 @@ return {
       },
     },
   },
+  -- text objects for indent levels (select, move next)
   {
     "kiyoon/treesitter-indent-object.nvim",
+    enabled = false, -- disable for now, full compatibility requires legacy indent-blankline v2
     -- stylua: ignore
     keys = {
       {
