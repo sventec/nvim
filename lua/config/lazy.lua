@@ -47,6 +47,9 @@ require("lazy").setup({
     -- use <leader>cn to generate docstrings for a function, class, etc.
     -- further configuration in lua/plugins/syntax.lua
     { import = "lazyvim.plugins.extras.coding.neogen" },
+    -- replacement for indent-blankline, benefitting from the addition of
+    -- motions ([i/]i) and text objects (ii/ai) for indent levels. config in lua/plugins/movement.lua
+    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },
