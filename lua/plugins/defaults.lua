@@ -62,6 +62,34 @@ return {
         end
       end
 
+      local function current_venv()
+        -- show currently activated python venv in lualine
+        -- venv name provided by venv-selector.nvim
+        local ok, venv_selector = pcall(require, "venv-selector")
+        if not ok then
+          return ""
+        end
+
+        local venv_name = venv_selector.venv()
+        if venv_name then
+          -- just return the venv name, e.g. '/home/fx/project/my_project/.venv' returns 'my_project'
+          -- assumes venv folder in root of project, won't work for e.g. centralized poetry venvs
+          -- this logic will be added in the event that I switch to another method of managing venvs
+          local venv_parts = vim.fn.split(venv_name, "/")
+          return " " .. venv_parts[#venv_parts - 1]
+        else
+          return ""
+        end
+      end
+
+      -- stylua: ignore
+      table.insert(opts.sections.lualine_x, {
+        current_venv,
+        -- ref: https://github.com/LazyVim/LazyVim/blob/9b8a393edc8b9a12a39f712163f6476c084a7f71/lua/lazyvim/plugins/ui.lua#L165
+        cond = function() return package.loaded["venv-selector"] and require("venv-selector").venv() ~= nil end,
+        color = function() return LazyVim.ui.fg("String") end,
+      })
+
       opts.sections.lualine_y = {
         codestats_xp,
         "encoding",
