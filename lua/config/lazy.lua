@@ -21,6 +21,7 @@ require("lazy").setup({
     -- set vscode = true in plugin spec to load when embedded in vscode
     { import = "lazyvim.plugins.extras.vscode" }, -- load stripped set of plugins in vscode embedded nvim
     { import = "lazyvim.plugins.extras.editor.dial" }, -- increment/decrement/toggle numbers, dates, booleans, etc.
+    { import = "lazyvim.plugins.extras.util.octo" }, -- <leader>g GitHub issue/PR management
 
     --- -- python extras (debug/test, LSP, etc.) --
     { import = "lazyvim.plugins.extras.lang.python" },
