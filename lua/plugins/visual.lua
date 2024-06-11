@@ -68,15 +68,6 @@ return {
       filetypes = { "js", "python", "text" },
     },
   },
-  -- maximize and restore windows
-  {
-    "declancm/maximize.nvim",
-    lazy = true,
-    -- stylua: ignore
-    keys = {
-      { "<leader>z", function() require("maximize").toggle() end, desc = "Maximize Window" },
-    },
-  },
   -- conditionally enable bufferline catppuccin integration
   {
     "akinsho/bufferline.nvim",
