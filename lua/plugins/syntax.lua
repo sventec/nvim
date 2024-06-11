@@ -121,14 +121,13 @@ return {
     },
   },
   -- autogenerate docstrings from code
+  -- lazyvim neogen extra provides keybind '<leader>cn'
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
-    -- stylua: ignore
-    keys = { { "<leader>cD", function() require("neogen").generate({}) end, desc = "Generate Docstring", } },
     opts = {
       enabled = true,
-      snippet_engine = "nvim",
+      snippet_engine = "nvim", -- if ommitted, will be determined by lazyvim neogen extra
       languages = {
         python = {
           template = {

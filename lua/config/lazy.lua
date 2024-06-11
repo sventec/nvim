@@ -44,6 +44,9 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.dap.core" },
     -- motions for adding/editing/removing surrounding chars (like brackets) with `gs`
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    -- use <leader>cn to generate docstrings for a function, class, etc.
+    -- further configuration in lua/plugins/syntax.lua
+    { import = "lazyvim.plugins.extras.coding.neogen" },
 
     --- -- rest of custom plugin configuration --
     { import = "plugins" },
