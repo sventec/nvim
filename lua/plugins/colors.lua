@@ -1,5 +1,4 @@
 -- colorscheme installation, confguration
-local Util = require("lazyvim.util")
 return {
   -- set colorscheme
   {
@@ -16,8 +15,7 @@ return {
   -- everforest lua port
   {
     "neanias/everforest-nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     main = "everforest",
     opts = {
       -- background = "hard", -- default is "medium"
@@ -26,6 +24,8 @@ return {
       -- ui_contrast = "low", -- "high"
       -- diagnostic_virtual_text = "grey", -- default is "coloured"
     },
+    -- stylua: ignore
+    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
   },
   {
     "mcchrish/zenbones.nvim",
@@ -34,7 +34,7 @@ return {
       "rktjmp/lush.nvim",
     },
     -- stylua: ignore
-    keys = { { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" } },
+    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
   },
   {
     "catppuccin/nvim",
@@ -74,19 +74,19 @@ return {
       },
     },
     -- stylua: ignore
-    keys = { { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" } },
+    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
   },
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
     -- stylua: ignore
-    keys = { { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" } },
+    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
   },
   {
     "Shatur/neovim-ayu",
     lazy = true,
     -- stylua: ignore
-    keys = { { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" } },
+    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
     config = function()
       require("ayu").setup({
         mirage = true,
