@@ -204,14 +204,6 @@ return {
       inlay_hints = {
         enabled = true,
       },
-      capabilities = {
-        textDocument = {
-          foldingRange = { -- capabilities for nvim-ufo
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          },
-        },
-      },
       servers = {
         basedpyright = { -- pyright but based. manually install off PyPI
           settings = {

@@ -32,7 +32,6 @@ vim.g.autoformat = false
 -- opt.foldenable = false -- disable folding entirely
 -- opt.foldmethod = "marker" -- use {{{ / }}} to mark folds
 -- opt.foldlevelstart = 99 -- start buffer with all folds open (can be overriden by modeline etc.)
-opt.foldcolumn = "0" -- fold column for nvim-ufo, set to "1" to see fold buttons & guides
 
 -- ==visual== --
 opt.linebreak = true -- wrap on word boundaries

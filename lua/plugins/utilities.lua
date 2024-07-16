@@ -1,5 +1,6 @@
 -- general utility plugins, adding commands & etc.
 return {
+  -- octo config replaced with lazyvim octo extra
   -- {
   --   "pwntester/octo.nvim",
   --   cmd = "Octo",
