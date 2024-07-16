@@ -5,15 +5,17 @@
 local map = vim.keymap.set
 
 -- copy (yank) to system clipboard
-map("n", "<leader>y", '"+y', { desc = "Copy to clipboard" })
-map("n", "<leader>yy", '"+yy')
-map("v", "<leader>y", '"+y', { desc = "Copy to clipboard", silent = true })
+-- migrated to plugins/defaults.lua which-key config, for icons (discoverability)
+-- map("n", "<leader>y", '"+y', { desc = "Copy to clipboard", icon = { icon = "", color = "blue" } })
+-- map("n", "<leader>yy", '"+yy')
+-- map("v", "<leader>y", '"+y', { desc = "Copy to clipboard", silent = true })
 
 -- paste from system clipboard
-map("n", "<leader>p", '"+p')
-map("n", "<leader>P", '"+P')
-map("v", "<leader>p", '"+p', { silent = true })
-map("v", "<leader>P", '"+P', { silent = true })
+-- migrated to plugins/defaults.lua which-key config, for icons (discoverability)
+-- map("n", "<leader>p", '"+p', { desc = "Paste from clipboard", icon = { icon = "", color = "blue" } })
+-- map("n", "<leader>P", '"+P', { desc = "Paste from clipboard (behind)", hidden = true })
+-- map("v", "<leader>p", '"+p', { silent = true })
+-- map("v", "<leader>P", '"+P', { silent = true })
 
 -- underline current line with `-`/`=`
 -- can also use `i<number>-<ESC>`

@@ -369,4 +369,18 @@ return {
       end,
     },
   },
+
+  -- configure which-key display for keymaps set in config/keymaps.lua
+  {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        mode = { "n", "v" },
+        { "<leader>p", '"+p', desc = "Paste from clipboard", icon = { icon = "", color = "blue" } },
+        { "<leader>P", '"+P', desc = "Paste from clipboard (behind)", hidden = true },
+        { "<leader>y", '"+y', desc = "Copy to clipboard", icon = { icon = "", color = "blue" } },
+        { "<leader>yy", '"+yy', desc = "Copy line to clipboard", mode = "v", hidden = true },
+      },
+    },
+  },
 }

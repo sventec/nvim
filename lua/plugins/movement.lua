@@ -36,12 +36,12 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>1"] = "which_key_ignore",
-        ["<leader>2"] = "which_key_ignore",
-        ["<leader>3"] = "which_key_ignore",
-        ["<leader>4"] = "which_key_ignore",
-        ["<leader>5"] = "which_key_ignore",
+      spec = {
+        { "<leader>1", hidden = true },
+        { "<leader>2", hidden = true },
+        { "<leader>3", hidden = true },
+        { "<leader>4", hidden = true },
+        { "<leader>5", hidden = true },
       },
     },
   },

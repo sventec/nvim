@@ -39,8 +39,8 @@ return {
   -- {
   --   "folke/which-key.nvim",
   --   opts = {
-  --     defaults = {
-  --       ["<leader>go"] = { name = "octo" },
+  --     spec = {
+  --       { "<leader>go", group = "octo" },
   --     },
   --   },
   -- },
