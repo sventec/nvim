@@ -23,6 +23,10 @@ return {
   -- <C-[hjkl]> navigation between neovim and tmux. Requires companion tmux plugin.
   {
     "christoomey/vim-tmux-navigator",
+    -- only install if environment has `tmux`
+    cond = function()
+      return vim.fn.executable("tmux") == 1
+    end,
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
