@@ -263,7 +263,8 @@ return {
       },
       diagnostics = {
         underline = true,
-        -- virtual_text = false,
+        -- disable virtual_text for tiny-inline-diagnostic.nvim (handles inline display)
+        virtual_text = false,
       },
       setup = {
         [vim.g.lazyvim_python_ruff or "ruff_lsp"] = function()
