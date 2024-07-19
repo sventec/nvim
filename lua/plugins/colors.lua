@@ -46,7 +46,6 @@ return {
       show_end_of_buffer = false, -- ~ chars at EOB
       integrations = {
         -- bufferline.nvim components set conditionally in visual.lua
-        aerial = true, -- installed from aerial extra
         alpha = false, -- using dashboard-nvim
         cmp = true,
         dap = true,
@@ -65,6 +64,7 @@ return {
         notify = true,
         nvimtree = false, -- using neo-tree.nvim
         semantic_tokens = true,
+        symbols_outline = true, -- also the outline.nvim integration
         octo = true,
         telescope = { enabled = true, style = "nvchad" },
         treesitter = true,

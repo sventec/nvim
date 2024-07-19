@@ -16,7 +16,7 @@ return {
       },
       -- colorscheme set in colors.lua
       kind_filter = {
-        -- filter for symbol types to show in e.g. aerial.nvim
+        -- filter for symbol types to show in e.g. aerial.nvim or outline.nvim
         -- see :help SymbolKind
         -- python = false, -- false to show all
         python = {
@@ -371,6 +371,7 @@ return {
         { "<leader>p", '"+p', desc = "Paste from clipboard", icon = { icon = "", color = "blue" } },
         { "<leader>P", '"+P', desc = "Paste from clipboard (behind)", hidden = true },
         { "<leader>y", '"+y', desc = "Copy to clipboard", icon = { icon = "", color = "blue" }, mode = "n" },
+        -- stylua: ignore
         { "<leader>y", '"+y', desc = "Copy to clipboard", icon = { icon = "", color = "blue" }, mode = "v", silent = true },
         { "<leader>yy", '"+yy', desc = "Copy line to clipboard", mode = "v", hidden = true, silent = true },
       },

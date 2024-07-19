@@ -62,4 +62,17 @@ return {
       },
     },
   },
+  --- shows a symbol outline sidebar on <leader>cs (installed via extra)
+  {
+    "hedyhli/outline.nvim",
+    optional = true, -- only apply if already installed via extra
+    opts = {
+      outline_items = {
+        show_symbol_lineno = true,
+      },
+      -- symbol_folding = {
+      --   autofold_depth = 2, -- default 1
+      -- },
+    },
+  },
 }

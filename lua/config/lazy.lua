@@ -17,8 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
     { import = "lazyvim.plugins.extras.ui.treesitter-context" }, -- show scope context at top of screen
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
-    -- NOTE: aerial must be imported *after* edgy
-    { import = "lazyvim.plugins.extras.editor.aerial" }, -- code outline window (symbols-outline replacement)
+    { import = "lazyvim.plugins.extras.editor.outline" }, -- code outline window (symbols-outline replacement)
     -- set vscode = true in plugin spec to load when embedded in vscode
     { import = "lazyvim.plugins.extras.vscode" }, -- load stripped set of plugins in vscode embedded nvim
     { import = "lazyvim.plugins.extras.editor.dial" }, -- increment/decrement/toggle numbers, dates, booleans, etc.
