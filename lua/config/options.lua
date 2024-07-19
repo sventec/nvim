@@ -8,7 +8,7 @@ local cmd = vim.cmd
 -- set lazyvim.plugins.extras.lang.python to use basedpyright instead of pyright
 -- TODO: refactor all Python configs to separate plugin file/module
 vim.g.lazyvim_python_lsp = "basedpyright" -- or "pyright"
-vim.g.lazyvim_python_ruff = "ruff_lsp" -- or "ruff"
+vim.g.lazyvim_python_ruff = "ruff" -- or "ruff_lsp"
 -- custom: define desired colorscheme as global variable
 -- used to set colorscheme (duh),
 --   conditionally configure some plugin integrations for e.g. catppuccin,
