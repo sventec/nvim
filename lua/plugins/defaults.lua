@@ -198,9 +198,9 @@ return {
     end,
     opts = {
       -- NOTE: codelens and inlay_hints are Neovim >= 0.10.0 features
-      -- codelens = {
-      --   enabled = true,
-      -- },
+      codelens = {
+        enabled = true,
+      },
       inlay_hints = {
         enabled = true,
       },
