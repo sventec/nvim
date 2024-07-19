@@ -5,17 +5,16 @@ return {
   {
     "abecodes/tabout.nvim",
     opts = {
-      -- FIXME: overriding nvim-snpipets Tab/S-Tab, configure as fallback
-      -- https://github.com/abecodes/tabout.nvim?tab=readme-ov-file#more-complex-keybindings
-      tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-      backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-      act_as_tab = true, -- shift content if tab out is not possible
-      act_as_shift_tab = true, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <s-tab>)
+      tabkey = "<a-l>", -- key to trigger tabout, set to an empty string to disable
+      backwards_tabkey = "<a-h>", -- key to trigger backwards tabout, set to an empty string to disable
+      act_as_tab = false, -- shift content if tab out is not possible
+      act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <s-tab>)
       enable_backwards = true, -- well ...
       completion = false, -- if the tabkey is used in a completion pum
       ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
     },
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "InsertCharPre" },
+    priority = 1000,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "hrsh7th/nvim-cmp",
