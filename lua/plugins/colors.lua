@@ -54,7 +54,6 @@ return {
         dashboard = true,
         flash = true,
         gitsigns = true,
-        harpoon = true,
         headlines = true,
         indent_blankline = { enabled = true, colored_indent_levels = false },
         lsp_trouble = true,

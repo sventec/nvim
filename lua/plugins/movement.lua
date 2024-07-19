@@ -20,30 +20,6 @@ return {
       "hrsh7th/nvim-cmp",
     },
   },
-  -- harpoon extra setup and added configuration
-  -- <leader>H to add file, <leader>h for file menu. <leader>N where N=1-5 to quick open file N
-  { import = "lazyvim.plugins.extras.editor.harpoon2" }, -- harpoon file list
-  {
-    "ThePrimeagen/harpoon",
-    opts = {
-      settings = {
-        save_on_toggle = true,
-      },
-    },
-  },
-  -- remove harpoon binds from which-key (cluttered)
-  {
-    "folke/which-key.nvim",
-    opts = {
-      spec = {
-        { "<leader>1", hidden = true },
-        { "<leader>2", hidden = true },
-        { "<leader>3", hidden = true },
-        { "<leader>4", hidden = true },
-        { "<leader>5", hidden = true },
-      },
-    },
-  },
   -- <C-[hjkl]> navigation between neovim and tmux. Requires companion tmux plugin.
   {
     "christoomey/vim-tmux-navigator",

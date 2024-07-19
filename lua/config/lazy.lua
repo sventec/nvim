@@ -42,7 +42,6 @@ require("lazy").setup({
     --- -- other editing --
     -- use prettier extra to autoconfigure all supported filetypes with conform.nvim
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- harpoon extra added, configured in plugins/movement.lua
     { import = "lazyvim.plugins.extras.dap.core" },
     -- motions for adding/editing/removing surrounding chars (like brackets) with `gs`
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
