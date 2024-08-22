@@ -52,16 +52,6 @@ return {
       end
     end,
   },
-  -- change bottom highlight character for headlines.nvim
-  {
-    "lukas-reineke/headlines.nvim",
-    opts = {
-      markdown = {
-        -- fat_headline_lower_string = "▔",
-        fat_headline_lower_string = "▀",
-      },
-    },
-  },
   --- shows a symbol outline sidebar on <leader>cs (installed via extra)
   {
     "hedyhli/outline.nvim",
@@ -88,7 +78,7 @@ return {
         -- You can increase it if you have performance issues.
         -- Or set it to 0 to have better visuals.
         -- throttle = 20, -- default 20
-        -- show all diags under cursor, instead of most important
+        -- show all diags under cursor, instead of just most important
         multiple_diag_under_cursor = true,
       },
     },
