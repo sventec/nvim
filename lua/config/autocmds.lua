@@ -6,6 +6,10 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
-    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    vim.opt_local.formatoptions:remove({ "r", "o" })
   end,
 })
+
+-- Register Just's justfile as make filetype
+-- This isn't perfect syntax highlighting, but better than nothing
+vim.filetype.add({ filename = { justfile = "make" } })
