@@ -5,7 +5,20 @@ return {
     "m4xshen/smartcolumn.nvim",
     opts = {
       colorcolumn = { "80", "88", "120" },
-      disabled_filetypes = { "alpha", "help", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
+      disabled_filetypes = {
+        "alpha",
+        "help",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "trouble",
+        "lazy",
+        "mason",
+        "snacks_dashboard",
+        "snacks_notif",
+        "snacks_terminal",
+        "snacks_win",
+      },
       custom_colorcolumn = { -- column overrides for specific languages
         text = "80",
         markdown = "120",
