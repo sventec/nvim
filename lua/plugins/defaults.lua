@@ -215,7 +215,7 @@ return {
                 useLibraryCodeForTypes = true,
                 -- https://detachhead.github.io/basedpyright/#/configuration?id=diagnostic-settings-defaults
                 -- TLDR: change this for less strict checking (less errors)
-                -- typeCheckingMode = "recommended", -- basedpyright default is "recommended", also "standard", "all", etc.
+                typeCheckingMode = "recommended", -- basedpyright default is "recommended", also "standard", "all", etc.
                 diagnosticSeverityOverrides = {
                   -- https://detachhead.github.io/basedpyright/#/configuration?id=type-check-diagnostics-settings
                   -- one of: error, warning, information, true, false, none
