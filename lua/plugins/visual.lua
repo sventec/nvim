@@ -30,10 +30,16 @@ return {
   -- add hints for unique chars on line for f/F/t/T
   {
     "jinh0/eyeliner.nvim",
-    event = "VeryLazy",
+    -- FIXME: changed event to avoid clobbering alpha "f" keybind
+    -- event = "VeryLazy",
+    event = { "BufNewFile", "BufReadPre" },
     opts = {
       highlight_on_key = true,
       dim = true,
+      -- NOTE: despite these working, they unbind alpha keybinds that were set prior to
+      -- disabling by eyeliner. It sets keybinds, then unsets, instead of leaving untouched
+      disabled_buftypes = { "nofile" },
+      disabled_filetypes = { "alpha", "dashboard", "neo-tree", "snacks_dashboard" },
     },
   },
   -- show explanation for regex under cursor
@@ -83,7 +89,9 @@ return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
     config = function()
-      require("tiny-inline-diagnostic").setup()
+      require("tiny-inline-diagnostic").setup({
+        preset = "classic", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont"
+      })
     end,
     opts = {
       options = {
@@ -93,6 +101,7 @@ return {
         -- throttle = 20, -- default 20
         -- show all diags under cursor, instead of just most important
         multiple_diag_under_cursor = true,
+        show_all_diags_on_cursorline = true,
       },
     },
   },
