@@ -89,7 +89,9 @@ return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy",
     config = function()
-      require("tiny-inline-diagnostic").setup()
+      require("tiny-inline-diagnostic").setup({
+        preset = "classic", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont"
+      })
     end,
     opts = {
       options = {
@@ -99,6 +101,7 @@ return {
         -- throttle = 20, -- default 20
         -- show all diags under cursor, instead of just most important
         multiple_diag_under_cursor = true,
+        show_all_diags_on_cursorline = true,
       },
     },
   },
