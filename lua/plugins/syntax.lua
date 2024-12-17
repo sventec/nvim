@@ -138,38 +138,6 @@ return {
       },
     },
   },
-  -- text objects for indent levels (select, move next)
-  {
-    "kiyoon/treesitter-indent-object.nvim",
-    enabled = false, -- disable for now, full compatibility requires legacy indent-blankline v2
-    -- stylua: ignore
-    keys = {
-      {
-        "ai",
-        function() require("treesitter_indent_object.textobj").select_indent_outer() end,
-        mode = { "x", "o" },
-        desc = "Select context-aware indent (outer)",
-      },
-      {
-        "aI",
-        function() require("treesitter_indent_object.textobj").select_indent_outer(true) end,
-        mode = { "x", "o" },
-        desc = "Select context-aware indent (outer, line-wise)",
-      },
-      {
-        "ii",
-        function() require("treesitter_indent_object.textobj").select_indent_inner() end,
-        mode = { "x", "o" },
-        desc = "Select context-aware indent (inner, partial range)",
-      },
-      {
-        "iI",
-        function() require("treesitter_indent_object.textobj").select_indent_inner(true, "V") end,
-        mode = { "x", "o" },
-        desc = "Select context-aware indent (inner, entire range) in line-wise visual mode",
-      },
-    },
-  },
   -- syntax highlighting for .tridactylrc
   {
     "tridactyl/vim-tridactyl",

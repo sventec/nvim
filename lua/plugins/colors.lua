@@ -54,7 +54,6 @@ return {
         flash = true,
         gitsigns = true,
         headlines = true,
-        indent_blankline = { enabled = true, colored_indent_levels = false },
         lsp_trouble = true,
         markdown = true,
         mason = true,
@@ -64,6 +63,7 @@ return {
         notify = true,
         nvimtree = false, -- using neo-tree.nvim
         semantic_tokens = true,
+        snacks = true,
         symbols_outline = true, -- also the outline.nvim integration
         octo = true,
         telescope = { enabled = true, style = "nvchad" },

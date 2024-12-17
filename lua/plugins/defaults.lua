@@ -87,7 +87,7 @@ return {
         current_venv,
         -- ref: https://github.com/LazyVim/LazyVim/blob/9b8a393edc8b9a12a39f712163f6476c084a7f71/lua/lazyvim/plugins/ui.lua#L165
         cond = function() return package.loaded["venv-selector"] and require("venv-selector").venv() ~= nil end,
-        color = function() return LazyVim.ui.fg("String") end,
+        color = function() return { ft = Snacks.util.color("String") } end,
       })
 
       opts.sections.lualine_y = {
@@ -154,6 +154,7 @@ return {
     },
   },
   -- add additional Telescope keybinds
+  -- change snacks.nvim config
   {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -184,6 +185,13 @@ return {
           require("telescope.builtin").filetypes()
         end,
         desc = "List All Filetypes",
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      -- animations disabled globally in options.lua with vim.g.snacks_animate
+      scroll = {
+        -- disable scrolling animations
+        enabled = false,
       },
     },
   },

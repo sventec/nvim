@@ -22,6 +22,10 @@ vim.g.deprecation_warnings = true
 -- If the tmux window is zoomed, keep it zoomed when moving from Vim to another pane
 vim.g.tmux_navigator_preserve_zoom = 1
 
+-- snacks.nvim
+-- disable animations globally
+vim.g.snacks_animate = false
+
 -- ==behavior== --
 opt.clipboard = "" -- do NOT use system clipboard (unnamedplus), the default LazyVim behavior
 

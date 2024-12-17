@@ -42,15 +42,4 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
-  -- text objects (ii/ai) and motions (]i/[i) for indent levels.
-  -- included via the indentscope lazyvim extra, which disables indent-blankline
-  {
-    "echasnovski/mini.indentscope",
-    optional = true,
-    opts = {
-      draw = {
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-    },
-  },
 }
