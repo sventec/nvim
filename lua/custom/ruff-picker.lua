@@ -1,5 +1,6 @@
 -- Telescope picker to open buffer's Ruff diagnostics docs pages in web browser
 -- Set as a buffer keymap function in python: after/ftplugin/python.lua
+-- FIXME: migrate picker to fzf-lua
 
 local M = {}
 

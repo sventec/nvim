@@ -15,9 +15,9 @@ Some may have been added in this config specifically.
 
 ## New Keybinds
 
-- Telescope - show hidden files: `<M-h>`
-- Telescope - show git files: `<M-i>`
-- Telescope - show cwd files only: `<M-c>`
+- fzf-lua - show hidden files: `<M-h>`
+- fzf-lua - show git files: `<M-i>`
+- fzf-lua - show cwd files only: `<M-c>`
 - Noice - dismiss all notification popups: `<leader>un` / `<leader>snd`
 - vim-illuminate - move to prev/next occurrence of symbol under cursor: `[[` / `]]`
 - autopairs - insert mode, insert closing pair: `<M-e>`

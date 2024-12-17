@@ -12,7 +12,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     --- -- misc extras: util, ui, ... --
-    { import = "lazyvim.plugins.extras.editor.telescope" }, -- telescope picker
     { import = "lazyvim.plugins.extras.util.project" }, -- detect and switch projects
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
     { import = "lazyvim.plugins.extras.ui.treesitter-context" }, -- show scope context at top of screen

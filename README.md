@@ -21,7 +21,8 @@ The following is required for use of the features in this config:
 - [Nerd Font](https://github.com/ryanoasis/nerd-fonts) as terminal font, version >= 3 (I use JetBrains Mono)
 - Packages for use by plugins
   - For Mason (installs formatters, linters, LSPs): `npm`, `cargo`
-  - For Telescope (fuzzy finders, etc.): `rg`, `fd`
+  - For fzf-lua (fuzzy finders, etc.): `fzf`, `rg`, `fd`
+    - `fzf`: [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
     - `rg`: [ripgrep](https://github.com/BurntSushi/ripgrep)
     - `fd`: [fd-find](https://github.com/sharkdp/fd)
 - Optional packages

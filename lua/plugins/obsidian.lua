@@ -22,7 +22,7 @@ return {
       -- https://github.com/epwalsh/obsidian.nvim/issues/770
       -- "hrsh7th/nvim-cmp",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
       "nvim-treesitter/nvim-treesitter",
     },
     lazy = true,
@@ -70,7 +70,7 @@ return {
 
       picker = {
         -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-        name = "telescope.nvim",
+        name = "fzf-lua",
         -- Optional, configure key mappings for the picker. These are the defaults.
         -- Not all pickers support all mappings.
         mappings = {

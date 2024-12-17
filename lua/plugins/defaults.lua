@@ -153,38 +153,23 @@ return {
       },
     },
   },
-  -- add additional Telescope keybinds
-  -- change snacks.nvim config
   {
-    "nvim-telescope/telescope.nvim",
+    "ibhagwan/fzf-lua",
     keys = {
-      -- stylua: ignore
+      -- like existing <leader>ss keybind, without symbol kind filter
       {
-        -- Telescope lsp document symbols keybind
-        -- example: can be used with marksman LSP to search & jump to .md file heading
         "<leader>sL",
         function()
-          require("telescope.builtin").lsp_document_symbols()
+          require("fzf-lua").lsp_document_symbols()
         end,
         desc = "Search All Symbols",
       },
-      {
-        -- Telescope lsp references under cursor keybind
-        -- See all references to lsp symbol under cursor
-        "<leader>sl",
-        function()
-          require("telescope.builtin").lsp_references()
-        end,
-        desc = "Symbol Under Cursor References",
-      },
-      {
-        -- Telescope filetypes keybind
-        -- List all filetypes (select to switch buffer ft)
-        "<leader>sf",
-        function()
-          require("telescope.builtin").filetypes()
-        end,
-        desc = "List All Filetypes",
+      -- list all filetypes (select to switch buffer ft)
+      { "<leader>sf", "<cmd>FzfLua filetypes<cr>", desc = "List All Filetypes" },
+    },
+  },
+  -- change snacks.nvim config
+  {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
@@ -193,6 +178,8 @@ return {
         -- disable scrolling animations
         enabled = false,
       },
+      -- indent = { chunk = { enabled = true } },
+      -- dashboard = { example = "github" },
     },
   },
   -- ==LSP/CODE== --

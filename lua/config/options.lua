@@ -25,6 +25,9 @@ vim.g.lazyvim_blink_main = true
 -- use blink.cmp over nvim-cmp for completion (LazyVim default as of v14.0.0)
 vim.g.lazyvim_cmp = "blink.cmp"
 
+-- use fzf-lua over Telescope.nvim for pickers (LazyVim default as of v14.0.0)
+vim.g.lazyvim_picker = "fzf"
+
 
 -- ==plugins== --
 -- vim-tmux-navigator

@@ -52,6 +52,7 @@ return {
         dap_ui = true,
         dashboard = true,
         flash = true,
+        fzf = true,
         gitsigns = true,
         headlines = true,
         lsp_trouble = true,
@@ -66,7 +67,7 @@ return {
         snacks = true,
         symbols_outline = true, -- also the outline.nvim integration
         octo = true,
-        telescope = { enabled = true, style = "nvchad" },
+        -- telescope = { enabled = true, style = "nvchad" },
         treesitter = true,
         treesitter_context = true,
         which_key = true,
