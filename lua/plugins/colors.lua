@@ -47,7 +47,7 @@ return {
       integrations = {
         -- bufferline.nvim components set conditionally in visual.lua
         alpha = false, -- using dashboard-nvim
-        cmp = true,
+        blink_cmp = true,
         dap = true,
         dap_ui = true,
         dashboard = true,

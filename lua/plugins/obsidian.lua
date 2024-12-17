@@ -18,7 +18,9 @@ return {
   {
     "epwalsh/obsidian.nvim",
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      -- FIXME: config blink.cmp to spuport completion
+      -- https://github.com/epwalsh/obsidian.nvim/issues/770
+      -- "hrsh7th/nvim-cmp",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -44,6 +46,11 @@ return {
       daily_notes = {
         folder = "daily-notes",
         template = "daily", -- relative to preconfigured template path
+      },
+
+      completion = {
+        -- FIXME: config to use blink.cmp for completion (see above)
+        nvim_cmp = true,
       },
 
       -- Optional, customize how wiki links are formatted. You can set this to one of:

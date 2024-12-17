@@ -289,35 +289,34 @@ return {
       },
     },
   },
+  -- autocomplete menu
   {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      -- only show completions after typing 2 characters
-      -- show completion sooner with <C-Space>
-      opts.completion.keyword_length = 2
-
-      -- filetypes for which brackets should be added to function completion
-      -- https://github.com/LazyVim/LazyVim/blob/main/CHANGELOG.md#10200-2024-03-28
-      opts.auto_brackets = opts.auto_brackets or {}
-      vim.list_extend(opts.auto_brackets, { "python" })
-
-      -- sort entries beginning with '_' lower than (after) others, for Python
-      -- credit: https://github.com/lukas-reineke/cmp-under-comparator
-      local compare_under = function(entry1, entry2)
-        local _, entry1_under = entry1.completion_item.label:find("^_+")
-        local _, entry2_under = entry2.completion_item.label:find("^_+")
-        entry1_under = entry1_under or 0
-        entry2_under = entry2_under or 0
-        if entry1_under > entry2_under then
-          return false
-        elseif entry1_under < entry2_under then
-          return true
-        end
-      end
-      -- extend existing comparators, ref:
-      -- https://github.com/LazyVim/LazyVim/blob/1432f318b6b061d3da510ebd795a3292b10e636b/lua/lazyvim/plugins/extras/lang/clangd.lua#L99
-      table.insert(opts.sorting.comparators, 1, compare_under)
-    end,
+    "Saghen/blink.cmp",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    ---@diagnostic disable:missing-fields
+    opts = {
+      signature = { enabled = true },
+      completion = {
+        -- changes: enter auto-accept first entry to require manual selection
+        -- list = {
+        --   selection = "manual", -- "preselect" auto-selects first entry
+        -- },
+        menu = {
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+          },
+        },
+        -- override LazyVim ghost text default
+        -- ghost_text = {
+        --   enabled = false,
+        -- },
+      },
+      sources = {
+        min_keyword_length = 2,
+      },
+    },
+    ---@diagnostic enable:missing-fields
   },
   -- disable mini.pairs in favor of nvim-autopairs
   { "echasnovski/mini.pairs", enabled = false },

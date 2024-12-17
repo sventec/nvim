@@ -17,7 +17,6 @@ return {
     priority = 1000,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",
     },
   },
   -- <C-[hjkl]> navigation between neovim and tmux. Requires companion tmux plugin.
