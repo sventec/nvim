@@ -100,7 +100,6 @@ return {
       },
     },
   },
-  { "vimjas/vim-python-pep8-indent", enabled = false },
   -- bracket pairs, replacing built-in mini.pairs
   {
     "windwp/nvim-autopairs",
