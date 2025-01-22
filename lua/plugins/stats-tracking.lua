@@ -9,7 +9,9 @@ return {
   --  - set the CODESTATS_USERNAME environment variable to the key's associated codestats.net username
   {
     -- fork of https://github.com/nyaa8/codestats.nvim
-    "mcarn/codestats.nvim",
+    -- "mcarn/codestats.nvim",
+    "YannickFricke/codestats.nvim",
+    -- enabled = false,
     event = "VeryLazy",
     -- uses env vars CODESTATS_API_KEY (same as e.g. code-stats-zsh) and CODESTATS_USERNAME by default
     -- WILL ONLY BE LOADED IF these env vars are set
@@ -19,10 +21,10 @@ return {
     -- can also just set enabled = false to disable even if those env vars exist
     -- enabled = false,
     config = function()
-      require("codestats").setup({
-        key = vim.env.CODESTATS_API_KEY,
-        username = vim.env.CODESTATS_USERNAME,
-      })
+      -- require("codestats").setup({
+      -- key = vim.env.CODESTATS_API_KEY,
+      -- username = vim.env.CODESTATS_USERNAME,
+      require("codestats-nvim").setup({})
     end,
   },
 
@@ -33,6 +35,7 @@ return {
   -- api_url = https://wakapi.dev/api (if not default)
   {
     "wakatime/vim-wakatime",
+    enabled = false,
     event = "VeryLazy",
     cond = function()
       -- only load if ~/.wakatime.cfg exists

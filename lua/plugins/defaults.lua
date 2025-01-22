@@ -115,11 +115,11 @@ return {
         "regex",
         "toml",
       },
-      -- indent = {
-      --   disable = {
-      --     "python", -- use vim-python-pep8-indent for indents instead
-      --   },
-      -- },
+      indent = {
+        disable = {
+          "yaml", -- yaml list formatting kinda sucks
+        },
+      },
     },
   },
   -- move neo-tree to open on right
@@ -204,6 +204,10 @@ return {
           settings = {
             basedpyright = {
               analysis = {
+                inlayHints = {
+                  variableTypes = true,
+                  -- genericTypes = false, -- likely redundant with variableTypes
+                },
                 autoImportCompletions = true, -- offer auto-import completions
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly", -- "workspace"

@@ -10,6 +10,10 @@ particularities. Otherwise, clone this config to `~/.config/nvim/`, start
 `nvim`, and `:checkhealth`. The plugin manager `lazy.nvim` should be
 automatically bootstrapped on first start.
 
+> [!NOTE]
+> Looking for the "bleeding edge" version? Breaking changes and major
+> updates are often tested on the `dev` branch first.
+
 ### Requirements
 
 The following is required for use of the features in this config:

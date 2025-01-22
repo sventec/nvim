@@ -4,6 +4,9 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+-- If installing the neovim python integration in an isolated environment,
+-- provide the path to that here:
+-- vim.g.python3_host_prog = "~/.nvim-venv/bin/python3"
 
 -- ==lazyvim== --
 -- set lazyvim.plugins.extras.lang.python to use basedpyright instead of pyright
