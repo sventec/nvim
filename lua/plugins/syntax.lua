@@ -2,7 +2,7 @@
 return {
   -- automatically install tools using Mason
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         -- python
@@ -71,7 +71,7 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        -- python = { "mypy" }, -- ruff-lsp and pyright handle lint messages via LSP
+        -- python = { "mypy" }, -- ruff server and pyright handle lint messages via LSP
         sh = { "shellcheck" },
         yaml = { "yamllint" },
         markdown = { "markdownlint" }, -- "write_good"
