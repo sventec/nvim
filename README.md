@@ -1,7 +1,8 @@
 # Neovim Dots, 💤 Lazy Edition
 
-A port, with lots of unused features removed, of my 'pure' neovim config to one
-built off of [LazyVim](https://www.lazyvim.org/).
+A port, with lots of unused features removed, of my 'pure' Neovim config to one built off of
+[LazyVim](https://www.lazyvim.org/) -- or, at least, this was the original repo description, but it's now nearly as
+messy as the last.
 
 ## Installation
 
@@ -18,7 +19,7 @@ automatically bootstrapped on first start.
 
 The following is required for use of the features in this config:
 
-- Basic tools, e.g. `git`, `curl`, `unzip`, etc.
+- Basic tools, e.g., `git`, `curl`, `unzip`, etc.
 - Neovim packages: `neovim`, `python-pynvim`
   - Neovim version **must be >= 0.10.0**
   - Use of 0.10.0 allows for LSP inlay hints, native snippets, native commenting, and more. The plugins providing these functions for versions >= 0.9 have been removed, and thus this config won't be fully functional without 0.10.0.
@@ -32,20 +33,20 @@ The following is required for use of the features in this config:
 - Optional packages
   - [lazygit](https://github.com/jesseduffield/lazygit) (for embedded `lazygit` window)
 
-### Setup Config
+### Setup config
 
-Once the requirements have been installed, prepare the configuration on your system.
+After installing the requirements (above), prepare the configuration on your system.
 
-#### Backing Up Existing Config
+#### Backing up existing config
 
-If you have an existing Neovim configuration, it can be backed up and restored if you wish to change back at any point in the future.
+If you have an existing Neovim configuration, it's wise to create a backup if you wish to change back at any point in the future.
 
 ```bash
 mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
 
-#### Cloning Dotflies
+#### Cloning dotflies
 
 Once any existing Neovim configuration has been backed up, clone this
 repository into `~/.config/nvim/`. If an existing Neovim configuration exists,
@@ -56,7 +57,7 @@ starting Neovim for the first time.
 git clone https://github.com/sventec/nvim.git ~/.config/nvim
 ```
 
-#### Post-Installation
+#### Post-installation
 
 Once the dotfiles have been cloned, start `nvim` for the first time, and allow
 all plugins to install. Once all plugins have installed, quit Neovim and reopen it.
