@@ -56,9 +56,12 @@ return {
         -- markdown = { "markdownlint" },
         hcl = { "packer_fmt" },
         -- ["*"] is used on all filetypes
-        ["*"] = { "trim_whitespace" },
+        -- with lsp_format as "fallback" (LazyVim default), this will take preference over LSP formatters
+        -- ["*"] = { "trim_whitespace" },
         -- ["_"] is used as fallback formatter for langs not listed above
-        -- ["_"] = { "trim_whitespace" },
+        -- NOTE: lsp_format causes fallback formatter preference to be (first available):
+        -- filetype formatter --> lsp formatter --> below (trim_whitespace)
+        ["_"] = { "trim_whitespace", lsp_format = "prefer" },
         -- ["_"] = { { "prettierd", "prettier" } }, -- nested list uses only first available from list
         fish = {}, -- remove default LazyVim linter
       },
