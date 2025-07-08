@@ -33,7 +33,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.markdown" }, -- md live preview, syntax
     -- { import = "lazyvim.plugins.extras.lang.ansible" },
     -- { import = "lazyvim.plugins.extras.lang.docker" },
-    { import = "lazyvim.plugins.extras.lang.go" },
+    -- { import = "lazyvim.plugins.extras.lang.go" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
     -- { import = "lazyvim.plugins.extras.lang.terraform" },
 
