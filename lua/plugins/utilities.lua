@@ -50,7 +50,7 @@ return {
   {
     "wintermute-cell/gitignore.nvim",
     keys = {
-      { "<leader>gi", "<cmd>Gitignore<cr>", desc = "Generate gitignore" },
+      { "<leader>gn", "<cmd>Gitignore<cr>", desc = "Generate gitignore" },
     },
   },
 }
