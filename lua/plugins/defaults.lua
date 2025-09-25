@@ -310,7 +310,7 @@ return {
     ---@diagnostic enable:missing-fields
   },
   -- disable mini.pairs in favor of nvim-autopairs
-  { "echasnovski/mini.pairs", enabled = false },
+  { "nvim-mini/mini.pairs", enabled = false },
   -- disable f/F/t/T motions for flash.nvim in favor of default motions
   {
     "folke/flash.nvim",
