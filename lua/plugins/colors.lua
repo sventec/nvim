@@ -56,19 +56,23 @@ return {
         gitsigns = true,
         headlines = true,
         lsp_trouble = true,
-        markdown = true,
         mason = true,
-        native_lsp = { enabled = true },
+        lsp_styles = {
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
+        },
         neotree = true,
         noice = true,
         notify = true,
         nvimtree = false, -- using neo-tree.nvim
-        semantic_tokens = true,
         snacks = true,
         symbols_outline = true, -- also the outline.nvim integration
         octo = true,
         -- telescope = { enabled = true, style = "nvchad" },
-        treesitter = true,
         treesitter_context = true,
         which_key = true,
       },
