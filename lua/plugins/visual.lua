@@ -63,11 +63,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if vim.g.lazyvim_colorscheme == "catppuccin" then
-        opts = vim.tbl_deep_extend(
-          "force",
-          opts,
-          { highlights = require("catppuccin.special.bufferline").get_theme() }
-        )
+        opts = vim.tbl_deep_extend("force", opts, { highlights = require("catppuccin.special.bufferline").get_theme() })
       end
     end,
   },
@@ -99,9 +95,15 @@ return {
         -- You can increase it if you have performance issues.
         -- Or set it to 0 to have better visuals.
         -- throttle = 20, -- default 20
-        -- show all diags under cursor, instead of just most important
-        multiple_diag_under_cursor = true,
         show_all_diags_on_cursorline = true,
+        multilines = {
+          enabled = true,
+        },
+        -- show_source = {
+        --   enabled = false,
+        --   -- Show source only when multiple sources exist for the same diagnostic
+        --   if_many = false,
+        -- },
       },
     },
   },
