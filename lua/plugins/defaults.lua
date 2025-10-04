@@ -46,22 +46,6 @@ return {
       opts.options.component_separators = { left = " ", right = " " }
       opts.options.section_separators = { left = "", right = "" }
 
-      local function codestats_xp()
-        -- show codestats.net current xp in lualine
-        local ok, codestats = pcall(require, "codestats")
-        if not ok then
-          return ""
-        end
-
-        local xp = codestats.current_xp()
-        if xp == 0 then
-          -- don't show segment if xp is 0
-          return ""
-        else
-          return "CS::" .. tostring(xp)
-        end
-      end
-
       local function current_venv()
         -- show currently activated python venv in lualine
         -- venv name provided by venv-selector.nvim
@@ -91,7 +75,6 @@ return {
       })
 
       opts.sections.lualine_y = {
-        codestats_xp,
         "encoding",
         "filesize",
         "filetype",
