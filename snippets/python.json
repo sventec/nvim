@@ -18,5 +18,20 @@
     "prefix": "pyright_ignore",
     "body": ["# pyright: ignore[${1:rule}]"],
     "description": "Add pyright ignore comment to current line"
+  },
+  "list_of_dicts_to_csv": {
+    "prefix": "csvwriter",
+    "body": [
+      "with open(\"${1:file.csv}\", \"w\", newline=\"\") as f:",
+      "    dw = csv.DictWriter(f, ${2:keys})",
+      "    dw.writeheader()",
+      "    dw.writerows(${3:list_of_dicts})"
+    ],
+    "description": "Write a list of dictionaries to a CSV"
+  },
+  "all_uniq_dict_keys": {
+    "prefix": "dictkeys",
+    "body": ["{k for d in ${1:listofdicts} for k in d}"],
+    "description": "Get all keys in a list of dictionaries"
   }
 }
