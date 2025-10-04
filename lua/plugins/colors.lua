@@ -4,28 +4,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "everforest",
-      -- colorscheme = "zenwritten",
       -- colorscheme = "catppuccin",
       colorscheme = vim.g.lazyvim_colorscheme, -- set this in options.lua
     },
-  },
-  -- colorscheme: everforest
-  -- { "sainnhe/everforest" },
-  -- everforest lua port
-  {
-    "neanias/everforest-nvim",
-    lazy = true,
-    main = "everforest",
-    opts = {
-      -- background = "hard", -- default is "medium"
-      italics = true,
-      -- disable_italic_comments = true,
-      -- ui_contrast = "low", -- "high"
-      -- diagnostic_virtual_text = "grey", -- default is "coloured"
-    },
-    -- stylua: ignore
-    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
   },
   {
     "mcchrish/zenbones.nvim",
@@ -79,22 +60,5 @@ return {
     },
     -- stylua: ignore
     keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
-  },
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = true,
-    -- stylua: ignore
-    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
-  },
-  {
-    "Shatur/neovim-ayu",
-    lazy = true,
-    -- stylua: ignore
-    keys = { { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with Preview" } },
-    config = function()
-      require("ayu").setup({
-        mirage = true,
-      })
-    end,
   },
 }

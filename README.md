@@ -1,5 +1,9 @@
 # Neovim Dots, 💤 Lazy Edition
 
+> [!CAUTION]
+> The 'clean' branch contains a stripped down, highly opinionated variant of this config.
+> If you're reading this, you want the 'main' branch instead.
+
 A port, with lots of unused features removed, of my 'pure' Neovim config to one built off of
 [LazyVim](https://www.lazyvim.org/) -- or, at least, this was the original repo description, but it's now nearly as
 messy as the last.

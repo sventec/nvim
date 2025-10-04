@@ -12,10 +12,6 @@ return {
         -- "reorder-python-imports", -- format
         "ruff", -- format, lint (includes LSP server)
 
-        -- lua
-        "lua-language-server", -- lsp
-        "stylua", -- format
-
         -- sh
         -- "bash-language-server", -- lsp
         "shellcheck", -- lint
@@ -39,7 +35,7 @@ return {
         -- misc
         -- prettier provided by lazyvim.plugins.extras.formatting.prettier
         -- "prettierd", -- json/html/css/etc. formatting
-        "gh", -- github cli tool, for octo.nvim
+        -- "gh", -- github cli tool, for octo.nvim
       })
     end,
   },
@@ -54,7 +50,7 @@ return {
         sh = { "shfmt" },
         -- markdown formatting provided by 'marksman' LSP from lazyvim.plugins.extras.lang.markdown
         -- markdown = { "markdownlint" },
-        hcl = { "packer_fmt" },
+        -- hcl = { "packer_fmt" },
         -- ["*"] is used on all filetypes
         -- with lsp_format as "fallback" (LazyVim default), this will take preference over LSP formatters
         -- ["*"] = { "trim_whitespace" },
@@ -141,11 +137,6 @@ return {
         },
       },
     },
-  },
-  -- syntax highlighting for .tridactylrc
-  {
-    "tridactyl/vim-tridactyl",
-    ft = "tridactyl",
   },
   -- automatic new list bullet on <C-Enter> in markdown and plaintext
   {

@@ -12,7 +12,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     --- -- misc extras: util, ui, ... --
-    { import = "lazyvim.plugins.extras.util.project" }, -- detect and switch projects
+    -- { import = "lazyvim.plugins.extras.util.project" }, -- detect and switch projects
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- highlight color codes
     { import = "lazyvim.plugins.extras.ui.treesitter-context" }, -- show scope context at top of screen
     { import = "lazyvim.plugins.extras.ui.edgy" }, -- predefined window/UI positions
@@ -20,7 +20,7 @@ require("lazy").setup({
     -- set vscode = true in plugin spec to load when embedded in vscode
     { import = "lazyvim.plugins.extras.vscode" }, -- load stripped set of plugins in vscode embedded nvim
     { import = "lazyvim.plugins.extras.editor.dial" }, -- increment/decrement/toggle numbers, dates, booleans, etc.
-    { import = "lazyvim.plugins.extras.util.octo" }, -- <leader>g GitHub issue/PR management
+    -- { import = "lazyvim.plugins.extras.util.octo" }, -- <leader>g GitHub issue/PR management
     { import = "lazyvim.plugins.extras.editor.refactoring" }, -- <leader>r for smart refactoring options
 
     --- -- python extras (debug/test, LSP, etc.) --
@@ -62,7 +62,7 @@ require("lazy").setup({
   install = {
     colorscheme = {
       vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "catppuccin",
-      "everforest",
+      -- "everforest",
       "tokyonight",
       "habamax",
     },
