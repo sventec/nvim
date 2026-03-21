@@ -186,11 +186,6 @@ return {
   -- modify LSP config
   {
     "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      -- change a keymap
-      keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
-    end,
     opts = {
       -- NOTE: codelens and inlay_hints are Neovim >= 0.10.0 features
       codelens = {
@@ -200,6 +195,11 @@ return {
         enabled = true,
       },
       servers = {
+        ['*'] = {
+          keys = {
+            { "gl", vim.diagnostic.open_float, desc = "Line Diagnostics" }
+          }
+        },
         basedpyright = {
           settings = {
             basedpyright = {
@@ -293,11 +293,13 @@ return {
         -- list = {
         --   selection = "manual", -- "preselect" auto-selects first entry
         -- },
-        menu = {
-          draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-          },
-        },
+
+        -- menu = {
+        --   draw = {
+        --     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+        --   },
+        -- },
+
         -- override LazyVim ghost text default
         -- ghost_text = {
         --   enabled = false,
