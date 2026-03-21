@@ -43,20 +43,20 @@ return {
     },
   },
   -- show explanation for regex under cursor
-  {
-    "bennypowers/nvim-regexplainer",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "MunifTanjim/nui.nvim",
-    },
-    -- stylua: ignore
-    keys = {
-      { "gR", function() require("regexplainer").toggle() end, desc = "Toggle Regexplainer", },
-    },
-    opts = {
-      filetypes = { "js", "python", "text" },
-    },
-  },
+  -- {
+  --   "bennypowers/nvim-regexplainer",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   -- stylua: ignore
+  --   keys = {
+  --     { "gR", function() require("regexplainer").toggle() end, desc = "Toggle Regexplainer", },
+  --   },
+  --   opts = {
+  --     filetypes = { "js", "python", "text" },
+  --   },
+  -- },
   -- conditionally enable bufferline catppuccin integration
   {
     "akinsho/bufferline.nvim",
