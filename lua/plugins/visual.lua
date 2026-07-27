@@ -62,7 +62,7 @@ return {
     "akinsho/bufferline.nvim",
     optional = true,
     opts = function(_, opts)
-      if vim.g.lazyvim_colorscheme == "catppuccin" then
+      if vim.g.lazyvim_colorscheme == "catppuccin-nvim" then
         opts = vim.tbl_deep_extend("force", opts, { highlights = require("catppuccin.special.bufferline").get_theme() })
       end
     end,

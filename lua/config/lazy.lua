@@ -62,7 +62,7 @@ require("lazy").setup({
   },
   install = {
     colorscheme = {
-      vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "catppuccin",
+      vim.g.lazyvim_colorscheme and vim.g.lazyvim_colorscheme or "catppuccin-nvim",
       "everforest",
       "tokyonight",
       "habamax",

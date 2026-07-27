@@ -18,13 +18,13 @@ vim.g.lazyvim_python_ruff = "ruff" -- or "ruff_lsp"
 -- used to set colorscheme (duh),
 --   conditionally configure some plugin integrations for e.g. catppuccin,
 --   and to configure defaults where a colorscheme is required
-vim.g.lazyvim_colorscheme = "catppuccin"
+vim.g.lazyvim_colorscheme = "catppuccin-nvim"
 
 -- show/hide deprecation warnings (lazyvim)
 vim.g.deprecation_warnings = true
 
 -- follow main branch of blink.cmp - requires cargo to build
-vim.g.lazyvim_blink_main = true
+vim.g.lazyvim_blink_main = false
 -- use blink.cmp over nvim-cmp for completion (LazyVim default as of v14.0.0)
 vim.g.lazyvim_cmp = "blink.cmp"
 

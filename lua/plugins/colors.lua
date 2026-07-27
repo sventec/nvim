@@ -6,7 +6,7 @@ return {
     opts = {
       -- colorscheme = "everforest",
       -- colorscheme = "zenwritten",
-      -- colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin-nvim",
       colorscheme = vim.g.lazyvim_colorscheme, -- set this in options.lua
     },
   },
